@@ -7,7 +7,10 @@ module.exports = {
   purge: ["./**/*.{tsx,html}"],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    colors,
+    colors: {
+      ...colors,
+      transparent: "transparent",
+    },
     extend: {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],

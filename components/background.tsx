@@ -9,7 +9,7 @@ export interface BackgroundProps {
 export const Background: React.FC<BackgroundProps> = ({ children, image }): JSX.Element => {
   return (
     <div className="relative w-full h-full">
-     <Image
+      <Image
         src={image}
         alt="Background image"
         layout="fill" // required

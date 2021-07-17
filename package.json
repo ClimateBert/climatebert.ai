@@ -33,5 +33,10 @@
     "tailwindcss": "^2.2.4",
     "tailwindcss-debug-screens": "^2.0.0",
     "typescript": "4.3.5"
+  },
+  "nextBundleAnalysis": {
+    "budget": 358400,
+    "budgetPercentIncreaseRed": 20,
+    "showDetails": true
   }
 }

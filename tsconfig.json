@@ -1,0 +1,13 @@
+{
+  "extends": "@chronark/typescript-config",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "baseUrl": ".",
+    "allowJs": true,
+    "jsx": "preserve"
+  },
+  "paths": {},
+  "include": ["**/*.ts", "**/*.js", "**/.eslintrc.js", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

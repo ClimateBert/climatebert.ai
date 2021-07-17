@@ -1,0 +1,36 @@
+{
+  "name": "climatebert.ai",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "fmt": "yarn lint && yarn format",
+    "format": "prettier --write --loglevel=warn .",
+    "lint": "eslint --ext .js,.ts,.tsx --fix .",
+    "tsc": "tsc",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@sentry/nextjs": "^6.9.0",
+    "next": "11.0.1",
+    "react": "^17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@chronark/eslint-config": "^1.0.7",
+    "@chronark/prettier-config": "^1.0.7",
+    "@chronark/typescript-config": "^1.0.7",
+    "@tailwindcss/custom-forms": "^0.2.1",
+    "@tailwindcss/typography": "^0.4.1",
+    "@types/react": "17.0.14",
+    "autoprefixer": "^10.3.1",
+    "eslint": "^7.30.0",
+    "eslint-config-next": "11.0.1",
+    "postcss": "^8.3.5",
+    "prettier": "^2.3.2",
+    "tailwindcss": "^2.2.4",
+    "tailwindcss-debug-screens": "^2.0.0",
+    "typescript": "4.3.5"
+  }
+}

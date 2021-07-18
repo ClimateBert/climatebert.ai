@@ -16,6 +16,9 @@ module.exports = {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
         system: defaultTheme.fontFamily.sans,
       },
+      animation: {
+        "pulse-slow": "pulse 10s linear infinite",
+      },
     },
   },
   variants: {

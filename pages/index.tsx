@@ -1,5 +1,4 @@
 import { Background } from "components/background"
-import { Section } from "components/section"
 import Image from "next/image"
 import Link from "next/link"
 import { Logo } from "components/logo"
@@ -57,23 +56,21 @@ export default function Home() {
           </div>
         </Background>
       </section>
-      <section>
-      
-      </section>
-       <section className="bg-coolGray-100">
+      <section />
+      <section className="bg-coolGray-100">
         <div className="flex items-center justify-center p-16">
           <div className="w-3/5">Hello</div>
           <div className="relative w-2/5 h-full">
-             <Image
+            <Image
               src="/aurora.jpeg"
               alt="Background image"
               width={500}
               height={800}
               objectFit="cover" // change to suit your needs
-            /> 
+            />
           </div>
         </div>
-      </section> 
+      </section>
     </div>
   )
 }

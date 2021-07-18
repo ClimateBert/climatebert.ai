@@ -97,11 +97,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section>
-        <Background>
-          
-        </Background>
-      </section>
     </div>
   )
 }

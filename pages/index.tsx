@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Logo } from "components/logo"
 import headerImage from "../public/header.jpg"
+import auroraImage from "../public/aurora.jpg"
 
 export default function Home() {
   return (
@@ -37,7 +38,7 @@ export default function Home() {
           <div className="flex justify-center h-screen text-center md:justify-end md:text-left">
             <div className="flex items-center justify-center mt-32 text-coolGray-50 md:w-2/3">
               <div className="flex flex-col items-center md:items-start">
-                <h2 className="hidden text-xl md:block text-coolGray-400">
+                <h2 className="hidden text-xl xl:block text-coolGray-400">
                   AI powered environmental classification
                 </h2>
                 <h1 className="flex flex-col gap-2 mt-2 font-bold text-center text-7xl md:text-left md:text-8xl">
@@ -59,18 +60,47 @@ export default function Home() {
       </section>
       <section />
       <section className="bg-coolGray-100">
-        <div className="flex items-center justify-center p-16">
-          <div className="w-3/5">Hello</div>
-          <div className="relative w-2/5 h-full">
-            <Image
-              src="/aurora.jpeg"
-              alt="Background image"
-              width={500}
-              height={800}
-              objectFit="cover" // change to suit your needs
-            />
+        <div className="flex flex-col items-center justify-center md:flex-row md:p-16">
+          <div className="md:w-3/5">
+            <h3 className="text-4xl">Lorem ipsum brudi</h3>
+            <p className="text-coolGray-700">
+              Mauris nec ultrices nibh. Nulla leo nisi, ornare vel tristique volutpat, malesuada at
+              elit. Fusce sagittis sagittis massa a sodales. Maecenas vestibulum magna a neque
+              interdum aliquam. Mauris nibh purus, scelerisque eu blandit et, iaculis vitae sapien.
+              Morbi consequat ultricies bibendum. Integer vitae mollis sapien. In ligula felis,
+              sagittis ac nunc eget, bibendum auctor ex. Orci varius natoque penatibus et magnis dis
+              parturient montes, nascetur ridiculus mus. Cras finibus, eros feugiat porta
+              vestibulum, massa arcu varius turpis, nec imperdiet metus metus eu justo.
+            </p>
+          </div>
+          <div className="relative h-16 md:h-full md:w-2/5 ">
+            <Image src={auroraImage} alt="Background image" objectFit="fill" placeholder="blur" />
           </div>
         </div>
+      </section>
+      <section className="bg-coolGray-100">
+        <div className="flex flex-col items-center justify-center md:flex-row-reverse md:p-16">
+          <div className="md:w-3/5">
+            <h3 className="text-4xl">Lorem ipsum brudi</h3>
+            <p className="text-coolGray-700">
+              Mauris nec ultrices nibh. Nulla leo nisi, ornare vel tristique volutpat, malesuada at
+              elit. Fusce sagittis sagittis massa a sodales. Maecenas vestibulum magna a neque
+              interdum aliquam. Mauris nibh purus, scelerisque eu blandit et, iaculis vitae sapien.
+              Morbi consequat ultricies bibendum. Integer vitae mollis sapien. In ligula felis,
+              sagittis ac nunc eget, bibendum auctor ex. Orci varius natoque penatibus et magnis dis
+              parturient montes, nascetur ridiculus mus. Cras finibus, eros feugiat porta
+              vestibulum, massa arcu varius turpis, nec imperdiet metus metus eu justo.
+            </p>
+          </div>
+          <div className="relative h-16 md:h-full md:w-2/5 ">
+            <Image src={auroraImage} alt="Background image" objectFit="fill" placeholder="blur" />
+          </div>
+        </div>
+      </section>
+      <section>
+        <Background>
+          
+        </Background>
       </section>
     </div>
   )

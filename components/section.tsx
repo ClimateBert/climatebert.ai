@@ -2,7 +2,7 @@ import React from "react"
 import { Background } from "./background"
 
 export interface SectionProps {
-  backgroundImage?: string
+  backgroundImage?: StaticImageData
 }
 
 export const Section: React.FC<SectionProps> = ({ children, backgroundImage }): JSX.Element => {

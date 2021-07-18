@@ -2,12 +2,13 @@ import { Background } from "components/background"
 import Image from "next/image"
 import Link from "next/link"
 import { Logo } from "components/logo"
+import headerImage from "../public/header.jpg"
 
 export default function Home() {
   return (
-    <div className="bg-coolGray-50">
+    <div className="bg-black">
       <section className="h-screen">
-        <Background image="/header.jpg">
+        <Background image={headerImage}>
           <header className="absolute inset-x-0 hidden text-xl md:block font-lighttext-coolGray-100">
             <div className="container flex items-center justify-end mx-auto">
               <div className="flex-col flex-wrap items-center hidden w-full mx-auto md:flex md:flex-row ">

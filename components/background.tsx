@@ -3,7 +3,7 @@ import React from "react"
 import Image from "next/image"
 
 export interface BackgroundProps {
-  image: string
+  image: StaticImageData
 }
 
 export const Background: React.FC<BackgroundProps> = ({ children, image }): JSX.Element => {
@@ -15,6 +15,7 @@ export const Background: React.FC<BackgroundProps> = ({ children, image }): JSX.
         layout="fill" // required
         objectFit="cover" // change to suit your needs
         className="object-cover object-center pointer-events-none"
+        placeholder="blur"
       />
       <div className="relative">{children}</div>
     </div>

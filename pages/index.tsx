@@ -35,24 +35,30 @@ export default function Home() {
             </div>
           </header>
 
-          <div className="flex justify-center h-screen text-center md:justify-end md:text-left">
-            <div className="flex items-center justify-center text-coolGray-50 md:w-2/3">
-              <div className="flex flex-col items-center md:items-start">
-                <h2 className="hidden text-xl xl:block text-coolGray-400">
-                  AI powered climate-related corporate disclosure analytics
-                </h2>
-                <h1 className="flex flex-col gap-2 mt-2 font-bold text-center text-7xl md:text-left md:text-6xl">
-                  <span>Analyze and make a difference.</span>
-                  <span>Protect our planet.</span>
-                </h1>
-                <div className="flex justify-center w-full mt-24">
-                  <Link href="/classify">
-                    <a className="px-16 py-3 text-2xl font-semibold text-black duration-500 border-2 animate-pulse-slow hover:bg-black hover:bg-opacity-80 hover:text-coolGray-100 border-coolGray-200 bg-coolGray-50">
-                      GO
-                    </a>
-                  </Link>
+          <div className="flex flex-col justify-center h-screen">
+            <div className="flex justify-center text-center md:text-left">
+              <div className="hidden md:block md:w-1/2" />
+              <div className="flex items-center justify-start md:-ml-72 md:w-1/2 text-coolGray-50">
+                <div className="flex flex-col items-center md:items-start">
+                  <h2 className="hidden text-xl bg-black bg-opacity-50 shadow-xl xl:block text-coolGray-400">
+                    AI powered climate-related corporate disclosure analytics
+                  </h2>
+                  <h1 className="flex flex-col gap-3 mt-2 font-bold tracking-tight text-center md:text-left md:text-6xl">
+                    <span className="text-7xl md:hidden">Analyze</span>
+                    <span className="text-3xl md:hidden">Make a Difference</span>
+                    <span className="hidden mt-2 text-6xl capitalize md:block whitespace-nowrap">
+                      Analyze and make a difference
+                    </span>
+                  </h1>
                 </div>
               </div>
+            </div>
+            <div className="mx-auto mt-20">
+              <Link href="/classify">
+                <a className="inline-flex justify-center py-3 text-2xl font-semibold text-black duration-500 border-2 w-72 hover:bg-black hover:bg-opacity-80 hover:text-coolGray-100 border-coolGray-200 bg-coolGray-50">
+                  Start Now
+                </a>
+              </Link>
             </div>
           </div>
         </Background>

@@ -4,21 +4,12 @@ import Redis from "ioredis"
 export class Key {
   public readonly parameters?: Record<string, unknown>
 
-  public readonly environment: string
-
   constructor(parameters: Record<string, unknown>) {
     this.parameters = parameters
-    /**
-     * Sometimes during development I fill the cache with "bad" data
-     */
-    this.environment = process.env.VERCEL_ENV ?? process.env.NODE_ENV ?? "development"
   }
 
   public toString(): string {
-    return JSON.stringify({
-      parameters: this.parameters,
-      environment: this.environment,
-    })
+    return JSON.stringify(this.parameters)
   }
 }
 

@@ -36,6 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   let scope: Scope
   if (accessToken) {
     const isValid = await cache.get(new Key({ accessToken }))
+    console.log(isValid)
     if (!isValid) {
       res.status(401)
       return res.end("Invalid access token")

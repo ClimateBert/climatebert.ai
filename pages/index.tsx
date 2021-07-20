@@ -74,28 +74,33 @@ export default function Home() {
       <section>
         <Background image={wasted4}>
           <div className="bg-gradient-to-tr bg-opacity-70 bg-coolGray-100 lg:from-coolGray-100 lg:via-coolGray-100 lg:to-transparent">
-            <div className="p-12 xl:w-1/2 md:p-48 ">
-              <h2 className="text-4xl font-bold text-coolGray-900">Transparency</h2>
-              <p className="mt-4 text-lg font-light text-coolGray-800">
-                We enable companies’ stakeholders to assess all kinds of climate-related corporate
-                disclosures in an efficient and scalable way. This increases transparency massively.
-              </p>
+            <div className="container mx-auto">
+              <div className="p-12 xl:w-1/2 md:py-48 ">
+                <h2 className="text-4xl font-bold text-coolGray-900">Transparency</h2>
+                <p className="mt-4 text-lg font-light text-coolGray-800">
+                  We enable companies’ stakeholders to assess all kinds of climate-related corporate
+                  disclosures in an efficient and scalable way. This increases transparency
+                  massively.
+                </p>
+              </div>
             </div>
           </div>
         </Background>
       </section>
       <section>
         <Background image={tech}>
-          <div className="flex flex-row-reverse bg-opacity-70 bg-coolGray-900 lg:bg-gradient-to-tl lg:from-black lg:via-coolGray-900 lg:to-transparent">
-            <div className="p-12 xl:w-1/2 md:p-48 md:text-right">
-              <h2 className="text-4xl font-bold text-coolGray-100">
-                State-of-the-art AI technology
-              </h2>
-              <p className="mt-4 text-lg font-light t text-coolGray-200">
-                We apply state-of-the-art AI technology to assess climate-related corporate
-                disclosures. ClimateBERT has been trained on thousands of climate-related texts,
-                making it a powerful tool to assist you.
-              </p>
+          <div className="bg-opacity-70 bg-coolGray-900 lg:bg-gradient-to-tl lg:from-black lg:via-coolGray-900 lg:to-transparent">
+            <div className="container flex flex-row-reverse w-full mx-auto">
+              <div className="p-12 xl:w-1/2 md:py-48 md:text-right">
+                <h2 className="text-4xl font-bold text-coolGray-100">
+                  State-of-the-art AI technology
+                </h2>
+                <p className="mt-4 text-lg font-light t text-coolGray-200">
+                  We apply state-of-the-art AI technology to assess climate-related corporate
+                  disclosures. ClimateBERT has been trained on thousands of climate-related texts,
+                  making it a powerful tool to assist you.
+                </p>
+              </div>
             </div>
           </div>
         </Background>
@@ -103,12 +108,14 @@ export default function Home() {
       <section>
         <Background image={wasted2}>
           <div className="bg-gradient-to-tr bg-opacity-70 bg-coolGray-100 lg:from-coolGray-100 lg:via-coolGray-100 lg:to-transparent">
-            <div className="p-12 xl:w-1/2 md:p-48">
-              <h2 className="text-4xl font-bold text-coolGray-900">Analyze, conclude, engage</h2>
-              <p className="mt-4 text-lg font-light text-coolGray-800">
-                Our service gives you the opportunity to have an impact. Start analyzing, get
-                insights and draw your own conclusions. Let’s protect our planet together.
-              </p>
+            <div className="container mx-auto">
+              <div className="p-12 xl:w-1/2 md:py-48">
+                <h2 className="text-4xl font-bold text-coolGray-900">Analyze, conclude, engage</h2>
+                <p className="mt-4 text-lg font-light text-coolGray-800">
+                  Our service gives you the opportunity to have an impact. Start analyzing, get
+                  insights and draw your own conclusions. Let’s protect our planet together.
+                </p>
+              </div>
             </div>
           </div>
         </Background>

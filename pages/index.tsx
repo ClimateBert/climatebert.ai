@@ -1,5 +1,4 @@
 import { Background } from "components/background"
-import Image from "next/image"
 import Link from "next/link"
 import { Logo } from "components/logo"
 import { FAULogo } from "components/logos/fau"
@@ -7,8 +6,9 @@ import { UZHLogo } from "components/logos/uzh"
 import { ETHZLogo } from "components/logos/ethz"
 import headerImage from "../public/header.jpg"
 import footer from "../public/footer.jpg"
+import wasted4 from "../public/wasted-4.jpg"
+import tech from "../public/tech-wallpaper.jpg"
 import wasted2 from "../public/wasted-2.jpg"
-import wasted3 from "../public/wasted-3.jpg"
 
 export default function Home() {
   return (
@@ -52,7 +52,7 @@ export default function Home() {
                     <h1 className="flex flex-col gap-3 mt-2 font-bold tracking-tight text-center md:text-left md:text-6xl">
                       <span className="text-7xl md:hidden">Analyze</span>
                       <span className="text-3xl md:hidden">Make a Difference</span>
-                      <span className="hidden mt-2 text-6xl capitalize md:block whitespace-nowrap">
+                      <span className="hidden mt-2 text-6xl capitalize md:block">
                         Analyze and make a difference
                       </span>
                     </h1>
@@ -71,51 +71,53 @@ export default function Home() {
         </Background>
       </section>
       <section />
-      <section className="container mx-auto">
-        <div className="flex flex-col items-center justify-center gap-20 bg-coolGray-100 md:flex-row md:py-24">
-          <div className="w-1/2">
-            <h2 className="text-4xl font-semibold text-coolGray-900">Transparency</h2>
-            <p className="mt-4 text-lg font-light text-coolGray-600">
-              We enable companies’ stakeholders to assess all kinds of climate-related corporate
-              disclosures in an efficient and scalable way. This increases transparency massively.
-            </p>
+      <section>
+        <Background image={wasted4}>
+          <div className="bg-gradient-to-tr bg-opacity-70 bg-coolGray-100 lg:from-coolGray-100 lg:via-coolGray-100 lg:to-transparent">
+            <div className="p-12 xl:w-1/2 md:p-48 ">
+              <h2 className="text-4xl font-bold text-coolGray-900">Transparency</h2>
+              <p className="mt-4 text-lg font-light text-coolGray-800">
+                We enable companies’ stakeholders to assess all kinds of climate-related corporate
+                disclosures in an efficient and scalable way. This increases transparency massively.
+              </p>
+            </div>
           </div>
-          <div className="block w-1/2 align-middle border-2 border-red-500">
-            <Image
-              src={wasted2}
-              alt="Background image"
-              objectFit="fill"
-              placeholder="blur"
-              className="block align-middle"
-            />
-          </div>
-        </div>
+        </Background>
       </section>
-      <section className="container mx-auto">
-        <div className="flex flex-col items-center justify-center gap-20 bg-coolGray-100 md:flex-row-reverse md:py-24">
-          <div className="w-1/2">
-            <h2 className="text-4xl font-semibold text-coolGray-900">Analyze, conclude, engage</h2>
-            <p className="mt-4 text-lg font-light text-coolGray-600">
-              Our service gives you the opportunity to have an impact. Start analyzing, get insights
-              and draw your own conclusions. Let’s protect our planet
-            </p>
+      <section>
+        <Background image={tech}>
+          <div className="flex flex-row-reverse bg-opacity-70 bg-coolGray-900 lg:bg-gradient-to-tl lg:from-black lg:via-coolGray-900 lg:to-transparent">
+            <div className="p-12 xl:w-1/2 md:p-48 md:text-right">
+              <h2 className="text-4xl font-bold text-coolGray-100">
+                State-of-the-art AI technology
+              </h2>
+              <p className="mt-4 text-lg font-light t text-coolGray-200">
+                We apply state-of-the-art AI technology to assess climate-related corporate
+                disclosures. ClimateBERT has been trained on thousands of climate-related texts,
+                making it a powerful tool to assist you.
+              </p>
+            </div>
           </div>
-          <div className="flex items-center w-1/2">
-            <Image
-              className=""
-              src={wasted3}
-              alt="Background image"
-              objectFit="fill"
-              placeholder="blur"
-            />
-          </div>
-        </div>
+        </Background>
       </section>
-      <footer>
+      <section>
+        <Background image={wasted2}>
+          <div className="bg-gradient-to-tr bg-opacity-70 bg-coolGray-100 lg:from-coolGray-100 lg:via-coolGray-100 lg:to-transparent">
+            <div className="p-12 xl:w-1/2 md:p-48">
+              <h2 className="text-4xl font-bold text-coolGray-900">Analyze, conclude, engage</h2>
+              <p className="mt-4 text-lg font-light text-coolGray-800">
+                Our service gives you the opportunity to have an impact. Start analyzing, get
+                insights and draw your own conclusions. Let’s protect our planet together.
+              </p>
+            </div>
+          </div>
+        </Background>
+      </section>
+      <footer className="bg-black">
         <Background image={footer}>
-          <div className="bg-gradient-to-tr from-black via-transparent to-black">
-            <div className="max-w-screen-xl px-4 py-12 mx-auto sm:px-6 lg:px-8">
-              <div className="grid grid-cols-3 gap-32 text-coolGray-200">
+          <div className="p-16 bg-gradient-to-tr from-black via-transparent to-black">
+            <div className="container px-4 py-12 mx-auto sm:px-6 lg:px-8">
+              <div className="grid grid-cols-3 gap-4 lg:gap-24 sm:gap-8 sm md:gap-16 xl:gap-32 text-coolGray-200">
                 <Link href="https://ethz.ch">
                   <a className="hover:text-white">
                     <ETHZLogo />

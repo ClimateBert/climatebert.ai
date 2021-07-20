@@ -1,6 +1,6 @@
 import { NextPage } from "next"
 import { Background } from "components/background"
-import backgroundImage from "../public/wasted.png"
+import backgroundImage from "../public/wasted-4.jpg"
 
 /*
 State

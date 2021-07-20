@@ -14,7 +14,10 @@ function MyApp({
     <>
       <Head>
         <title>climatebert.ai</title>
-        <meta name="description" content="TODO: @webersni" />
+        <meta
+          name="description"
+          content="AI powered climate-related corporate disclosure analytics"
+        />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
       </Head>
       <Component {...pageProps} />

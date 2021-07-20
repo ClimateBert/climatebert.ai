@@ -12,10 +12,10 @@ import wasted3 from "../public/wasted-3.jpg"
 
 export default function Home() {
   return (
-    <div className="bg-blueGray-100">
+    <div className="bg-coolGray-100">
       <section className="h-screen bg-black">
         <Background image={headerImage}>
-          <div className="bg-gradient-to-t from-transparent via-transparent to-black">
+          <div className="bg-gradient-to-tr from-transparent via-transparent to-black">
             <header className="absolute inset-x-0 hidden text-xl font-light md:block text-coolGray-100">
               <div className="container flex items-center justify-end mx-auto">
                 <div className="flex-col flex-wrap items-center hidden w-full mx-auto md:flex md:flex-row ">
@@ -115,7 +115,7 @@ export default function Home() {
         <Background image={footer}>
           <div className="bg-gradient-to-tr from-black via-transparent to-black">
             <div className="max-w-screen-xl px-4 py-12 mx-auto sm:px-6 lg:px-8">
-              <div className="grid grid-cols-3 gap-32 text-blueGray-200">
+              <div className="grid grid-cols-3 gap-32 text-coolGray-200">
                 <Link href="https://ethz.ch">
                   <a className="hover:text-white">
                     <ETHZLogo />
@@ -140,7 +140,7 @@ export default function Home() {
                   <a
                     target="_blank"
                     rel="noreferrer"
-                    className="text-blueGray-300 hover:text-blueGray-100"
+                    className="text-coolGray-300 hover:text-coolGray-100"
                   >
                     About
                   </a>
@@ -149,7 +149,7 @@ export default function Home() {
                   <a
                     target="_blank"
                     rel="noreferrer"
-                    className="text-blueGray-300 hover:text-blueGray-100"
+                    className="text-coolGray-300 hover:text-coolGray-100"
                   >
                     Authors
                   </a>
@@ -158,14 +158,14 @@ export default function Home() {
                   <a
                     target="_blank"
                     rel="noreferrer"
-                    className="text-blueGray-300 hover:text-blueGray-100"
+                    className="text-coolGray-300 hover:text-coolGray-100"
                   >
                     Contact
                   </a>
                 </Link>
               </nav>
 
-              <p className="mt-8 text-center text-blueGray-400">
+              <p className="mt-8 text-center text-coolGray-400">
                 © {new Date().getFullYear()} The authors. All rights reserved.
               </p>
             </div>

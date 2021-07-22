@@ -29,7 +29,7 @@ export default function Home() {
                 <nav className="flex items-center justify-center gap-16 mt-8 text-xl lg:text-2xl text-coolGray-100 ">
                   <Link href="/analyzer">
                     <a className="duration-500 border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white">
-                      Analzyer
+                      Analyzer
                     </a>
                   </Link>
                   <Link href="/language-model">

@@ -6,9 +6,9 @@ import { UZHLogo } from "components/logos/uzh"
 import { ETHZLogo } from "components/logos/ethz"
 import headerImage from "../public/header.jpg"
 import footer from "../public/footer.jpg"
-import wasted4 from "../public/wasted-4.jpg"
+import iceland from "../public/iceland.jpg"
 import tech from "../public/tech-wallpaper.jpg"
-import wasted2 from "../public/wasted-2.jpg"
+import iceland2 from "../public/iceland2.jpg"
 
 export default function Home() {
   return (
@@ -26,14 +26,24 @@ export default function Home() {
                     </a>
                   </Link>
                 </div>
-                <nav className="flex items-center justify-center gap-16 mt-8 text-2xl text-coolGray-100 ">
-                  <Link href="/classify">
-                    <a className="duration-500 border-b-2 border-transparent hover:border-coolGray-200 hover:text-white">
-                      Classify
+                <nav className="flex items-center justify-center gap-16 mt-8 text-xl lg:text-2xl text-coolGray-100 ">
+                  <Link href="/analyzer">
+                    <a className="duration-500 border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white">
+                      Analzyer
+                    </a>
+                  </Link>
+                  <Link href="/language-model">
+                    <a className="duration-500 border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white">
+                      Language Model
+                    </a>
+                  </Link>
+                  <Link href="/about">
+                    <a className="duration-500 border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white">
+                      About
                     </a>
                   </Link>
                   <Link href="/authors">
-                    <a className="duration-500 border-b-2 border-transparent hover:border-coolGray-200 hover:text-white">
+                    <a className="duration-500 border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white">
                       Authors
                     </a>
                   </Link>
@@ -72,8 +82,8 @@ export default function Home() {
       </section>
       <section />
       <section>
-        <Background image={wasted4}>
-          <div className="bg-gradient-to-tr bg-opacity-70 bg-coolGray-100 lg:from-coolGray-100 lg:via-coolGray-100 lg:to-transparent">
+        <Background image={iceland}>
+          <div className="bg-gradient-to-tr bg-opacity-70 bg-coolGray-100 from-coolGray-100 via-coolGray-100 to-transparent">
             <div className="container mx-auto">
               <div className="p-12 xl:w-1/2 md:py-48 ">
                 <h2 className="text-4xl font-bold text-coolGray-900">Transparency</h2>
@@ -89,7 +99,7 @@ export default function Home() {
       </section>
       <section>
         <Background image={tech}>
-          <div className="bg-opacity-70 bg-coolGray-900 lg:bg-gradient-to-tl lg:from-black lg:via-coolGray-900 lg:to-transparent">
+          <div className="bg-opacity-70 bg-coolGray-900 bg-gradient-to-tl from-black via-coolGray-900 to-transparent">
             <div className="container flex flex-row-reverse w-full mx-auto">
               <div className="p-12 xl:w-1/2 md:py-48 md:text-right">
                 <h2 className="text-4xl font-bold text-coolGray-100">
@@ -106,8 +116,8 @@ export default function Home() {
         </Background>
       </section>
       <section>
-        <Background image={wasted2}>
-          <div className="bg-gradient-to-tr bg-opacity-70 bg-coolGray-100 lg:from-coolGray-100 lg:via-coolGray-100 lg:to-transparent">
+        <Background image={iceland2}>
+          <div className="bg-gradient-to-tr bg-opacity-70 bg-coolGray-100 from-coolGray-100 via-coolGray-100 to-transparent">
             <div className="container mx-auto">
               <div className="p-12 xl:w-1/2 md:py-48">
                 <h2 className="text-4xl font-bold text-coolGray-900">Analyze, conclude, engage</h2>
@@ -124,7 +134,7 @@ export default function Home() {
         <Background image={footer}>
           <div className="p-16 bg-gradient-to-tr from-black via-transparent to-black">
             <div className="container px-4 py-12 mx-auto sm:px-6 lg:px-8">
-              <div className="grid grid-cols-3 gap-4 lg:gap-24 sm:gap-8 sm md:gap-16 xl:gap-32 text-coolGray-200">
+              <div className="grid w-40 grid-cols-1 gap-4 mx-auto sm:w-full sm:grid-cols-3 lg:gap-24 sm:gap-8 sm md:gap-16 xl:gap-32 text-coolGray-200">
                 <Link href="https://ethz.ch">
                   <a className="hover:text-white">
                     <ETHZLogo />
@@ -144,38 +154,38 @@ export default function Home() {
             </div>
 
             <div className="container px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
-              <nav className="flex justify-center space-x-8 ">
-                <Link href="/about">
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-coolGray-300 hover:text-coolGray-100"
-                  >
-                    About
-                  </a>
-                </Link>
-                <Link href="/authors">
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-coolGray-300 hover:text-coolGray-100"
-                  >
-                    Authors
-                  </a>
-                </Link>
-                <Link href="mailto:info@climatebert.ai">
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-coolGray-300 hover:text-coolGray-100"
-                  >
-                    Contact
-                  </a>
-                </Link>
-              </nav>
+              <div className="flex justify-center">
+                <nav className="flex flex-col space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
+                  <Link href="/analyzer">
+                    <a className="text-coolGray-300 whitespace-nowrap hover:text-coolGray-100">
+                      Analyzer
+                    </a>
+                  </Link>
+                  <Link href="/language-model">
+                    <a className="text-coolGray-300 whitespace-nowrap hover:text-coolGray-100">
+                      Language Model
+                    </a>
+                  </Link>
+                  <Link href="/about">
+                    <a className="text-coolGray-300 whitespace-nowrap hover:text-coolGray-100">
+                      About
+                    </a>
+                  </Link>
+                  <Link href="/authors">
+                    <a className="text-coolGray-300 whitespace-nowrap hover:text-coolGray-100">
+                      Authors
+                    </a>
+                  </Link>
+                  <Link href="mailto:info@climatebert.ai">
+                    <a className="text-coolGray-300 whitespace-nowrap hover:text-coolGray-100">
+                      Contact
+                    </a>
+                  </Link>
+                </nav>
+              </div>
 
               <p className="mt-8 text-center text-coolGray-400">
-                © {new Date().getFullYear()} The authors. All rights reserved.
+                © {new Date().getFullYear()} All rights reserved.
               </p>
             </div>
           </div>

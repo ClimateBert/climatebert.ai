@@ -14,6 +14,7 @@ function MyApp({
     <>
       <Head>
         <title>climatebert.ai</title>
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
         <meta
           name="description"
           content="AI powered climate-related corporate disclosure analytics"

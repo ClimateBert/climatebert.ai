@@ -8,7 +8,7 @@ export function createJWT(): string {
 
   return jwt.sign({}, secret, {
     algorithm: "HS256",
-    expiresIn: "10s",
+    expiresIn: "60s",
     audience: "climatebert.ai",
     issuer: "climatebert.ai",
   })

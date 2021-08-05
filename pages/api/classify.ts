@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next"
-// import { createJWT } from "lib/jwt"
+import { createJWT } from "lib/jwt"
 import { Key, Cache } from "lib/redis"
 
 type Scope = "authorized" | "anonymous"
@@ -29,19 +29,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(500)
     return res.end("REDIS_CONNECTION not found")
   }
-  const cache = new Cache(redisConnection)
+  const rateLimiter = new Cache(redisConnection)
   const accessToken = req.headers.authorization
 
-  let key: Key
+  let ratelimitKey: Key
   let scope: Scope
   if (accessToken) {
-    const isValid = await cache.get(new Key({ accessToken }))
+    const isValid = await rateLimiter.get(new Key({ accessToken }))
     if (!isValid) {
       res.status(401)
       return res.end("Invalid access token")
     }
     scope = "authorized"
-    key = new Key({ scope, accessToken })
+    ratelimitKey = new Key({ scope, accessToken })
   } else {
     const ip = req.socket.remoteAddress
 
@@ -51,16 +51,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     scope = "anonymous"
-    key = new Key({ scope, ip })
+    ratelimitKey = new Key({ scope, ip })
   }
-  let bucket = await cache.get<Bucket>(key)
+  let bucket = await rateLimiter.get<Bucket>(ratelimitKey)
   if (!bucket) {
     const expiresAt = Math.floor(Date.now() / 1000) + limits[scope].window
     bucket = {
       tokens: limits[scope].tokens,
       expiresAt,
     }
-    await cache.set(key, expiresAt, bucket)
+    await rateLimiter.set(ratelimitKey, expiresAt, bucket)
   }
   res.setHeader("x-ratelimit-limit", limits[scope].tokens)
   res.setHeader("x-ratelimit-remaining", bucket.tokens - 1)
@@ -70,18 +70,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(429)
     return res.end("Ratelimit exceeded")
   }
+  const { paragraph } = req.body
 
-  const { content } = req.body
-
-  if (!content) {
+  if (!paragraph) {
     res.status(400)
-    return res.end("No content found")
+    return res.end("No paragraph found")
   }
 
-  // const jwt = createJWT()
+  const jwt = createJWT()
+
+  const classifierEndpoint = process.env.CLASSIFIER_ENDPOINT
+  if (!classifierEndpoint) {
+    throw new Error(`CLASSIFIER_ENDPOINT is not defined`)
+  }
+
+  console.log(`pretend to call ${classifierEndpoint} and add token "Bearer ${jwt}"`)
 
   const classification = { dummy: 0.12, data: 0.41 }
-  await cache.set(key, bucket.expiresAt, { ...bucket, tokens: bucket.tokens - 1 })
+  /**
+   * Only set this now in case something went wrong. We only want to record the request if it was
+   * successful
+   */
+  await rateLimiter.set(ratelimitKey, bucket.expiresAt, { ...bucket, tokens: bucket.tokens - 1 })
 
   res.json(classification)
   return res.end()

@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: [
     require("@tailwindcss/typography"),
-    require("@tailwindcss/custom-forms"),
+    require("@tailwindcss/forms"),
     require("tailwindcss-debug-screens"),
   ],
 }

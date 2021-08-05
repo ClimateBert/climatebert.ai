@@ -1,5 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import Redis from "ioredis"
+import { createHash } from "crypto"
 
 export class Key {
   public readonly parameters?: Record<string, unknown>
@@ -9,7 +10,7 @@ export class Key {
   }
 
   public toString(): string {
-    return JSON.stringify(this.parameters)
+    return createHash("md5").update(JSON.stringify(this.parameters)).digest("hex")
   }
 }
 

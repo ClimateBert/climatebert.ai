@@ -70,7 +70,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="mx-auto mt-20">
-                <Link href="/classify">
+                <Link href="/analyzer">
                   <a className="inline-flex justify-center py-3 text-2xl font-semibold text-black duration-500 border-2 w-72 hover:bg-black hover:bg-opacity-80 hover:text-coolGray-100 border-coolGray-200 bg-coolGray-50">
                     Start Now
                   </a>

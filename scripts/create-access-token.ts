@@ -1,4 +1,5 @@
 import { v4 as uuid } from "uuid"
+import { Logger } from "tslog"
 import { Key, Cache } from "../lib/redis"
 
 const redisConnection = process.env.REDIS_CONNECTION
@@ -14,4 +15,4 @@ const expriresAt = Math.floor(Date.now() / 1000) + 365 * 24 * 60 * 60
 
 cache.set(key, expriresAt, { valid: true })
 // eslint-disable-next-line no-console
-console.log({ accessToken })
+new Logger().info({ accessToken })

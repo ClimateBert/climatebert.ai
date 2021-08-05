@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import { createJWT } from "lib/jwt"
 import { Key, Cache } from "lib/redis"
+import { Logger } from "tslog"
 
 type Scope = "authorized" | "anonymous"
 const limits: { [scope in Scope]: { tokens: number; window: number } } = {
@@ -84,7 +85,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     throw new Error(`CLASSIFIER_ENDPOINT is not defined`)
   }
 
-  console.log(`pretend to call ${classifierEndpoint} and add token "Bearer ${jwt}"`)
+  new Logger().info(`pretend to call ${classifierEndpoint} and add token "Bearer ${jwt}"`)
 
   const classification = { dummy: 0.12, data: 0.41 }
   /**

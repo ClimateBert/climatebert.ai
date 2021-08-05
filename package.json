@@ -14,7 +14,7 @@
   "dependencies": {
     "@sentry/nextjs": "^6.9.0",
     "classnames": "^2.3.1",
-    "ioredis": "^4.27.6",
+    "ioredis": "^4.27.7",
     "jsonwebtoken": "^8.5.1",
     "next": "11.0.1",
     "react": "^17.0.2",

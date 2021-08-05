@@ -5,7 +5,7 @@ import { Logo } from "./logo"
 const NavbarLink = ({ href, label }: { href: string; label: string }): JSX.Element => {
   return (
     <Link href={href}>
-      <a className="px-4 py-1 mr-1 text-base transition duration-500 ease-in-out transform rounded-md text-blueGray-500 focus:outline-none hover:text-black ">
+      <a className="px-4 py-1 text-base transition duration-500 ease-in-out transform rounded-md text-coolGray-600 focus:outline-none hover:text-black ">
         {label}
       </a>
     </Link>
@@ -15,33 +15,25 @@ const NavbarLink = ({ href, label }: { href: string; label: string }): JSX.Eleme
 export const Navbar: React.FC = (): JSX.Element => {
   return (
     <nav className="container items-center mx-auto md:h-20 md:-mb-20">
-      <div className="transition duration-500 ease-in-out transform text-blueGray-700 ">
+      <div className="transition duration-500 ease-in-out transform text-coolGray-700 ">
         <div className="flex flex-col flex-wrap p-5 mx-auto md:items-center md:flex-row">
           <Link href="/">
             <a className="pr-2 lg:pr-8 lg:px-6 focus:outline-none">
               <div className="inline-flex items-center">
                 <Logo />
-                <h2 className="block p-2 text-xl font-medium text-black transition duration-500 ease-in-out transform cursor-pointer hover:text-blueGray-500 lg:text-x lg:mr-8">
+                <h2 className="block p-2 text-xl font-medium text-black transition duration-500 ease-in-out transform cursor-pointer hover:text-coolGray-500 lg:text-x lg:mr-8">
                   ClimateBert
                 </h2>
               </div>
             </a>
           </Link>
           <div className="flex flex-wrap items-center justify-center text-base md:ml-auto md:mr-auto">
-            <ul className="items-center inline-block list-none md:inline-flex">
-              <li>
-                <NavbarLink href="/analyzer" label="Analyzer" />
-              </li>
-              <li>
-                <NavbarLink href="/language-model" label="Language Model" />
-              </li>
-              <li>
-                <NavbarLink href="/about" label="About" />
-              </li>
-              <li>
-                <NavbarLink href="/authors" label="Authors" />
-              </li>
-            </ul>
+            <div className="items-center inline-block list-none md:inline-flex">
+              <NavbarLink href="/analyzer" label="Analyzer" />
+              <NavbarLink href="/language-model" label="Language Model" />
+              <NavbarLink href="/about" label="About" />
+              <NavbarLink href="/authors" label="Authors" />
+            </div>
           </div>
           <Link href="https://github.com/ClimateBert/climatebert.ai">
             <a className="inline-flex justify-center w-auto text-black transition duration-500 ease-in-out transform focus:outline-none hover:text-gray-800">

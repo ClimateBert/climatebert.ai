@@ -43,7 +43,7 @@ export const Navbar: React.FC = (): JSX.Element => {
               </li>
             </ul>
           </div>
-          <Link href="https://github.com/ClimateBert">
+          <Link href="https://github.com/ClimateBert/climatebert.ai">
             <a className="inline-flex justify-center w-auto text-black transition duration-500 ease-in-out transform focus:outline-none hover:text-gray-800">
               <svg
                 className="w-6 h-6 text-gray-700 fill-current dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400"

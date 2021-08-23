@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@chronark/eslint-config": "^1.0.7",
-    "@chronark/prettier-config": "^1.0.7",
+    "@chronark/prettier-config": "^1.0.9",
     "@chronark/typescript-config": "^1.0.7",
     "@tailwindcss/custom-forms": "^0.2.1",
     "@tailwindcss/forms": "^0.3.3",

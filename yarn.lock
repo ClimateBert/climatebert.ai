@@ -3937,10 +3937,10 @@ table@^6.0.9:
     string-width "^4.2.0"
     strip-ansi "^6.0.0"
 
-tailwindcss-debug-screens@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/tailwindcss-debug-screens/-/tailwindcss-debug-screens-2.0.0.tgz#81f9ec4d1f8aaf53c448a644e5923322f96df992"
-  integrity sha512-L8hvCJ+3D7IlZ2DE5zEzAJCEvSI92bH8aoAlRfJ5oILzsHT/G5oqvIBBuvt8t/NnhkIxzRl8xDDf405WI709RA==
+tailwindcss-debug-screens@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/tailwindcss-debug-screens/-/tailwindcss-debug-screens-2.1.0.tgz#fff6b6d84029a8dc7b507fb02f4264582c1123b2"
+  integrity sha512-58mnybJxnGQG8DyLnbovjNL9dpHpffrHSPm6PsELOX3KSvsZF3xwZO3GYtQhLvSryFGLjS7Ntfdjw34Efck/MQ==
 
 tailwindcss@^2.2.4:
   version "2.2.6"

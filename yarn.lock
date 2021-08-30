@@ -81,10 +81,10 @@
   resolved "https://registry.yarnpkg.com/@chronark/prettier-config/-/prettier-config-1.0.9.tgz#abb450bc3b30336e7780af6bc3f21ea33f9551b6"
   integrity sha512-x5cHV5i+TXyPoZGfkorKaPdEP6HvOTG+CAdM7I8Z4W/UoV6qjM11kHA8TDBOej6wBxDtqBoj4lW7MbWhlemFew==
 
-"@chronark/typescript-config@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@chronark/typescript-config/-/typescript-config-1.0.7.tgz#8be7e5f08888e8343187a08352a9a68920d15543"
-  integrity sha512-zn5sjfdnjGGBNbw5NUAfHjqh4vFWfdA3LqCShEGmm5nNFl0ab/3SAYmIPbV7UnjocKIRtfJGw0CPvlcmdj8wew==
+"@chronark/typescript-config@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@chronark/typescript-config/-/typescript-config-1.0.9.tgz#825b7a8b4c462b17c8be7811cd272a6ec5e016c7"
+  integrity sha512-RnMStsdz2MZ7h8JV9YhwDnOBQTlDaQM6ZpFCmvHAGX8iRStzDNRLzpnSFHL7xxQ/yAvgi4+DdUyrsTab+QGPTw==
 
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"

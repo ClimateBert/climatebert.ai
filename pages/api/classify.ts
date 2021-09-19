@@ -71,11 +71,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(429)
     return res.end("Ratelimit exceeded")
   }
-  const { paragraph } = req.body
+  const { content } = JSON.parse(req.body) as { content?: string }
 
-  if (!paragraph) {
+  if (!content) {
     res.status(400)
-    return res.end("No paragraph found")
+    return res.end("No content found")
   }
 
   const jwt = createJWT()

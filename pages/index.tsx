@@ -17,34 +17,44 @@ export default function Home() {
         <Background image={headerImage}>
           <div className="bg-gradient-to-tr from-transparent via-transparent to-black">
             <header className="absolute inset-x-0 hidden text-xl font-light md:block text-coolGray-100">
-              <div className="container flex items-center justify-end mx-auto">
-                <div className="flex-col flex-wrap items-center hidden w-full mx-auto md:flex md:flex-row ">
-                  <Link href="/">
-                    <a className="flex items-center gap-4 p-6 text-lg duration-500 bg-coolGray-100 text-coolGray-900 hover:bg-black hover:bg-opacity-50 hover:text-coolGray-100">
-                      <Logo />
-                      <span className="font-bold">ClimateBERT</span>
-                    </a>
-                  </Link>
-                </div>
-                <nav className="flex items-center justify-center gap-16 mt-8 text-xl lg:text-2xl text-coolGray-100 ">
+              <div className="container flex items-center justify-between px-4 py-8 mx-auto">
+                <Link href="/">
+                  <a className="flex items-center gap-2 duration-500 border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white">
+                    <Logo />
+                    <span className="font-bold">ClimateBERT</span>
+                  </a>
+                </Link>
+
+                <nav className="flex items-center justify-center gap-4 text-xl duration-500 lg:gap-8 xl:gap-16 lg:text-2xl text-coolGray-100 ">
                   <Link href="/analyzer">
-                    <a className="duration-500 border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white">
+                    <a className="border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white">
                       Analyzer
                     </a>
                   </Link>
                   <Link href="/language-model">
-                    <a className="duration-500 border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white">
+                    <a className="border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white">
                       Language Model
                     </a>
                   </Link>
                   <Link href="/about">
-                    <a className="duration-500 border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white">
+                    <a className="border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white">
                       About
                     </a>
                   </Link>
                   <Link href="/authors">
-                    <a className="duration-500 border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white">
+                    <a className="border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white">
                       Authors
+                    </a>
+                  </Link>
+                  <Link href="https://github.com/ClimateBert/climatebert.ai">
+                    <a className="inline-flex justify-center border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white">
+                      <svg
+                        className="w-6 h-6 fill-current"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                      >
+                        <path d="M256 32C132.3 32 32 134.9 32 261.7c0 101.5 64.2 187.5 153.2 217.9 1.4.3 2.6.4 3.8.4 8.3 0 11.5-6.1 11.5-11.4 0-5.5-.2-19.9-.3-39.1-8.4 1.9-15.9 2.7-22.6 2.7-43.1 0-52.9-33.5-52.9-33.5-10.2-26.5-24.9-33.6-24.9-33.6-19.5-13.7-.1-14.1 1.4-14.1h.1c22.5 2 34.3 23.8 34.3 23.8 11.2 19.6 26.2 25.1 39.6 25.1 10.5 0 20-3.4 25.6-6 2-14.8 7.8-24.9 14.2-30.7-49.7-5.8-102-25.5-102-113.5 0-25.1 8.7-45.6 23-61.6-2.3-5.8-10-29.2 2.2-60.8 0 0 1.6-.5 5-.5 8.1 0 26.4 3.1 56.6 24.1 17.9-5.1 37-7.6 56.1-7.7 19 .1 38.2 2.6 56.1 7.7 30.2-21 48.5-24.1 56.6-24.1 3.4 0 5 .5 5 .5 12.2 31.6 4.5 55 2.2 60.8 14.3 16.1 23 36.6 23 61.6 0 88.2-52.4 107.6-102.3 113.3 8 7.1 15.2 21.1 15.2 42.5 0 30.7-.3 55.5-.3 63 0 5.4 3.1 11.5 11.4 11.5 1.2 0 2.6-.1 4-.4C415.9 449.2 480 363.1 480 261.7 480 134.9 379.7 32 256 32z" />
+                      </svg>
                     </a>
                   </Link>
                 </nav>
@@ -53,28 +63,25 @@ export default function Home() {
 
             <div className="flex flex-col justify-center h-screen">
               <div className="flex justify-center text-center md:text-left">
-                <div className="hidden md:block md:w-1/2" />
-                <div className="flex items-center justify-start md:-ml-72 md:w-1/2 text-coolGray-50">
-                  <div className="flex flex-col items-center md:items-start">
-                    <h2 className="hidden text-xl bg-black bg-opacity-50 shadow-xl xl:block text-coolGray-400">
+                <div className="flex items-center justify-start text-coolGray-50">
+                  <div className="flex flex-col items-center">
+                    <h2 className="p-2 text-xl shadow-xl bg-opacity-20 text-coolGray-300">
                       AI powered climate-related corporate disclosure analytics
                     </h2>
-                    <h1 className="flex flex-col gap-3 mt-2 font-bold tracking-tight text-center md:text-left md:text-6xl">
-                      <span className="text-7xl md:hidden">Analyze</span>
-                      <span className="text-3xl md:hidden">Make a Difference</span>
-                      <span className="hidden mt-2 text-6xl capitalize md:block">
-                        Analyze and make a difference
-                      </span>
+                    <h1 className="flex flex-col gap-3 mt-2 font-bold tracking-tight text-center text-7xl md:tracking-wider">
+                      <span>Analyze</span>
+                      <span>Reflect</span>
+                      <span>Engage</span>
                     </h1>
+                    <div className="mt-20">
+                      <Link href="/analyzer">
+                        <a className="inline-flex justify-center py-3 text-2xl font-semibold text-black duration-500 border-2 w-72 hover:bg-black hover:bg-opacity-80 hover:text-coolGray-100 border-coolGray-200 bg-coolGray-50">
+                          Start Now
+                        </a>
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="mx-auto mt-20">
-                <Link href="/analyzer">
-                  <a className="inline-flex justify-center py-3 text-2xl font-semibold text-black duration-500 border-2 w-72 hover:bg-black hover:bg-opacity-80 hover:text-coolGray-100 border-coolGray-200 bg-coolGray-50">
-                    Start Now
-                  </a>
-                </Link>
               </div>
             </div>
           </div>

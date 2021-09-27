@@ -12,7 +12,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@sentry/nextjs": "^6.9.0",
+    "@sentry/nextjs": "^6.13.2",
     "classnames": "^2.3.1",
     "ioredis": "^4.27.7",
     "jsonwebtoken": "^8.5.1",

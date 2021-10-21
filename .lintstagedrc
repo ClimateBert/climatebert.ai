@@ -1,4 +1,0 @@
-{
-  "**.{ts,tsx}": ["yarn prettier --write", "yarn eslint --fix"],
-  "**.{json,md,mdx,css,html,js}": ["yarn prettier --write"]
-}

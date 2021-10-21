@@ -31,11 +31,14 @@ export default function Home() {
                       Analyzer
                     </a>
                   </Link>
-                  <Link href="/language-model">
-                    <a className="border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white">
-                      Language Model
-                    </a>
-                  </Link>
+                  <a
+                    href="https://huggingface.co/climatebert/distilroberta-base-climate"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white"
+                  >
+                    Language Model
+                  </a>
                   <Link href="/about">
                     <a className="border-b-2 border-transparent whitespace-nowrap hover:border-coolGray-200 hover:text-white">
                       About

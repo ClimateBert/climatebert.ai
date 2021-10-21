@@ -2,8 +2,6 @@ import "tailwindcss/tailwind.css"
 
 import {
   AppProps,
-  AuthenticationError,
-  AuthorizationError,
   ErrorBoundary,
   ErrorComponent,
   ErrorFallbackProps,

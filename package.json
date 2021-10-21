@@ -1,50 +1,57 @@
 {
   "name": "climatebert.ai",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
   "scripts": {
-    "fmt": "yarn lint && yarn format",
-    "format": "prettier --write --loglevel=warn .",
-    "lint": "eslint --ext .js,.ts,.tsx --fix .",
-    "tsc": "tsc",
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "blitz dev",
+    "build": "blitz build",
+    "start": "blitz start",
+    "studio": "blitz prisma studio",
+    "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "prepare": "husky install"
+  },
+  "prisma": {
+    "schema": "db/schema.prisma"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 100
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
   },
   "dependencies": {
-    "@sentry/nextjs": "^6.13.2",
-    "classnames": "^2.3.1",
-    "ioredis": "^4.27.7",
-    "jsonwebtoken": "^8.5.1",
-    "next": "11.0.1",
-    "react": "^17.0.2",
-    "react-dom": "17.0.2",
-    "tslog": "^3.2.1",
-    "uuid": "^8.3.2"
+    "@headlessui/react": "1.4.1",
+    "@heroicons/react": "1.0.4",
+    "@hookform/resolvers": "2.8.2",
+    "@prisma/client": "3.3.0",
+    "autoprefixer": "10.3.7",
+    "classnames": "2.3.1",
+    "postcss": "8.3.11",
+    "react": "alpha",
+    "react-dom": "alpha",
+    "react-hook-form": "7.17.5",
+    "tailwindcss": "2.1.2",
+    "zod": "3.10.3"
   },
   "devDependencies": {
-    "@chronark/eslint-config": "^1.0.7",
-    "@chronark/prettier-config": "^1.0.9",
-    "@chronark/typescript-config": "^1.0.9",
-    "@tailwindcss/custom-forms": "^0.2.1",
-    "@tailwindcss/forms": "^0.3.3",
-    "@tailwindcss/typography": "^0.4.1",
-    "@types/ioredis": "^4.26.6",
-    "@types/jsonwebtoken": "^8.5.4",
-    "@types/react": "17.0.30",
-    "@types/uuid": "^8.3.1",
-    "autoprefixer": "^10.3.4",
-    "eslint": "^7.30.0",
-    "eslint-config-next": "11.1.0",
-    "postcss": "^8.3.5",
-    "prettier": "^2.3.2",
-    "tailwindcss": "^2.2.15",
-    "tailwindcss-debug-screens": "^2.1.0",
-    "typescript": "4.3.5"
+    "@tailwindcss/forms": "0.3.4",
+    "@tailwindcss/typography": "0.4.1",
+    "@types/preview-email": "2.0.1",
+    "@types/react": "17.0.31",
+    "blitz": "0.41.1",
+    "eslint": "7.32.0",
+    "husky": "6.0.0",
+    "lint-staged": "10.5.4",
+    "prettier": "2.4.1",
+    "prettier-plugin-prisma": "0.15.0",
+    "pretty-quick": "3.1.1",
+    "preview-email": "3.0.5",
+    "prisma": "3.3.0",
+    "typescript": "~4.3"
   },
-  "nextBundleAnalysis": {
-    "budget": 358400,
-    "budgetPercentIncreaseRed": 20,
-    "showDetails": true
-  }
+  "private": true
 }

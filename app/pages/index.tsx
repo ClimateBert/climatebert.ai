@@ -10,7 +10,7 @@ import iceland from "public/iceland.jpg"
 import tech from "public/tech-wallpaper.jpg"
 import iceland2 from "public/iceland2.jpg"
 import { Navbar } from "app/core/components/navbar"
-import { CubeTransparentIcon, VariableIcon, LightBulbIcon } from "@heroicons/react/outline"
+import { CubeTransparentIcon, VariableIcon, LightningBoltIcon } from "@heroicons/react/outline"
 import { Section } from "app/core/components/section"
 export default function Home() {
   return (
@@ -58,7 +58,7 @@ export default function Home() {
           <Section
             title="Analyze. Reflect. Engage."
             description="Our service gives you the opportunity to have an impact. Start analyzing, get insights and draw your own conclusions. Let’s protect our planet together."
-            icon={<LightBulbIcon />}
+            icon={<LightningBoltIcon />}
             image="/iceland2.jpg"
           />
         </div>

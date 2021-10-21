@@ -65,13 +65,13 @@ export default function Home() {
               <div className="flex justify-center text-center md:text-left">
                 <div className="flex items-center justify-start text-coolGray-50">
                   <div className="flex flex-col items-center">
-                    <h2 className="p-2 text-xl shadow-xl bg-opacity-20 text-coolGray-300">
+                    <h2 className="p-2 text-xl shadow-lg bg-opacity-20 text-coolGray-300">
                       AI powered climate-related corporate disclosure analytics
                     </h2>
-                    <h1 className="flex flex-col gap-3 mt-2 font-bold tracking-tight text-center text-7xl md:tracking-wider">
-                      <span>Analyze</span>
-                      <span>Reflect</span>
-                      <span>Engage</span>
+                    <h1 className="flex flex-col gap-3 mt-2 font-black text-center text-white text-7xl sm:text-9xl">
+                      <span>Analyze.</span>
+                      <span>Reflect.</span>
+                      <span>Engage.</span>
                     </h1>
                     <div className="mt-20">
                       <Link href="/analyzer">

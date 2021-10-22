@@ -1,5 +1,10 @@
 import { Navbar } from "app/core/components/navbar"
-import { CubeTransparentIcon, VariableIcon, LightningBoltIcon } from "@heroicons/react/outline"
+import {
+  CubeTransparentIcon,
+  VariableIcon,
+  LightningBoltIcon,
+  MailIcon,
+} from "@heroicons/react/outline"
 import { Section } from "app/core/components/section"
 import Footer from "app/core/components/footer"
 import { useEffect, useState } from "react"

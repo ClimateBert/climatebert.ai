@@ -19,6 +19,9 @@ module.exports = {
       animation: {
         "pulse-slow": "pulse 10s linear infinite",
       },
+      backgroundImage: {
+        hero: "url('/hero.png')",
+      },
     },
   },
   variants: {

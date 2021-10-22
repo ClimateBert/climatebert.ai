@@ -25,7 +25,7 @@ export const Section: React.FC<SectionProps> = ({
         >
           <div className="py-8 md:py-16 lg:py-24 xl:py-32">
             <div>
-              <span className="flex items-center justify-center w-12 h-12 rounded-md bg-rose-600">
+              <span className="flex items-center justify-center w-12 h-12 rounded-md bg-blue-600">
                 <div className="w-6 h-6 text-white" aria-hidden="true">
                   {icon}
                 </div>
@@ -37,7 +37,7 @@ export const Section: React.FC<SectionProps> = ({
               {/* <div className="mt-6">
                 <a
                   href="#"
-                  className="inline-flex px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-rose-600 hover:bg-rose-700"
+                  className="inline-flex px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-blue-600 hover:bg-blue-700"
                 >
                   Get started
                 </a>

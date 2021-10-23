@@ -37,9 +37,9 @@ export const Navbar: React.FC = (): JSX.Element => {
             <div className="flex justify-between h-16">
               <div className="flex justify-between w-full">
                 <Link href="/">
-                  <a className="flex items-center flex-shrink-0">
+                  <a className="flex items-center flex-shrink-0 duration-300 text-coolGray-800 hover:text-black">
                     <Logo />
-                    <h2 className="block p-2 text-xl font-medium transition duration-500 ease-in-out transform cursor-pointer text-coolGray-900 hover:text-coolcoolGray-500 lg:text-x lg:mr-8">
+                    <h2 className="block p-2 text-xl font-medium transition duration-500 ease-in-out transform cursor-pointer">
                       ClimateBert
                     </h2>
                   </a>

@@ -3,11 +3,37 @@ import { ArrowNarrowRightIcon } from "@heroicons/react/outline"
 export const NewsSection: React.FC = (): JSX.Element => {
   const posts = [
     {
-      title: "ClimateBert language model",
-      href: "https://www.linkedin.com/posts/markus-leippold-578bb95_climatebert-climatefever-climatechange-activity-6857023720192536576--h0M",
+      title: "Financial Times",
+      href: "https://www.ft.com/content/8fa51ec0-0396-477a-9d06-0854995621f5",
       description:
-        "Excited to release soon our ClimateBert language model, a pretrained language model for climate-related text. It’s joint work with great colleagues: Julia Anna Bingler, Mathias Kraus, and Nicolas Webersinke. ",
-      date: "Oct 21, 2021",
+        "If you say the word “green activist” to a corporate executive, Greta Thunberg may spring to mind — and provoke fear. Today, however, there is another force to watch: robots.",
+      date: "March 18, 2021",
+    },
+    {
+      title: "Bloomberg",
+      href: "https://www.bloomberg.com/news/articles/2021-03-12/the-risk-of-letting-big-finance-write-its-own-climate-rules",
+      description:
+        "The industry is pushing for voluntary standards, but the stakes may be too high to wait and see if it that’s enough.",
+      date: "March 12, 2021",
+    },
+    {
+      title: "climateriskreview.com",
+      href: "https://www.climateriskreview.com/p/researchers-set-an-nlp-model-loose",
+      description:
+        "Researchers set an NLP model loose on TCFD disclosures. It found scant evidence of useful climate information",
+      date: "March 4, 2021",
+    },
+    {
+      title: "thegenevaobserver.com",
+      href: "https://www.thegenevaobserver.com/post/beware-greenwashers-a-i-will-spot-you",
+      description: "AI and deep learning can instantly spot corporate greenwashing",
+      date: "April 15, 2021",
+    },
+    {
+      title: "nzz.ch",
+      href: "https://www.nzz.ch/finanzen/fonds/warum-ethische-anlagen-bei-tabakaktien-zu-ueberrenditen-fuehren-ld.1643077",
+      description: "Ethische Anleger nützen den Aktienrenditen von umweltschädlichen Firmen",
+      date: "September 17, 2021",
     },
   ]
   return (
@@ -31,10 +57,12 @@ export const NewsSection: React.FC = (): JSX.Element => {
                   href={post.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-base font-semibold text-transparent uppercase bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600"
+                  className="flex items-center space-x-2 text-base font-semibold "
                 >
-                  Read more
-                  <ArrowNarrowRightIcon className="w-4 h-4 fill-current" />
+                  <span className="text-transparent uppercase bg-clip-text bg-gradient-to-tr from-primary-600 to-secondary-400">
+                    Read more
+                  </span>
+                  <ArrowNarrowRightIcon className="w-4 h-4 fill-current text-secondary-400" />
                 </a>
               </div>
             </div>

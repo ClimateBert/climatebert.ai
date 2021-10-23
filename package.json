@@ -7,6 +7,8 @@
     "start": "blitz start",
     "studio": "blitz prisma studio",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
+    "format": "prettier --write .",
+    "fmt": "pnpm lint && pnpm format",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
     "prepare": "husky install"

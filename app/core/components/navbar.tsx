@@ -51,7 +51,7 @@ export const Navbar: React.FC = (): JSX.Element => {
                         className={cn(
                           "inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 ",
                           {
-                            "border-blue-500 text-coolGray-900": router.pathname === page.href,
+                            "border-primary-500 text-coolGray-900": router.pathname === page.href,
                             "border-transparent text-coolGray-500 hover:border-coolGray-300 border-b-2 hover:text-coolGray-700":
                               router.pathname !== page.href,
                           }
@@ -66,7 +66,7 @@ export const Navbar: React.FC = (): JSX.Element => {
 
               <div className="flex items-center -mr-2 sm:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-coolGray-400 hover:text-coolGray-500 hover:bg-coolGray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-coolGray-400 hover:text-coolGray-500 hover:bg-coolGray-100 focus:outline-none ">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block w-6 h-6" aria-hidden="true" />
@@ -80,7 +80,7 @@ export const Navbar: React.FC = (): JSX.Element => {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="pt-2 pb-3 space-y-1">
-              {/* Current: "bg-blue-50 border-blue-500 text-blue-700", Default: "border-transparent text-coolGray-500 hover:bg-coolGray-50 hover:border-coolGray-300 hover:text-coolGray-700" */}
+              {/* Current: "bg-primary-50 border-primary-500 text-primary-700", Default: "border-transparent text-coolGray-500 hover:bg-coolGray-50 hover:border-coolGray-300 hover:text-coolGray-700" */}
 
               {pages.map((page) => (
                 <Disclosure.Button
@@ -88,8 +88,9 @@ export const Navbar: React.FC = (): JSX.Element => {
                   as="a"
                   href={page.href}
                   className={cn("block py-2 pl-3 pr-4 text-base font-medium  border-l-4   ", {
-                    "border-blue-500 text-blue-700 bg-blue-50": router.pathname === page.href,
-                    "text-coolGray-500 border-transparent": router.pathname !== page.href,
+                    "border-primary-500 text-primary-700": router.pathname === page.href,
+                    "text-coolGray-500 border-transparent hover:text-coolGray-700":
+                      router.pathname !== page.href,
                   })}
                 >
                   {page.name}

@@ -22,6 +22,7 @@ specifiers:
   preview-email: 3.0.5
   prisma: 3.3.0
   react: alpha
+  react-animated-number: 0.4.4
   react-dom: alpha
   react-hook-form: 7.17.5
   tailwindcss: 2.1.2
@@ -37,6 +38,7 @@ dependencies:
   classnames: 2.3.1
   postcss: 8.3.11
   react: 18.0.0-alpha-3c4c1c470-20211021
+  react-animated-number: 0.4.4_2fae0a0c89c2df0459360cd45f728ca2
   react-dom: 18.0.0-alpha-3c4c1c470-20211021_2fae0a0c89c2df0459360cd45f728ca2
   react-hook-form: 7.17.5_2fae0a0c89c2df0459360cd45f728ca2
   tailwindcss: 2.1.2_fa866e6aa6eb85ed70431566fb699b34
@@ -10392,6 +10394,10 @@ packages:
       sha.js: 2.4.11
     dev: true
 
+  /performance-now/2.1.0:
+    resolution: { integrity: sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns= }
+    dev: false
+
   /picocolors/0.2.1:
     resolution:
       {
@@ -10785,7 +10791,6 @@ packages:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       react-is: 16.13.1
-    dev: true
 
   /psl/1.8.0:
     resolution:
@@ -11023,6 +11028,15 @@ packages:
       }
     engines: { node: ">=10" }
 
+  /raf/3.4.1:
+    resolution:
+      {
+        integrity: sha512-Sq4CW4QhwOHE8ucn6J34MqtZCeWFP2aQSmrlroYgqAV1PjStIhJXxYuTgUIfkEk7zTLjmIjLmU5q+fbD1NnOJA==,
+      }
+    dependencies:
+      performance-now: 2.1.0
+    dev: false
+
   /railroad-diagrams/1.0.0:
     resolution: { integrity: sha1-635iZ1SN3t+4mcG5Dlc3RVnN234= }
     dev: true
@@ -11070,6 +11084,17 @@ packages:
       unpipe: 1.0.0
     dev: true
 
+  /react-animated-number/0.4.4_2fae0a0c89c2df0459360cd45f728ca2:
+    resolution: { integrity: sha1-zsmGuVqGH5fACrMwN1E1NHmKf18= }
+    engines: { node: ">=4.0.0" }
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.1 || ^16.0.0
+    dependencies:
+      prop-types: 15.7.2
+      raf: 3.4.1
+      react: 18.0.0-alpha-3c4c1c470-20211021
+    dev: false
+
   /react-devtools-core/4.20.2:
     resolution:
       {
@@ -11113,7 +11138,6 @@ packages:
       {
         integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==,
       }
-    dev: true
 
   /react-is/17.0.2:
     resolution:

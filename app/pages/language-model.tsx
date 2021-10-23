@@ -8,7 +8,7 @@ export default function LanguageModel() {
       <div className="relative px-4 py-8 sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto text-lg max-w-prose">
           <h1>
-            <span className="block text-base font-semibold tracking-wide text-center text-blue-600 uppercase">
+            <span className="block text-base font-semibold tracking-wide text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-400">
               Introducing
             </span>
             <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">

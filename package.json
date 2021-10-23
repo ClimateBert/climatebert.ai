@@ -7,6 +7,8 @@
     "start": "blitz start",
     "studio": "blitz prisma studio",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
+    "format": "prettier --write .",
+    "fmt": "pnpm lint && pnpm format",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
     "prepare": "husky install"
@@ -32,6 +34,7 @@
     "classnames": "2.3.1",
     "postcss": "8.3.11",
     "react": "alpha",
+    "react-animated-number": "0.4.4",
     "react-dom": "alpha",
     "react-hook-form": "7.17.5",
     "tailwindcss": "2.1.2",

@@ -1,13 +1,32 @@
 import { Navbar } from "app/core/components/navbar"
-import {
-  CubeTransparentIcon,
-  VariableIcon,
-  LightningBoltIcon,
-  MailIcon,
-} from "@heroicons/react/outline"
+import { CubeTransparentIcon, VariableIcon, LightningBoltIcon } from "@heroicons/react/outline"
+import { Stats } from "app/core/components/stats"
 import { Section } from "app/core/components/section"
 import Footer from "app/core/components/footer"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
+import { NewsSection } from "app/core/components/section/news"
+
+function useInterval(callback: () => void, delay: number) {
+  const savedCallback = useRef()
+
+  // Remember the latest callback.
+  useEffect(() => {
+    // @ts-ignore
+    savedCallback.current = callback
+  }, [callback])
+
+  // Set up the interval.
+  useEffect(() => {
+    function tick() {
+      // @ts-expect-error
+      savedCallback.current()
+    }
+    if (delay !== null) {
+      let id = setInterval(tick, delay)
+      return () => clearInterval(id)
+    }
+  }, [delay])
+}
 
 export default function Home() {
   const [scroll, setScroll] = useState(typeof window !== "undefined" ? window.scrollY : 0)
@@ -22,86 +41,94 @@ export default function Home() {
     }
   })
 
+  const [tokens, setTokens] = useState(Math.floor(Date.now() / 1_000_000))
+  const [requests, setRequests] = useState(Math.floor(Date.now() / 234_567_800))
+  useInterval(() => {
+    setTokens(tokens + Math.floor(Math.random() * 10))
+    setRequests(requests + Math.floor(Math.random() * 1.1))
+  }, 100)
+
   return (
-    <>
+    <div className=" bg-gray-50">
       <div className="h-screen">
-        <div className="relative w-full h-full ">
-          <div
-            className="absolute w-screen h-screen"
-            style={{
-              backgroundImage: "url('/hero.png')",
-              backgroundAttachment: "fixed",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              opacity: `${Math.min(10 + scroll / 5, 100)}%`,
-            }}
-          ></div>
-          <div className="relative z-10 h-screen">
-            <Navbar />
-            <div className="relative flex flex-col justify-center h-full pt-16 -mt-16">
-              <div className="flex justify-center text-center md:text-left">
-                <div className="flex items-center justify-start text-coolGray-50">
-                  <div className="flex flex-col items-center space-y-16">
-                    <h1 className="flex flex-col gap-3 font-black text-center text-black text-7xl sm:text-9xl">
-                      <span>Analyze.</span>
-                      <span>Reflect.</span>
-                      <span>Engage.</span>
-                    </h1>
-                    <div className="text-black">
-                      <label htmlFor="email" className="block text-sm text-center uppercase">
-                        Join the waitlist to get early access
-                      </label>
-                      <div className="flex flex-col items-center justify-center gap-4 mt-3 md:flex-row">
-                        <input
-                          type="email"
-                          name="email"
-                          id="email"
-                          className="h-12 px-4 duration-700 border border-gray-500 rounded-sm shadow form-input hover:border-black focus:border-black hover:shadow-2xl focus:outline-none"
-                          placeholder="Enter your email"
-                        />
-                        <button
-                          type="button"
-                          className="h-12 px-4 font-medium text-white uppercase duration-700 bg-black border border-gray-500 rounded-sm shadow hover:bg-white hover:text-black hover:border-black focus:outline-none hover:shadow-2xl"
-                        >
-                          <span>Get early access</span>
-                        </button>
-                      </div>
-                    </div>
-                    <h2 className="p-2 text-xl text-coolGray-600">
-                      AI powered climate-related corporate disclosure analytics
-                    </h2>
+        <div className="fixed inset-x-0 top-0 z-50">
+          <Navbar />
+        </div>
+        <section className="relative z-10 ">
+          <div className="relative w-full h-full">
+            <div
+              className="absolute z-0 w-full h-screen pointer-events-none "
+              style={{
+                backgroundImage: "url('/hero.png')",
+                backgroundAttachment: "fixed",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                opacity: `${Math.min(20 + scroll / 5, 100)}%`,
+              }}
+            ></div>
+            <div className="relative flex flex-col justify-center w-full h-screen ">
+              <div className="flex flex-col justify-center space-y-4 text-center md:text-left md:space-y-6 lg:space-y-8 xl:space-y-16">
+                <h2 className="p-2 text-xl text-center text-transparent bg-gradient-to-r bg-clip-text from-coolGray-800 via-coolGray-600 to-coolGray-800">
+                  AI powered climate-related corporate disclosure analytics
+                </h2>
+                <h1 className="flex flex-col gap-3 py-4 -my-4 font-black text-center text-transparent bg-clip-text bg-gradient-to-tr from-black via-coolGray-800 to-black text-7xl sm:text-8xl md:text-9xl">
+                  <span>Analyze.</span>
+                  <span>Reflect.</span>
+                  <span>Engage.</span>
+                </h1>
+                <div className="mt-12 text-black">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-semibold text-center uppercase "
+                  >
+                    Join the waitlist to get early access
+                  </label>
+                  <div className="flex flex-col items-center justify-center max-w-md gap-4 mx-auto mt-3 md:flex-row">
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      className="flex-grow block w-full h-12 duration-700 border rounded shadow border-coolGray-800 md:w-auto form-input hover:border-black focus:border-black focus:outline-none hover:shadow-cta focus:shadow-cta"
+                      placeholder="Enter your email"
+                    />
+                    <button
+                      type="button"
+                      className="block w-full h-12 px-4 text-white uppercase duration-1000 border border-black rounded shadow md:w-auto whitespace-nowrap medium white bg-gradient-to-t from-black via-coolGray-800 to-black hover:from-coolGray-200 hover:via-white hover:to-coolGray-200 hover:text-black hover:border-black focus:outline-none hover:shadow-cta"
+                    >
+                      <span>Get early access</span>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
-      <main>
-        <div className="relative pt-16 pb-32 space-y-32 overflow-hidden bg-white">
-          <Section
-            title="Transparency"
-            description="We enable companies’ stakeholders to assess all kinds of climate-related corporate disclosures in an efficient and scalable way. This increases transparency massively."
-            icon={<CubeTransparentIcon />}
-            image="/iceland.jpg"
-          />
+      <main className="relative pt-16 pb-32 space-y-32 overflow-hidden bg-white">
+        <Stats requests={requests} tokens={tokens} />
+        <Section
+          title="Transparency"
+          description="We enable companies’ stakeholders to assess all kinds of climate-related corporate disclosures in an efficient and scalable way. This increases transparency massively."
+          icon={<CubeTransparentIcon />}
+          image="/iceland.jpg"
+        />
 
-          <Section
-            reverse
-            title="State-of-the-art AI technology"
-            description="We apply state-of-the-art AI technology to assess climate-related corporate disclosures. ClimateBERT has been trained on thousands of climate-related texts, making it a powerful tool to assist you."
-            icon={<VariableIcon />}
-            image="/tech-wallpaper.jpg"
-          />
-          <Section
-            title="Analyze. Reflect. Engage."
-            description="Our service gives you the opportunity to have an impact. Start analyzing, get insights and draw your own conclusions. Let’s protect our planet together."
-            icon={<LightningBoltIcon />}
-            image="/iceland2.jpg"
-          />
-        </div>
+        <Section
+          reverse
+          title="State-of-the-art AI technology"
+          description="We apply state-of-the-art AI technology to assess climate-related corporate disclosures. ClimateBERT has been trained on thousands of climate-related texts, making it a powerful tool to assist you."
+          icon={<VariableIcon />}
+          image="/tech-wallpaper.jpg"
+        />
+        <Section
+          title="Analyze. Reflect. Engage."
+          description="Our service gives you the opportunity to have an impact. Start analyzing, get insights and draw your own conclusions. Let’s protect our planet together."
+          icon={<LightningBoltIcon />}
+          image="/iceland2.jpg"
+        />
+        <NewsSection />
       </main>
       <Footer />
-    </>
+    </div>
   )
 }

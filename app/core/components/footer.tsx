@@ -36,22 +36,22 @@ export default function Footer() {
     },
   ]
   return (
-    <footer>
+    <footer className="bg-coolGray-900">
       <div className="px-4 py-12 mx-auto overflow-hidden max-w-7xl sm:px-6 lg:px-8">
         <div className="container px-4 py-12 mx-auto sm:px-6 lg:px-8">
-          <div className="grid w-40 grid-cols-1 gap-4 mx-auto text-black sm:w-full sm:grid-cols-3 lg:gap-24 sm:gap-8 sm md:gap-16 xl:gap-32">
+          <div className="grid w-40 grid-cols-1 gap-4 mx-auto text-coolGray-200 sm:w-full sm:grid-cols-3 lg:gap-24 sm:gap-8 sm md:gap-16 xl:gap-32">
             <Link href="https:ethz.ch">
-              <a target="_blank" className="hover:text-blue-600">
+              <a target="_blank" className="hover:text-coolGray-100">
                 <ETHZLogo />
               </a>
             </Link>
             <Link href="https:fau.de">
-              <a target="_blank" className="hover:text-blue-600">
+              <a target="_blank" className="hover:text-coolGray-100">
                 <FAULogo />
               </a>
             </Link>
             <Link href="https:uzh.ch">
-              <a target="_blank" className="hover:text-blue-600">
+              <a target="_blank" className="hover:text-coolGray-100">
                 <UZHLogo />
               </a>
             </Link>
@@ -60,7 +60,7 @@ export default function Footer() {
         <nav className="flex flex-wrap justify-center -mx-5 -my-2" aria-label="Footer">
           {navigation.map((item) => (
             <div key={item.name} className="px-5 py-2">
-              <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+              <a href={item.href} className="text-base text-gray-400 hover:text-gray-100">
                 {item.name}
               </a>
             </div>
@@ -68,7 +68,7 @@ export default function Footer() {
         </nav>
         <div className="flex justify-center mt-8 space-x-6">
           {social.map((item) => (
-            <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
+            <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-100">
               <span className="sr-only">{item.name}</span>
               <div className="w-6 h-6 fill-current">{item.icon}</div>
             </a>

@@ -10,6 +10,8 @@ module.exports = {
     colors: {
       ...colors,
       transparent: "transparent",
+      primary: colors.indigo,
+      secondary: colors.lightBlue,
     },
     extend: {
       fontFamily: {
@@ -19,12 +21,14 @@ module.exports = {
       animation: {
         "pulse-slow": "pulse 10s linear infinite",
       },
-      backgroundImage: {
-        hero: "url('/hero.png')",
+
+      boxShadow: {
+        cta: "0 10px 20px -5px rgba(96, 165, 250, 0.4),0 10px 30px -5px rgba(129, 140, 248, 0.3)",
       },
     },
   },
   variants: {
+    scale: ["responsive", "hover", "focus", "group-hover"],
     extend: {},
   },
   plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],

@@ -41,17 +41,17 @@ export default function Footer() {
         <div className="container px-4 py-12 mx-auto sm:px-6 lg:px-8">
           <div className="grid w-40 grid-cols-1 gap-4 mx-auto text-black sm:w-full sm:grid-cols-3 lg:gap-24 sm:gap-8 sm md:gap-16 xl:gap-32">
             <Link href="https:ethz.ch">
-              <a target="_blank" className="hover:text-blue-600">
+              <a target="_blank" className="hover:text-primary-800">
                 <ETHZLogo />
               </a>
             </Link>
             <Link href="https:fau.de">
-              <a target="_blank" className="hover:text-blue-600">
+              <a target="_blank" className="hover:text-primary-800">
                 <FAULogo />
               </a>
             </Link>
             <Link href="https:uzh.ch">
-              <a target="_blank" className="hover:text-blue-600">
+              <a target="_blank" className="hover:text-primary-800">
                 <UZHLogo />
               </a>
             </Link>

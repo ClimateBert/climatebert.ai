@@ -7,6 +7,7 @@ import { NewsSection } from "app/core/components/section/news"
 import { Section } from "app/core/components/section"
 import Signup from "app/mutations/signup"
 import { Stats } from "app/core/components/stats"
+import cn from "classnames"
 import { useMutation } from "blitz"
 
 function useInterval(callback: () => void, delay: number) {
@@ -70,7 +71,12 @@ const SignupForm: React.FC = (): JSX.Element => {
             }
           }}
           type="button"
-          className="block w-full h-12 px-4 text-white uppercase duration-1000 border border-black rounded shadow md:w-auto whitespace-nowrap medium white bg-gradient-to-t from-black via-coolGray-800 to-black hover:from-coolGray-200 hover:via-white hover:to-coolGray-200 hover:text-black hover:border-black focus:outline-none hover:shadow-cta"
+          className={cn(
+            "block w-full  h-12 px-4 text-white uppercase duration-1000 border border-black rounded shadow md:w-auto whitespace-nowrap medium white bg-gradient-to-t from-black via-coolGray-800 to-black hover:from-coolGray-200 hover:via-white hover:to-coolGray-200 hover:text-black hover:border-black focus:outline-none hover:shadow-cta",
+            {
+              "animate-pulse": loading,
+            }
+          )}
         >
           <span>Get early access</span>
         </button>

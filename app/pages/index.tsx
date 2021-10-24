@@ -1,10 +1,13 @@
-import { Navbar } from "app/core/components/navbar"
-import { CubeTransparentIcon, VariableIcon, LightningBoltIcon } from "@heroicons/react/outline"
-import { Stats } from "app/core/components/stats"
-import { Section } from "app/core/components/section"
+import { CubeTransparentIcon, LightningBoltIcon, VariableIcon } from "@heroicons/react/outline"
+import React, { useEffect, useRef, useState } from "react"
+
 import Footer from "app/core/components/footer"
-import { useEffect, useState, useRef } from "react"
+import { Navbar } from "app/core/components/navbar"
 import { NewsSection } from "app/core/components/section/news"
+import { Section } from "app/core/components/section"
+import Signup from "app/mutations/signup"
+import { Stats } from "app/core/components/stats"
+import { useMutation } from "blitz"
 
 function useInterval(callback: () => void, delay: number) {
   const savedCallback = useRef()
@@ -26,6 +29,55 @@ function useInterval(callback: () => void, delay: number) {
       return () => clearInterval(id)
     }
   }, [delay])
+}
+
+const SignupForm: React.FC = (): JSX.Element => {
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<Error | null>(null)
+  const [success, setSuccess] = useState<string | null>(null)
+  const [email, setEmail] = useState("")
+  const [signup] = useMutation(Signup)
+
+  if (success) {
+    return <p className="block text-sm font-semibold text-center uppercase">{success}</p>
+  }
+  return (
+    <div>
+      <label htmlFor="email" className="block text-sm font-semibold text-center uppercase ">
+        Join the waitlist to get early access
+      </label>
+      <div className="flex flex-col items-center justify-center max-w-md gap-4 mx-auto mt-3 md:flex-row">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          className="flex-grow block w-full h-12 duration-700 border rounded shadow border-coolGray-800 md:w-auto form-input hover:border-black focus:border-black focus:outline-none hover:shadow-cta focus:shadow-cta"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.currentTarget.value)}
+        />
+        <button
+          disabled={loading || !!error}
+          onClick={async () => {
+            setLoading(true)
+            try {
+              const { rank } = await signup({ email })
+              setSuccess(`You are number ${rank.toLocaleString("de")} on the waitlist`)
+            } catch (err) {
+              setError(err.message)
+            } finally {
+              setLoading(false)
+            }
+          }}
+          type="button"
+          className="block w-full h-12 px-4 text-white uppercase duration-1000 border border-black rounded shadow md:w-auto whitespace-nowrap medium white bg-gradient-to-t from-black via-coolGray-800 to-black hover:from-coolGray-200 hover:via-white hover:to-coolGray-200 hover:text-black hover:border-black focus:outline-none hover:shadow-cta"
+        >
+          <span>Get early access</span>
+        </button>
+      </div>
+      {error ? <p className="text-red-600">{error.message}</p> : null}
+    </div>
+  )
 }
 
 export default function Home() {
@@ -77,27 +129,7 @@ export default function Home() {
                   <span>Engage.</span>
                 </h1>
                 <div className="mt-12 text-black">
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-semibold text-center uppercase "
-                  >
-                    Join the waitlist to get early access
-                  </label>
-                  <div className="flex flex-col items-center justify-center max-w-md gap-4 mx-auto mt-3 md:flex-row">
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      className="flex-grow block w-full h-12 duration-700 border rounded shadow border-coolGray-800 md:w-auto form-input hover:border-black focus:border-black focus:outline-none hover:shadow-cta focus:shadow-cta"
-                      placeholder="Enter your email"
-                    />
-                    <button
-                      type="button"
-                      className="block w-full h-12 px-4 text-white uppercase duration-1000 border border-black rounded shadow md:w-auto whitespace-nowrap medium white bg-gradient-to-t from-black via-coolGray-800 to-black hover:from-coolGray-200 hover:via-white hover:to-coolGray-200 hover:text-black hover:border-black focus:outline-none hover:shadow-cta"
-                    >
-                      <span>Get early access</span>
-                    </button>
-                  </div>
+                  <SignupForm />
                 </div>
               </div>
             </div>

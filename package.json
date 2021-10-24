@@ -26,10 +26,12 @@
     ]
   },
   "dependencies": {
+    "@chronark/env": "0.0.2",
     "@headlessui/react": "1.4.1",
     "@heroicons/react": "1.0.4",
     "@hookform/resolvers": "2.8.2",
     "@prisma/client": "3.3.0",
+    "@supabase/supabase-js": "1.25.1",
     "autoprefixer": "10.3.7",
     "classnames": "2.3.1",
     "postcss": "8.3.11",

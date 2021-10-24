@@ -1,8 +1,8 @@
 import { Navbar } from "app/core/components/navbar"
 import Signup from "app/mutations/signup"
+import cn from "classnames"
 import { useMutation } from "blitz"
 import { useState } from "react"
-
 const SignupForm: React.FC = (): JSX.Element => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<Error | null>(null)
@@ -49,7 +49,12 @@ const SignupForm: React.FC = (): JSX.Element => {
                 }
               }}
               type="submit"
-              className="block w-full px-4 py-3 font-medium text-white uppercase rounded bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-600 hover:to-secondary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-400 focus:ring-offset-gray-900"
+              className={cn(
+                "block w-full px-4 py-3 font-medium text-white uppercase rounded bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-600 hover:to-secondary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-400 focus:ring-offset-gray-900",
+                {
+                  "animate-pulse": loading,
+                }
+              )}
             >
               get early access
             </button>

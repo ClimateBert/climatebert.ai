@@ -34,6 +34,10 @@ export default function Footer() {
       name: "Authors",
       href: "/authors",
     },
+    {
+      name: "Imprint",
+      href: "/imprint",
+    },
   ]
   return (
     <footer className="bg-coolGray-900">

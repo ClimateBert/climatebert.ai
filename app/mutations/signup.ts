@@ -14,11 +14,4 @@ export default resolver.pipe(resolver.zod(signup), async ({ email }) => {
   if (error && !error.message.includes("newsletter_pkey")) {
     throw new Error(error.message)
   }
-
-  const { data: emails, error: readError } = await supabase.from("newsletter").select("email")
-  if (readError) {
-    throw new Error(readError.message)
-  }
-
-  return { rank: emails?.length ?? 0 }
 })

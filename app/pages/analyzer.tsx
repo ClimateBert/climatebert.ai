@@ -3,6 +3,8 @@ import Signup from "app/mutations/signup"
 import cn from "classnames"
 import { useMutation } from "blitz"
 import { useState } from "react"
+import Footer from "app/core/components/footer"
+
 const SignupForm: React.FC = (): JSX.Element => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<Error | null>(null)
@@ -40,8 +42,8 @@ const SignupForm: React.FC = (): JSX.Element => {
               onClick={async () => {
                 setLoading(true)
                 try {
-                  const { rank } = await signup({ email })
-                  setSuccess(`You are number ${rank.toLocaleString("de")} on the waitlist`)
+                  await signup({ email })
+                  setSuccess(`Successfully registered. We will get back to you soon!`)
                 } catch (err) {
                   setError(err.message)
                 } finally {
@@ -69,19 +71,22 @@ const SignupForm: React.FC = (): JSX.Element => {
 export default function Analyzer() {
   // console.log(router)
   return (
-    <div className="relative w-screen h-screen bg-coolGray-900">
-      <Navbar />
-      <div className="flex items-center justify-center h-full pt-16 -mt-16">
-        <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:py-16 lg:px-8 ">
-          <h2 className="inline text-3xl font-extrabold tracking-tight text-gray-100 sm:block sm:text-4xl">
-            Coming soon
-          </h2>
-          <p className="inline text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-400 sm:block sm:text-4xl ">
-            Get notified as soon as we launch!
-          </p>
-          <SignupForm />
+    <>
+      <div className="relative w-screen h-screen bg-coolGray-900">
+        <Navbar />
+        <div className="flex items-center justify-center h-full pt-16 -mt-16">
+          <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:py-16 lg:px-8 ">
+            <h2 className="inline text-3xl font-extrabold tracking-tight text-gray-100 sm:block sm:text-4xl">
+              Coming soon
+            </h2>
+            <p className="inline text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-400 sm:block sm:text-4xl ">
+              Join the waitlist and be among the first!
+            </p>
+            <SignupForm />
+          </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   )
 }

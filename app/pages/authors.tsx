@@ -87,7 +87,7 @@ const AuthorsPage: NextPage<AuthorsPageProps> = ({ authors }) => {
                   <Link href={author.social.github}>
                     <a aria-label="LinkedIn">
                       <svg
-                        className="w-6 h-6 text-gray-700 fill-current dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400"
+                        className="w-6 h-6 text-gray-700 fill-current hover:text-gray-600 "
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512"
                       >
@@ -97,7 +97,9 @@ const AuthorsPage: NextPage<AuthorsPageProps> = ({ authors }) => {
                   </Link>
                 ) : null}
                 <Link href={author.department}>
-                  <a className="flex items-center justify-center h-6">{UniLogo(author.uni)}</a>
+                  <a className="flex items-center justify-center h-6 text-gray-700 hover:text-gray-600 ">
+                    {UniLogo(author.uni)}
+                  </a>
                 </Link>
               </footer>
             </div>

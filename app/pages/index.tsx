@@ -145,24 +145,24 @@ export default function Home() {
       <main className="relative pt-16 pb-32 space-y-32 overflow-hidden bg-white">
         <Stats requests={requests} tokens={tokens} />
         <Section
-          title="Transparency"
-          description="We enable companies’ stakeholders to assess all kinds of climate-related corporate disclosures in an efficient and scalable way. This increases transparency massively."
+          title="Transparency to enable action"
+          description="We allow corporate stakeholders to assess all types of climate-related corporate disclosures in an efficient and scalable way. This increases transparency massively and enables climate action."
           icon={<CubeTransparentIcon />}
           image="/iceland.jpg"
         />
 
         <Section
           reverse
-          title="State-of-the-art AI technology"
-          description="We apply state-of-the-art AI technology to assess climate-related corporate disclosures. ClimateBERT has been trained on thousands of climate-related texts, making it a powerful tool to assist you."
+          title="State-of-the-art technology"
+          description="We apply state-of-the-art technology to assess climate-related corporate disclosures. ClimateBERT has been trained on millions of climate-related text paragraphs, making it a powerful tool to assist you."
           icon={<VariableIcon />}
           image="/tech-wallpaper.jpg"
         />
         <Section
-          title="Analyze. Reflect. Engage."
+          title="Analyze to make a difference"
           description="Our service gives you the opportunity to have an impact. Start analyzing, get insights and draw your own conclusions. Let’s protect our planet together."
           icon={<LightningBoltIcon />}
-          image="/iceland2.jpg"
+          image="/header.jpg"
         />
         <NewsSection />
       </main>

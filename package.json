@@ -35,7 +35,7 @@
     "autoprefixer": "10.3.7",
     "classnames": "2.3.1",
     "postcss": "8.3.11",
-    "react": "alpha",
+    "react": "18.0.0-alpha-4298ddbc5-20211023",
     "react-animated-number": "0.4.4",
     "react-dom": "alpha",
     "react-hook-form": "7.17.5",

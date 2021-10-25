@@ -1,9 +1,9 @@
 import { ETHZLogo } from "./logos/ethz"
 import { FAULogo } from "./logos/fau"
-import { UZHLogo } from "./logos/uzh"
 import { Link } from "blitz"
-import { string } from "zod"
 import React from "react"
+import { UZHLogo } from "./logos/uzh"
+import { string } from "zod"
 
 export default function Footer() {
   const social: { name: string; icon: React.ReactNode; href: string }[] = [
@@ -41,6 +41,10 @@ export default function Footer() {
     {
       name: "Privacy Policy",
       href: "/privacy",
+    },
+    {
+      name: "Contact",
+      href: "mailto:hello@climatebert.ai",
     },
   ]
   return (

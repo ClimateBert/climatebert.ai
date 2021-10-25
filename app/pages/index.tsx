@@ -117,11 +117,11 @@ export default function Home() {
             <div
               className="absolute z-0 w-full h-screen pointer-events-none "
               style={{
-                backgroundImage: "url('/hero.png')",
+                backgroundImage: "url('/forest.jpg')",
                 backgroundAttachment: "fixed",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
-                opacity: `${Math.min(20 + scroll / 5, 100)}%`,
+                opacity: `${Math.min(50 + scroll / 5, 100)}%`,
               }}
             ></div>
             <div className="relative flex flex-col justify-center w-full h-screen ">

@@ -7,6 +7,7 @@ import { FAULogo } from "app/core/components/logos/fau"
 import { UZHLogo } from "app/core/components/logos/uzh"
 import { ETHZLogo } from "app/core/components/logos/ethz"
 import { Navbar } from "app/core/components/navbar"
+import Footer from "app/core/components/footer"
 
 type Uni = "fau" | "eth" | "uzh"
 
@@ -106,6 +107,7 @@ const AuthorsPage: NextPage<AuthorsPageProps> = ({ authors }) => {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   )
 }
@@ -130,7 +132,7 @@ export const getStaticProps: GetStaticProps<AuthorsPageProps> = () => {
           name: "Mathias Kraus",
           title: "Professor for Data Analytics, University of Erlangen-Nuremberg",
           social: {
-            linkedIn: " https://de.linkedin.com/in/mathias-kraus-639431113",
+            linkedIn: "https://de.linkedin.com/in/mathias-kraus-639431113",
           },
 
           description:

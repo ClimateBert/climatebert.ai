@@ -65,12 +65,11 @@ export default function About() {
               <li>fact-check climate-related claims,</li>
               <li>
                 assign a climate disclosure category to the climate-related content based on the
-                four categories of the recommendations of the Task Force on Climate-related
-                Financial Disclosures (TCFD) (see{" "}
+                four categories of the recommendations of the{" "}
                 <a href="https://www.fsb-tcfd.org/publications/" target="_blank" rel="noreferrer">
-                  fsb-tcfd.org/publications
+                  Task Force on Climate-related Financial Disclosures (TCFD)
                 </a>
-                ),
+                ,
               </li>
               <li>
                 identify whether climate-related content is a commitment for climate action, and

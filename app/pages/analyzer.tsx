@@ -80,7 +80,7 @@ export default function Analyzer() {
               Coming soon
             </h2>
             <p className="inline text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-400 sm:block sm:text-4xl ">
-              Get notified as soon as we launch!
+              Join the waitlist and be among the first!
             </p>
             <SignupForm />
           </div>

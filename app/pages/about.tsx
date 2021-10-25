@@ -72,6 +72,23 @@ export default function About() {
             analysts might use ClimateBERT to identify the climate risk and opportunities that a
             company
           </p>
+          <h2>Carbon Footprint</h2>
+          <p>
+            Training deep neural networks in general and large language models in particular, has a
+            significant carbon footprint already today. If the LM research trends continue, this
+            detrimental climate impact will increase considerably. We acknowledge that our work is
+            part of this trend. To see how we address this sensitive topic in detail, see the
+            respective section on carbon footprint in our research papers.
+          </p>
+          <p>
+            In general, we would have liked to train and run our models on servers powered by
+            renewable energy. This first best option was unfortunately not available. In order to
+            speed up the energy system transformation required to achieve the global climate
+            targets, we contribute our part by donating Euro 100 to atmosfair. We explicitly refrain
+            from calling this donation a CO<sub>2</sub> compensation, and we refrain from a solution
+            that is based on afforestation. See the appendix of our language model research paper
+            for a more detailed statement on the matter.
+          </p>
         </div>
       </div>
       <Footer />

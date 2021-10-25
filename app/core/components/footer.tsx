@@ -53,17 +53,17 @@ export default function Footer() {
         <div className="container px-4 py-12 mx-auto sm:px-6 lg:px-8">
           <div className="grid w-40 grid-cols-1 gap-4 mx-auto text-coolGray-200 sm:w-full sm:grid-cols-3 lg:gap-24 sm:gap-8 sm md:gap-16 xl:gap-32">
             <Link href="https:ethz.ch">
-              <a target="_blank" className="hover:text-coolGray-100">
+              <a target="_blank" rel="noreferrer" className="hover:text-coolGray-100">
                 <ETHZLogo />
               </a>
             </Link>
             <Link href="https:fau.de">
-              <a target="_blank" className="hover:text-coolGray-100">
+              <a target="_blank" rel="noreferrer" className="hover:text-coolGray-100">
                 <FAULogo />
               </a>
             </Link>
             <Link href="https:uzh.ch">
-              <a target="_blank" className="hover:text-coolGray-100">
+              <a target="_blank" rel="noreferrer" className="hover:text-coolGray-100">
                 <UZHLogo />
               </a>
             </Link>

@@ -17,20 +17,20 @@ export const NewsSection: React.FC = (): JSX.Element => {
       date: "March 12, 2021",
     },
     {
-      title: "climateriskreview.com",
+      title: "Climate Risk Review",
       href: "https://www.climateriskreview.com/p/researchers-set-an-nlp-model-loose",
       description:
         "Researchers set an NLP model loose on TCFD disclosures. It found scant evidence of useful climate information",
       date: "March 4, 2021",
     },
     {
-      title: "thegenevaobserver.com",
+      title: "The Geneva Observer",
       href: "https://www.thegenevaobserver.com/post/beware-greenwashers-a-i-will-spot-you",
       description: "AI and deep learning can instantly spot corporate greenwashing",
       date: "April 15, 2021",
     },
     {
-      title: "nzz.ch",
+      title: "NZZ",
       href: "https://www.nzz.ch/finanzen/fonds/warum-ethische-anlagen-bei-tabakaktien-zu-ueberrenditen-fuehren-ld.1643077",
       description: "Ethische Anleger nützen den Aktienrenditen von umweltschädlichen Firmen",
       date: "September 17, 2021",

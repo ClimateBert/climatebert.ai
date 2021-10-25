@@ -2,10 +2,10 @@ import { GetStaticProps, NextPage } from "next"
 
 import { ETHZLogo } from "app/core/components/logos/ethz"
 import { FAULogo } from "app/core/components/logos/fau"
+import Footer from "app/core/components/footer"
 import Image from "next/image"
 import Link from "next/link"
 import { Navbar } from "app/core/components/navbar"
-import Footer from "app/core/components/footer"
 import React from "react"
 import { UZHLogo } from "app/core/components/logos/uzh"
 
@@ -70,7 +70,7 @@ const AuthorsPage: NextPage<AuthorsPageProps> = ({ authors }) => {
               <footer className="absolute inset-x-0 bottom-0 flex items-center justify-center gap-4 p-4">
                 {author.social.linkedIn ? (
                   <Link href={author.social.linkedIn}>
-                    <a aria-label="LinkedIn">
+                    <a aria-label="LinkedIn" target="_blank" rel="noreferrer">
                       <svg
                         className="w-6 h-6 text-gray-700 fill-current dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400"
                         xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +83,7 @@ const AuthorsPage: NextPage<AuthorsPageProps> = ({ authors }) => {
                 ) : null}
                 {author.social.github ? (
                   <Link href={author.social.github}>
-                    <a aria-label="LinkedIn">
+                    <a aria-label="LinkedIn" target="_blank" rel="noreferrer">
                       <svg
                         className="w-6 h-6 text-gray-700 fill-current hover:text-gray-600 "
                         xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +95,11 @@ const AuthorsPage: NextPage<AuthorsPageProps> = ({ authors }) => {
                   </Link>
                 ) : null}
                 <Link href={author.department}>
-                  <a className="flex items-center justify-center h-6 text-gray-700 hover:text-gray-600 ">
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center justify-center h-6 text-gray-700 hover:text-gray-600 "
+                  >
                     {UniLogo(author.uni)}
                   </a>
                 </Link>

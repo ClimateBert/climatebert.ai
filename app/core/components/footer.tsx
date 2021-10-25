@@ -1,9 +1,9 @@
 import { ETHZLogo } from "./logos/ethz"
 import { FAULogo } from "./logos/fau"
-import { UZHLogo } from "./logos/uzh"
 import { Link } from "blitz"
-import { string } from "zod"
 import React from "react"
+import { UZHLogo } from "./logos/uzh"
+import { string } from "zod"
 
 export default function Footer() {
   const social: { name: string; icon: React.ReactNode; href: string }[] = [
@@ -42,6 +42,10 @@ export default function Footer() {
       name: "Privacy Policy",
       href: "/privacy",
     },
+    {
+      name: "Contact",
+      href: "mailto:hello@climatebert.ai",
+    },
   ]
   return (
     <footer className="bg-coolGray-900">
@@ -49,17 +53,17 @@ export default function Footer() {
         <div className="container px-4 py-12 mx-auto sm:px-6 lg:px-8">
           <div className="grid w-40 grid-cols-1 gap-4 mx-auto text-coolGray-200 sm:w-full sm:grid-cols-3 lg:gap-24 sm:gap-8 sm md:gap-16 xl:gap-32">
             <Link href="https:ethz.ch">
-              <a target="_blank" className="hover:text-coolGray-100">
+              <a target="_blank" rel="noreferrer" className="hover:text-coolGray-100">
                 <ETHZLogo />
               </a>
             </Link>
             <Link href="https:fau.de">
-              <a target="_blank" className="hover:text-coolGray-100">
+              <a target="_blank" rel="noreferrer" className="hover:text-coolGray-100">
                 <FAULogo />
               </a>
             </Link>
             <Link href="https:uzh.ch">
-              <a target="_blank" className="hover:text-coolGray-100">
+              <a target="_blank" rel="noreferrer" className="hover:text-coolGray-100">
                 <UZHLogo />
               </a>
             </Link>
@@ -87,62 +91,5 @@ export default function Footer() {
         </p>
       </div>
     </footer>
-    // <footer className="bg-black">
-    //   <div className="p-16 bg-gradient-to-tr from-black via-transparent to-black">
-    //     <div className="container px-4 py-12 mx-auto sm:px-6 lg:px-8">
-    //       <div className="grid w-40 grid-cols-1 gap-4 mx-auto sm:w-full sm:grid-cols-3 lg:gap-24 sm:gap-8 sm md:gap-16 xl:gap-32 text-coolGray-200">
-    //         <Link href="https://ethz.ch">
-    //           <a className="hover:text-white">
-    //             <ETHZLogo />
-    //           </a>
-    //         </Link>
-    //         <Link href="https://fau.de">
-    //           <a className="hover:text-white">
-    //             <FAULogo />
-    //           </a>
-    //         </Link>
-    //         <Link href="https://uzh.ch">
-    //           <a className="hover:text-white">
-    //             <UZHLogo />
-    //           </a>
-    //         </Link>
-    //       </div>
-    //     </div>
-
-    //     <div className="container px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
-    //       <div className="flex justify-center">
-    //         <nav className="flex flex-col space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
-    //           <Link href="/analyzer">
-    //             <a className="text-coolGray-300 whitespace-nowrap hover:text-coolGray-100">
-    //               Analyzer
-    //             </a>
-    //           </Link>
-    //           <Link href="/language-model">
-    //             <a className="text-coolGray-300 whitespace-nowrap hover:text-coolGray-100">
-    //               Language Model
-    //             </a>
-    //           </Link>
-    //           <Link href="/about">
-    //             <a className="text-coolGray-300 whitespace-nowrap hover:text-coolGray-100">About</a>
-    //           </Link>
-    //           <Link href="/authors">
-    //             <a className="text-coolGray-300 whitespace-nowrap hover:text-coolGray-100">
-    //               Authors
-    //             </a>
-    //           </Link>
-    //           <Link href="mailto:info@climatebert.ai">
-    //             <a className="text-coolGray-300 whitespace-nowrap hover:text-coolGray-100">
-    //               Contact
-    //             </a>
-    //           </Link>
-    //         </nav>
-    //       </div>
-
-    //       <p className="mt-8 text-center text-coolGray-400">
-    //         © {new Date().getFullYear()} All rights reserved.
-    //       </p>
-    //     </div>
-    //   </div>
-    // </footer>
   )
 }

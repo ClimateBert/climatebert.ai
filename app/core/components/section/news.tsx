@@ -40,7 +40,9 @@ export const NewsSection: React.FC = (): JSX.Element => {
     <div className="px-4 pt-16 pb-20 bg-white sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
       <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
         <div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">News</h2>
+          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            ClimateBert in the News
+          </h2>
         </div>
         <div className="grid gap-16 pt-10 mt-6 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
           {posts.map((post) => (

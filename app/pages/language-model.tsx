@@ -84,7 +84,12 @@ export default function LanguageModel() {
             </ol>
           </p>
           <h2>BibTeX entry and citation info</h2>
-          <p>COMING SOON</p>
+          <pre>{`@article{wkbl2021,
+        title={ClimateBERT: A Pretrained Language Model for Climate-Related Text},
+        author={Nicolas Webersinke and Mathias Kraus and Julia Bingler and Markus Leippold},
+        journal={arXiv preprint COMING SOON},
+        year={2021}
+}`}</pre>
         </div>
       </div>
       <Footer />

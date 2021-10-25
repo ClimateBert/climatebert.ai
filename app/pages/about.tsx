@@ -1,4 +1,5 @@
 import { Navbar } from "app/core/components/navbar"
+import Footer from "app/core/components/footer"
 
 export default function About() {
   return (
@@ -15,15 +16,15 @@ export default function About() {
               ClimateBert
             </span>
           </h1>
-          <p className="mt-8 prose prose-lg text-gray-500 prose-blue">
+        </div>
+        <div className="mx-auto mt-6 prose prose-lg text-gray-500 prose-blue">
+          <p>
             <strong>Climatebert.ai</strong> is a joint research project of{" "}
             <strong>Julia Anna Bingler</strong> from ETH Zürich, <strong>Mathias Kraus</strong> and{" "}
             <strong>Nicolas Webersinke</strong> from FAU Erlangen-Nürnberg, and{" "}
             <strong>Markus Leippold</strong> from University of Zürich. For more information about
             the authors and their background, see <a href="/authors">Authors</a>.
           </p>
-        </div>
-        <div className="mx-auto mt-6 prose prose-lg text-gray-500 prose-blue">
           <p>
             Our project started in 2019 with the overall aim to make climate-related unstructured
             textual information from various sources available for research, policy-making,
@@ -51,7 +52,8 @@ export default function About() {
               <li>
                 assign a climate disclosure category to the climate-related content (based on the
                 four categories of the recommendations of the Task Force on Climate-related
-                Financial Disclosures (TCFD), see XYZ)
+                Financial Disclosures (TCFD), see{" "}
+                <a href="https://www.fsb-tcfd.org/publications/">fsb-tcfd.org/publications</a>)
               </li>
               <li>
                 identify whether climate-related content is a commitment for climate action, and
@@ -72,6 +74,7 @@ export default function About() {
           </p>
         </div>
       </div>
+      <Footer />
     </>
   )
 }

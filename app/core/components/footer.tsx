@@ -38,6 +38,10 @@ export default function Footer() {
       name: "Imprint",
       href: "/imprint",
     },
+    {
+      name: "Privacy Policy",
+      href: "/privacy",
+    },
   ]
   return (
     <footer className="bg-coolGray-900">

@@ -104,6 +104,7 @@ const AuthorsPage: NextPage<AuthorsPageProps> = ({ authors }) => {
           </li>
         ))}
       </ul>
+      <Footer />
     </div>
   )
 }

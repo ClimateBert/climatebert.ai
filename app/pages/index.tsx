@@ -10,28 +10,6 @@ import { Stats } from "app/core/components/stats"
 import cn from "classnames"
 import { useMutation } from "blitz"
 
-function useInterval(callback: () => void, delay: number) {
-  const savedCallback = useRef()
-
-  // Remember the latest callback.
-  useEffect(() => {
-    // @ts-ignore
-    savedCallback.current = callback
-  }, [callback])
-
-  // Set up the interval.
-  useEffect(() => {
-    function tick() {
-      // @ts-expect-error
-      savedCallback.current()
-    }
-    if (delay !== null) {
-      let id = setInterval(tick, delay)
-      return () => clearInterval(id)
-    }
-  }, [delay])
-}
-
 const SignupForm: React.FC = (): JSX.Element => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<Error | null>(null)
@@ -62,8 +40,8 @@ const SignupForm: React.FC = (): JSX.Element => {
           onClick={async () => {
             setLoading(true)
             try {
-              const { rank } = await signup({ email })
-              setSuccess(`You are number ${rank.toLocaleString("de")} on the waitlist`)
+              await signup({ email })
+              setSuccess(`Successfully registered. We will get back to you soon!`)
             } catch (err) {
               setError(err.message)
             } finally {
@@ -99,13 +77,6 @@ export default function Home() {
     }
   })
 
-  const [tokens, setTokens] = useState(Math.floor(Date.now() / 1_000_000))
-  const [requests, setRequests] = useState(Math.floor(Date.now() / 234_567_800))
-  useInterval(() => {
-    setTokens(tokens + Math.floor(Math.random() * 10))
-    setRequests(requests + Math.floor(Math.random() * 1.1))
-  }, 100)
-
   return (
     <div className=" bg-gray-50">
       <div className="h-screen">
@@ -125,11 +96,11 @@ export default function Home() {
               }}
             ></div>
             <div className="relative flex flex-col justify-center w-full h-screen ">
-              <div className="flex flex-col justify-center space-y-4 text-center md:text-left md:space-y-6 lg:space-y-8 xl:space-y-16">
+              <div className="flex flex-col justify-center space-y-4 text-center md:text-left md:space-y-6 lg:space-y-8">
                 <h2 className="p-2 text-xl text-center text-transparent bg-gradient-to-r bg-clip-text from-coolGray-800 via-coolGray-600 to-coolGray-800">
                   AI powered climate-related corporate disclosure analytics
                 </h2>
-                <h1 className="flex flex-col gap-3 py-4 -my-4 font-black text-center text-transparent bg-clip-text bg-gradient-to-tr from-black via-coolGray-800 to-black text-7xl sm:text-8xl md:text-9xl">
+                <h1 className="flex flex-col gap-3 py-4 -my-4 font-black text-center text-coolGray-900 text-7xl sm:text-8xl md:text-9xl">
                   <span>Analyze.</span>
                   <span>Reflect.</span>
                   <span>Engage.</span>
@@ -143,10 +114,10 @@ export default function Home() {
         </section>
       </div>
       <main className="relative pt-16 pb-32 space-y-32 overflow-hidden bg-white">
-        <Stats requests={requests} tokens={tokens} />
+        <Stats />
         <Section
           title="Transparency to enable action"
-          description="We allow corporate stakeholders to assess all types of climate-related corporate disclosures in an efficient and scalable way. This increases transparency massively and enables climate action."
+          description="We allow corporate stakeholders to assess all types of climate-related corporate disclosures in an efficient and scalable way. This increases transparency massively, and enables climate action."
           icon={<CubeTransparentIcon />}
           image="/iceland.jpg"
         />

@@ -10,7 +10,8 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        <link rel="stylesheet" href="/inter.css" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
         <DocumentHead />
         <body>
           <Main />

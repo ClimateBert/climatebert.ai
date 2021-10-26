@@ -17,6 +17,7 @@ specifiers:
   eslint: 7.32.0
   husky: 6.0.0
   lint-staged: 10.5.4
+  next-plausible: 3.0.0
   postcss: 8.3.11
   prettier: 2.4.1
   prettier-plugin-prisma: 0.15.0
@@ -40,6 +41,7 @@ dependencies:
   "@supabase/supabase-js": 1.25.1
   autoprefixer: 10.3.7_postcss@8.3.11
   classnames: 2.3.1
+  next-plausible: 3.0.0_ceea2d44aceb2ba32350f50f2a522992
   postcss: 8.3.11
   react: 18.0.0-alpha-4298ddbc5-20211023
   react-animated-number: 0.4.4_2ced398083923aa365dca9fe160f2852
@@ -9714,6 +9716,20 @@ packages:
       }
     engines: { node: ">=10" }
     dev: true
+
+  /next-plausible/3.0.0_ceea2d44aceb2ba32350f50f2a522992:
+    resolution:
+      {
+        integrity: sha512-9G26U29+VgpJQFO5Lcg1uzQcLDDYMlPbqWj3F5pYwzVrr/dN1GgxQPvxAJ+TlsZJFyBvnGLTBHHmEe6lG0+mIQ==,
+      }
+    peerDependencies:
+      next: ^11.1.0
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      react: 18.0.0-alpha-4298ddbc5-20211023
+      react-dom: 18.0.0-alpha-4298ddbc5-20211023_2ced398083923aa365dca9fe160f2852
+    dev: false
 
   /next-tick/1.0.0:
     resolution: { integrity: sha1-yobR/ogoFpsBICCOPchCS524NCw= }

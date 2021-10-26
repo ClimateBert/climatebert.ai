@@ -29,12 +29,11 @@ export default function LanguageModel() {
             </a>{" "}
             as starting point, the ClimateBERT Language Model is additionally pretrained on a text
             corpus comprising climate-related research paper abstracts, corporate and general news
-            and reports from companies. The underlying methodology can be found in our language
-            model research paper (see{" "}
-            <a href="#" target="_blank">
-              COMING SOON
+            and reports from companies. The underlying methodology can be found in our{" "}
+            <a href="https://arxiv.org/abs/2110.12010" target="_blank" rel="noreferrer">
+              language model research paper
             </a>
-            ).
+            .
           </p>
           <h2>Language Model Weights</h2>
           <p>
@@ -86,8 +85,8 @@ export default function LanguageModel() {
           <h2>BibTeX entry and citation info</h2>
           <pre>{`@article{wkbl2021,
         title={ClimateBERT: A Pretrained Language Model for Climate-Related Text},
-        author={Nicolas Webersinke and Mathias Kraus and Julia Bingler and Markus Leippold},
-        journal={arXiv preprint COMING SOON},
+        author={Webersinke, Nicolas and Kraus, Mathias and Bingler, Julia and Leippold, Markus},
+        journal={arXiv preprint arXiv:2110.12010},
         year={2021}
 }`}</pre>
         </div>

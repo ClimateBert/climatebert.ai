@@ -125,7 +125,7 @@ export const getStaticProps: GetStaticProps<AuthorsPageProps> = () => {
             "Julia Anna Bingler is Doctoral Researcher at the Center of Economic Research at ETH Zurich. Her research focuses on climate transition risk metrics and the decision-relevance of TCFD-related disclosures. Prior to joining ETH in 2019, she has been working on sustainable finance and climate policy in various positions, both inside and outside academia. She regularly advises stakeholders as an expert on corporate climate-related risk analysis and disclosures, on national and international climate policy processes, and participated in various UNFCCC climate conferences as an observer on finance-related topics.",
 
           department:
-            "https://resec.ethz.ch/people/author-detail.MjQ5OTkw.TGlzdC8zMDI2LC0yMDk5NTM5OTY=.html",
+            "https://resec.ethz.ch/people/person-detail.MjQ5OTkw.TGlzdC8zMDI2LC0yMDk5NTM5OTY=.html",
           image: "/authors/julia_anna_bingler.jpg",
           uni: "eth",
         },

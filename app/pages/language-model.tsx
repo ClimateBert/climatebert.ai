@@ -1,13 +1,24 @@
+import { ClipboardCheckIcon, ClipboardCopyIcon, ClipboardListIcon } from "@heroicons/react/outline"
 import Footer from "app/core/components/footer"
 import { Navbar } from "app/core/components/navbar"
-
+import cn from "classnames"
+import { useState } from "react"
 export default function LanguageModel() {
+  const citation = `@article{wkbl2021,
+  title={ClimateBERT: A Pretrained Language Model for Climate-Related Text},
+  author={Webersinke, Nicolas and Kraus, Mathias and Bingler, Julia and Leippold, Markus},
+  journal={arXiv preprint arXiv:2110.12010},
+  year={2021}
+}`
+
+  const [copied, setCopied] = useState(false)
+
   return (
     <>
       <Navbar />
 
       <div className="relative px-4 py-8 sm:px-6 lg:px-8 lg:py-20">
-        <div className="mx-auto text-lg max-w-prose">
+        <div className="mx-auto text-lg">
           <h1>
             <span className="block text-base font-semibold tracking-wide text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-400">
               Language Model
@@ -83,12 +94,40 @@ export default function LanguageModel() {
             </ol>
           </p>
           <h2>BibTeX entry and citation info</h2>
-          <pre>{`@article{wkbl2021,
-        title={ClimateBERT: A Pretrained Language Model for Climate-Related Text},
-        author={Webersinke, Nicolas and Kraus, Mathias and Bingler, Julia and Leippold, Markus},
-        journal={arXiv preprint arXiv:2110.12010},
-        year={2021}
-}`}</pre>
+          <div className="flex flex-col items-center justify-center">
+            <pre>{citation}</pre>
+            <button
+              aria-label="Copy to clipboard"
+              className={cn(
+                "p-2 transition duration-200 transform text-primary-600 focus:outline-none hover:text-coolGray-900",
+                {
+                  "text-white": copied,
+                  "text-coolGray-700": !copied,
+                }
+              )}
+              onClick={(e) => {
+                const tmp = document.createElement("textarea")
+                tmp.innerText = citation
+                document.body.appendChild(tmp)
+                tmp.select()
+                document.execCommand("copy")
+                e.currentTarget.focus()
+                setCopied(true)
+              }}
+            >
+              {copied ? (
+                <div className="flex items-center gap-2 text-coolGray-600">
+                  <ClipboardCheckIcon className="w-6 h-6" />
+                  <span className="whitespace-nowrap">Copied to clipboard</span>
+                </div>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <ClipboardCopyIcon className="w-6 h-6" />
+                  <span className="whitespace-nowrap">Copy citation</span>
+                </div>
+              )}
+            </button>
+          </div>
         </div>
       </div>
       <Footer />

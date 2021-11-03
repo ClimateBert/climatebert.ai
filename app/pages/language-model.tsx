@@ -113,6 +113,7 @@ export default function LanguageModel() {
                 document.execCommand("copy")
                 e.currentTarget.focus()
                 setCopied(true)
+                tmp.parentNode?.removeChild(tmp)
               }}
             >
               {copied ? (

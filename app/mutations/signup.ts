@@ -9,6 +9,7 @@ const signup = z.object({
 
 export default resolver.pipe(resolver.zod(signup), async ({ email }) => {
   const supabase = createClient(env.require("SUPABASE_URL"), env.require("SUPABASE_KEY"))
+  supabase.from("ac").insert([{ abc: "def" }], {})
 
   const { error } = await supabase.from("newsletter").insert([{ email }])
   if (error && !error.message.includes("newsletter_pkey")) {

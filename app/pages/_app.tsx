@@ -6,6 +6,7 @@ import {
   ErrorComponent,
   ErrorFallbackProps,
   useQueryErrorResetBoundary,
+  Head,
 } from "blitz"
 import PlausibleProvider from "next-plausible"
 
@@ -14,6 +15,13 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <PlausibleProvider domain="climatebert.ai">
+      <Head>
+        <title>AI powered climate-related corporate disclosure analytics</title>
+        <meta
+          name="description"
+          content="AI powered climate-related corporate disclosure analytics"
+        />
+      </Head>
       <ErrorBoundary
         FallbackComponent={RootErrorFallback}
         onReset={useQueryErrorResetBoundary().reset}

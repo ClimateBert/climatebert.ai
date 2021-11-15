@@ -1,6 +1,5 @@
 import { CubeTransparentIcon, LightningBoltIcon, VariableIcon } from "@heroicons/react/outline"
-import React, { useEffect, useRef, useState } from "react"
-
+import React, { useEffect, useState } from "react"
 import Footer from "app/core/components/footer"
 import { Navbar } from "app/core/components/navbar"
 import { NewsSection } from "app/core/components/section/news"
@@ -8,7 +7,7 @@ import { Section } from "app/core/components/section"
 import Signup from "app/mutations/signup"
 import { Stats } from "app/core/components/stats"
 import cn from "classnames"
-import { useMutation } from "blitz"
+import { useMutation, Image } from "blitz"
 
 const SignupForm: React.FC = (): JSX.Element => {
   const [loading, setLoading] = useState(false)
@@ -83,31 +82,33 @@ export default function Home() {
         <div className="fixed inset-x-0 top-0 z-50">
           <Navbar />
         </div>
-        <section className="relative z-10 ">
-          <div className="relative w-full h-full">
-            <div
-              className="absolute z-0 w-full h-screen pointer-events-none "
-              style={{
-                backgroundImage: "url('/forest.jpg')",
-                backgroundAttachment: "fixed",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                opacity: `${Math.min(50 + scroll / 5, 100)}%`,
-              }}
-            ></div>
-            <div className="relative flex flex-col justify-center w-full h-screen ">
-              <div className="flex flex-col justify-center space-y-4 text-center md:text-left md:space-y-6 lg:space-y-8">
-                <h2 className="p-2 text-xl text-center text-transparent bg-gradient-to-r bg-clip-text from-coolGray-800 via-coolGray-600 to-coolGray-800">
-                  AI powered climate-related corporate disclosure analytics
-                </h2>
-                <h1 className="flex flex-col gap-3 py-4 -my-4 font-black text-center text-coolGray-900 text-7xl sm:text-8xl md:text-9xl">
-                  <span>Analyze.</span>
-                  <span>Reflect.</span>
-                  <span>Engage.</span>
-                </h1>
-                <div className="mt-12 text-black">
-                  <SignupForm />
-                </div>
+        <section className="z-0 ">
+          <div
+            className="fixed w-screen h-screen"
+            style={{
+              opacity: `${Math.min(50 + scroll / 5, 100)}%`,
+            }}
+          >
+            <Image
+              src="/forest.jpg"
+              alt="Forest background"
+              layout="fill"
+              objectFit="cover"
+              className="pointer-events-none"
+            />
+          </div>
+          <div className="relative flex flex-col justify-center w-full h-screen ">
+            <div className="flex flex-col justify-center space-y-4 text-center md:text-left md:space-y-6 lg:space-y-8">
+              <h2 className="p-2 text-xl text-center text-transparent bg-gradient-to-r bg-clip-text from-coolGray-800 via-coolGray-600 to-coolGray-800">
+                AI powered climate-related corporate disclosure analytics
+              </h2>
+              <h1 className="flex flex-col gap-3 py-4 -my-4 font-black text-center text-coolGray-900 text-7xl sm:text-8xl md:text-9xl">
+                <span>Analyze.</span>
+                <span>Reflect.</span>
+                <span>Engage.</span>
+              </h1>
+              <div className="mt-12 text-black">
+                <SignupForm />
               </div>
             </div>
           </div>

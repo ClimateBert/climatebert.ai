@@ -3,7 +3,6 @@ import { FAULogo } from "./logos/fau"
 import { Link } from "blitz"
 import React from "react"
 import { UZHLogo } from "./logos/uzh"
-import { string } from "zod"
 
 export default function Footer() {
   const social: { name: string; icon: React.ReactNode; href: string }[] = [
@@ -48,7 +47,7 @@ export default function Footer() {
     },
   ]
   return (
-    <footer className="bg-coolGray-900">
+    <footer className="relative bg-coolGray-900">
       <div className="px-4 py-12 mx-auto overflow-hidden max-w-7xl sm:px-6 lg:px-8">
         <div className="container px-4 py-12 mx-auto sm:px-6 lg:px-8">
           <div className="grid w-40 grid-cols-1 gap-4 mx-auto text-coolGray-200 sm:w-full sm:grid-cols-3 lg:gap-24 sm:gap-8 sm md:gap-16 xl:gap-32">

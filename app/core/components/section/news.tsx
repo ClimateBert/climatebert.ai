@@ -1,4 +1,5 @@
 import { ArrowNarrowRightIcon } from "@heroicons/react/outline"
+import Link from "next/link"
 
 export const NewsSection: React.FC = (): JSX.Element => {
   const posts = [
@@ -55,17 +56,18 @@ export const NewsSection: React.FC = (): JSX.Element => {
                 <p className="mt-3 text-base text-gray-500">{post.description}</p>
               </a>
               <div className="mt-3">
-                <a
-                  href={post.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center space-x-2 text-base font-semibold "
-                >
-                  <span className="text-transparent uppercase bg-clip-text bg-gradient-to-tr from-primary-600 to-secondary-400">
-                    Read more
-                  </span>
-                  <ArrowNarrowRightIcon className="w-4 h-4 fill-current text-secondary-400" />
-                </a>
+                <Link href={post.href}>
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center space-x-2 text-base font-semibold "
+                  >
+                    <span className="text-transparent uppercase bg-clip-text bg-gradient-to-tr from-primary-600 to-secondary-400">
+                      Read Article
+                    </span>
+                    <ArrowNarrowRightIcon className="w-4 h-4 fill-current text-secondary-400" />
+                  </a>
+                </Link>
               </div>
             </div>
           ))}

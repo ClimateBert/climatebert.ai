@@ -107,7 +107,7 @@ export default function Home() {
                 <span>Reflect.</span>
                 <span>Engage.</span>
               </h1>
-              <div className="mt-12 text-black">
+              <div className="px-4 mt-12 text-black">
                 <SignupForm />
               </div>
             </div>

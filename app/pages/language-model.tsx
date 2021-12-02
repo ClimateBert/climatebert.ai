@@ -95,7 +95,7 @@ export default function LanguageModel() {
           </p>
           <h2>BibTeX entry and citation info</h2>
           <div className="flex flex-col items-center justify-center">
-            <pre>{citation}</pre>
+            <pre className="container">{citation}</pre>
             <button
               aria-label="Copy to clipboard"
               className={cn(

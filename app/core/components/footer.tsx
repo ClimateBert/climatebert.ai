@@ -16,7 +16,7 @@ export default function Footer() {
       href: "https://github.com/ClimateBert",
     },
   ]
-  const navigation: { name: string; href: string }[] = [
+  const navigation: { name: string; href: string; external?: boolean }[] = [
     {
       name: "Analyzer",
       href: "/analyzer",
@@ -44,6 +44,7 @@ export default function Footer() {
     {
       name: "Contact",
       href: "mailto:hello@climatebert.ai",
+      external: true,
     },
   ]
   return (
@@ -71,7 +72,13 @@ export default function Footer() {
         <nav className="flex flex-wrap justify-center -mx-5 -my-2" aria-label="Footer">
           {navigation.map((item) => (
             <div key={item.name} className="px-5 py-2">
-              <a href={item.href} className="text-base text-gray-400 hover:text-gray-100">
+              {/* eslint-disable-next-line */}
+              <a
+                href={item.href}
+                className="text-base text-gray-400 hover:text-gray-100"
+                target={item.external ? "_blank" : "_self"}
+                rel={item.external ? "noreferrer" : undefined}
+              >
                 {item.name}
               </a>
             </div>

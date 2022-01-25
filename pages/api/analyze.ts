@@ -54,7 +54,7 @@ async function warmUp(): Promise<void> {
     try {
       console.log("Warming up", i);
       await Promise.all(models.map((model) => getInference(model, ".")));
-      return;
+      break;
     } catch (err) {
       console.log("warmup", i, err);
       await new Promise((res) => setTimeout(res, 1000));

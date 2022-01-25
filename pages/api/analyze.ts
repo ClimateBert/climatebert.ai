@@ -18,10 +18,15 @@ const headers = {
   Authorization: `Bearer ${env.require("HUGGINGFACE_API_KEY")}`,
 };
 
-type InferenceResponse = {
-  label: string;
-  score: number;
-}[][];
+type InferenceResponse =
+  | {
+      label: string;
+      score: number;
+    }[][]
+  | {
+      error: string;
+      estimated_time?: number;
+    };
 
 async function getInference(
   model: string,
@@ -50,23 +55,18 @@ async function warmUp(): Promise<void> {
     "distilroberta-base-climate-tcfd",
   ];
 
-  for (let i = 0; i <= 30; i++) {
-    try {
-      console.log("Warming up", i);
-      console.log(
-        JSON.stringify(
-          await Promise.all(models.map((model) => getInference(model, "."))),
-          null,
-          2
-        )
-      );
-      return;
-    } catch (err) {
-      console.log("warmup", i, err);
-      await new Promise((res) => setTimeout(res, 1000));
-    }
-  }
-  throw new Error("Unable to warm up models in time");
+  await Promise.all(
+    models.map(async (model) => {
+      for (let i = 0; i <= 30; i++) {
+        const r = await getInference(model, ".");
+        if (!("error" in r)) {
+          return r;
+        }
+        await new Promise((res) => setTimeout(res, 1000));
+      }
+      throw new Error("Unable to warm up models in time");
+    })
+  );
 }
 
 async function handler(

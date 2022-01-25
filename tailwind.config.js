@@ -1,10 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable global-require */
-const colors = require("tailwindcss/colors")
-const defaultTheme = require("tailwindcss/defaultTheme")
+const colors = require("tailwindcss/colors");
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  purge: ["./**/*.{tsx,html}"],
+  content: ["./**/*.{tsx,html}"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
@@ -32,4 +30,4 @@ module.exports = {
     extend: {},
   },
   plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
-}
+};

@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=fallback");
+
+@tailwind base;
+@tailwind components;
+
+// Additional styles
+@import "additional-styles/utility-patterns.scss";
+
+@tailwind utilities;

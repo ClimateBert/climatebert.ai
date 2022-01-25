@@ -53,8 +53,14 @@ async function warmUp(): Promise<void> {
   for (let i = 0; i <= 30; i++) {
     try {
       console.log("Warming up", i);
-      await Promise.all(models.map((model) => getInference(model, ".")));
-      break;
+      console.log(
+        JSON.stringify(
+          await Promise.all(models.map((model) => getInference(model, "."))),
+          null,
+          2
+        )
+      );
+      return;
     } catch (err) {
       console.log("warmup", i, err);
       await new Promise((res) => setTimeout(res, 1000));
@@ -71,19 +77,20 @@ async function handler(
     const { text } = signupValidation.parse(req.body);
 
     await warmUp();
-    const isClimateRelatedRes = await getInference(
+    const isClimateRelatedPromise = getInference(
       "distilroberta-base-climate-detector",
       text
     );
 
     const isClimateRelated =
-      (isClimateRelatedRes[0]?.find((x) => x.label === "yes")?.score ?? 0) >
-      0.5;
+      ((await isClimateRelatedPromise)[0]?.find((x) => x.label === "yes")
+        ?.score ?? 0) > 0.5;
 
     if (!isClimateRelated) {
       return res.json({ isClimateRelated });
     }
     const promises = {
+      detector: isClimateRelatedPromise,
       sentiment: getInference("distilroberta-base-climate-sentiment", text),
       commitment: getInference("distilroberta-base-climate-commitment", text),
       specificity: getInference("distilroberta-base-climate-specificity", text),
@@ -95,7 +102,6 @@ async function handler(
         return { model, inference: (await promise)[0]! };
       })
     );
-    console.log(JSON.stringify(inferences, null, 2));
     res.json({ inferences, isClimateRelated });
   } catch (err) {
     res.status(500);

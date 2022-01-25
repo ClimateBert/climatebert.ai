@@ -48,15 +48,15 @@ export default function Footer() {
     },
   ];
   return (
-    <footer className="relative bg-coolGray-900">
+    <footer className="relative bg-slate-900">
       <div className="px-4 py-12 mx-auto overflow-hidden max-w-7xl sm:px-6 lg:px-8">
         <div className="container px-4 py-12 mx-auto sm:px-6 lg:px-8">
-          <div className="grid w-40 grid-cols-1 gap-4 mx-auto text-coolGray-200 sm:w-full sm:grid-cols-3 lg:gap-24 sm:gap-8 sm md:gap-16 xl:gap-32">
+          <div className="grid w-40 grid-cols-1 gap-4 mx-auto text-slate-200 sm:w-full sm:grid-cols-3 lg:gap-24 sm:gap-8 sm md:gap-16 xl:gap-32">
             <Link href="https:ethz.ch">
               <a
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-coolGray-100"
+                className="hover:text-slate-100"
               >
                 <ETHZLogo />
               </a>
@@ -65,7 +65,7 @@ export default function Footer() {
               <a
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-coolGray-100"
+                className="hover:text-slate-100"
               >
                 <FAULogo />
               </a>
@@ -74,7 +74,7 @@ export default function Footer() {
               <a
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-coolGray-100"
+                className="hover:text-slate-100"
               >
                 <UZHLogo />
               </a>
@@ -90,7 +90,7 @@ export default function Footer() {
               {/* eslint-disable-next-line */}
               <a
                 href={item.href}
-                className="text-base text-gray-400 hover:text-gray-100"
+                className="text-base text-slate-400 hover:text-slate-100"
                 target={item.external ? "_blank" : "_self"}
                 rel={item.external ? "noreferrer" : undefined}
               >
@@ -104,14 +104,14 @@ export default function Footer() {
             <a
               key={item.name}
               href={item.href}
-              className="text-gray-400 hover:text-gray-100"
+              className="text-slate-400 hover:text-slate-100"
             >
               <span className="sr-only">{item.name}</span>
               <div className="w-6 h-6 fill-current">{item.icon}</div>
             </a>
           ))}
         </div>
-        <p className="mt-8 text-base text-center text-gray-400">
+        <p className="mt-8 text-base text-center text-slate-400">
           &copy; {new Date().getUTCFullYear()} All rights reserved.
         </p>
       </div>

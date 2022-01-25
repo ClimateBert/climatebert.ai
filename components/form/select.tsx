@@ -70,7 +70,7 @@ export const Select: React.FC<SelectProps> = ({
         }`}
       >
         <div className="w-full">
-          <div className="font-semibold text-gray-800">{label}</div>
+          <div className="font-semibold text-slate-800">{label}</div>
           <div className="text-sm">{description}</div>
         </div>
 

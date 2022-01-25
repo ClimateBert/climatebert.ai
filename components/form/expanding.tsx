@@ -84,7 +84,7 @@ export const Expanding: React.FC<ExpandingProps> = ({
                 }`}
               >
                 <div className="w-full">
-                  <div className="font-semibold text-gray-800">Key</div>
+                  <div className="font-semibold text-slate-800">Key</div>
                 </div>
 
                 <div className="flex items-center w-full ">
@@ -117,7 +117,7 @@ export const Expanding: React.FC<ExpandingProps> = ({
                 }`}
               >
                 <div className="w-full">
-                  <div className="font-semibold text-gray-800">Value</div>
+                  <div className="font-semibold text-slate-800">Value</div>
                 </div>
 
                 <div className="flex items-center w-full ">
@@ -147,7 +147,7 @@ export const Expanding: React.FC<ExpandingProps> = ({
             >
               <button
                 type="button"
-                className="py-2 hover:text-gray-600 "
+                className="py-2 hover:text-slate-600 "
                 onClick={() => {
                   if (i === keys.fields.length - 1) {
                     keys.append({});

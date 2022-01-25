@@ -44,7 +44,7 @@ export interface AuthorsPageProps {
 }
 const AuthorsPage: NextPage<AuthorsPageProps> = ({ authors }) => {
   return (
-    <div className="bg-gray-50">
+    <div className="bg-slate-50">
       <Navbar />
       <ul className="container grid grid-cols-1 gap-10 p-8 mx-auto mt-10 md:grid-cols-2 xl:grid-cols-4">
         {authors.map((author) => (
@@ -63,11 +63,11 @@ const AuthorsPage: NextPage<AuthorsPageProps> = ({ authors }) => {
                 />
               </div>
               <div className="relative p-4 mt-4 mb-16">
-                <h2 className="text-2xl font-bold text-gray-800">
+                <h2 className="text-2xl font-bold text-slate-800">
                   {author.name}
                 </h2>
-                <h3 className="mt-2 italic text-gray-600">{author.title}</h3>
-                <p className="mt-6 text-gray-500 dark:text-gray-400 lg:max-w-md">
+                <h3 className="mt-2 italic text-slate-600">{author.title}</h3>
+                <p className="mt-6 text-slate-500 dark:text-slate-400 lg:max-w-md">
                   {author.description}
                 </p>
               </div>
@@ -77,7 +77,7 @@ const AuthorsPage: NextPage<AuthorsPageProps> = ({ authors }) => {
                   <Link href={author.social.linkedIn}>
                     <a aria-label="LinkedIn" target="_blank" rel="noreferrer">
                       <svg
-                        className="w-6 h-6 text-gray-700 fill-current dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400"
+                        className="w-6 h-6 text-slate-700 fill-current dark:text-slate-200 hover:text-slate-600 dark:hover:text-slate-400"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512"
                       >
@@ -90,7 +90,7 @@ const AuthorsPage: NextPage<AuthorsPageProps> = ({ authors }) => {
                   <Link href={author.social.github}>
                     <a aria-label="LinkedIn" target="_blank" rel="noreferrer">
                       <svg
-                        className="w-6 h-6 text-gray-700 fill-current hover:text-gray-600 "
+                        className="w-6 h-6 text-slate-700 fill-current hover:text-slate-600 "
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512"
                       >
@@ -103,7 +103,7 @@ const AuthorsPage: NextPage<AuthorsPageProps> = ({ authors }) => {
                   <a
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-center h-6 text-gray-700 hover:text-gray-600 "
+                    className="flex items-center justify-center h-6 text-slate-700 hover:text-slate-600 "
                   >
                     {UniLogo(author.uni)}
                   </a>

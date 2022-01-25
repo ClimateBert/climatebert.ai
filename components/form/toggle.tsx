@@ -51,17 +51,17 @@ export const Toggle: React.FC<InputProps> = ({
       <li className="flex items-center justify-between py-3 ">
         {/* Left */}
         <div>
-          <div className="font-semibold text-gray-800">{label}</div>
+          <div className="font-semibold text-slate-800">{label}</div>
           <div className="text-sm">{description}</div>
         </div>
         {/* Right */}
         <div className="flex items-center ml-4">
-          <div className="mr-2 text-sm italic text-gray-400">
+          <div className="mr-2 text-sm italic text-slate-400">
             {state ? "On" : "Off"}
           </div>
           <div className="form-switch" onClick={() => setValue(name, !state)}>
             <input {...register(name)} type="checkbox" className="sr-only" />
-            <label className="bg-gray-400" htmlFor={name}>
+            <label className="bg-slate-400" htmlFor={name}>
               <span className="bg-white shadow-sm" aria-hidden="true"></span>
               <span className="sr-only">{label}</span>
             </label>

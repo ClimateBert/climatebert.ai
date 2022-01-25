@@ -26,12 +26,12 @@ export default function LanguageModel() {
             <span className="block text-base font-semibold tracking-wide text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-400">
               Language Model
             </span>
-            <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">
+            <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-slate-900 sm:text-4xl">
               ClimateBERT
             </span>
           </h1>
         </div>
-        <div className="mx-auto mt-6 prose prose-lg text-gray-500 prose-blue">
+        <div className="mx-auto mt-6 prose prose-lg text-slate-500 prose-blue">
           <p>
             ClimateBERT is the name of our transformer-based language model
             adapted for use for climate-related text and has been fine-tuned on
@@ -112,10 +112,10 @@ export default function LanguageModel() {
             <button
               aria-label="Copy to clipboard"
               className={cn(
-                "p-2 transition duration-200 transform text-primary-600 focus:outline-none hover:text-coolGray-900",
+                "p-2 transition duration-200 transform text-primary-600 focus:outline-none hover:text-slate-900",
                 {
                   "text-white": copied,
-                  "text-coolGray-700": !copied,
+                  "text-slate-700": !copied,
                 }
               )}
               onClick={(e) => {
@@ -130,7 +130,7 @@ export default function LanguageModel() {
               }}
             >
               {copied ? (
-                <div className="flex items-center gap-2 text-coolGray-600">
+                <div className="flex items-center gap-2 text-slate-600">
                   <ClipboardCheckIcon className="w-6 h-6" />
                   <span className="whitespace-nowrap">Copied to clipboard</span>
                 </div>

@@ -30,10 +30,10 @@ export const Section: React.FC<SectionProps> = ({
             </span>
           </div>
           <div className="mt-6">
-            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">
+            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
               {title}
             </h2>
-            <p className="mt-4 text-lg text-gray-500">{description}</p>
+            <p className="mt-4 text-lg text-slate-500">{description}</p>
           </div>
         </div>
       </div>

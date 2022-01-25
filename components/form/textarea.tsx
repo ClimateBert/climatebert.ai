@@ -55,7 +55,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
   return (
     <div className="flex flex-col items-center justify-between gap-4 py-3 ">
       <div className="w-full">
-        <div className="font-semibold text-gray-800">{label}</div>
+        <div className="font-semibold text-slate-800">{label}</div>
         <div className="text-sm">{description}</div>
       </div>
 
@@ -68,7 +68,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
             {...register(name)}
             placeholder={placeholder}
             autoFocus={autoFocus}
-            className="w-full border border-gray-200 rounded-sm form-input bg-gray-50 focus:outline-none focus:ring-0 focus:ring-transparent focus:shadow-sm"
+            className="w-full border rounded border-slate-200 bg-slate-50 focus:outline-none focus:ring-transparent focus:shadow-sm"
           />
           {error ? (
             <div className="flex items-center pt-2 pb-4 space-x-1 text-sm text-red-500">

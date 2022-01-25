@@ -1,10 +1,6 @@
 import { Navbar } from "components/navbar";
-// import Signup from "app/mutations/signup"
-import cn from "classnames";
-// import { useMutation } from "blitz"
 import Footer from "components/footer";
 import { ExclamationIcon } from "@heroicons/react/outline";
-import Link from "next/link";
 import { Res as InferenceResponse } from "./api/analyze";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,14 +13,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import React, { Fragment, useEffect, useState } from "react";
 
-import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfigFile from "tailwind.config.js";
 import { Button } from "components/button";
-
-export const tailwindConfig = () => {
-  // Tailwind config
-  return resolveConfig(tailwindConfigFile);
-};
 
 const validation = z.object({
   text: z.string().min(1).max(5000),
@@ -53,7 +42,7 @@ const Analyzer: NextPage = () => {
               <div className="px-4 sm:px-6 lg:px-8 py-8 lg:grow lg:pr-8 xl:pr-16 2xl:ml-[80px]">
                 <div className="mb-8 sm:flex sm:justify-between sm:items-center">
                   <div className="mb-4 sm:mb-0">
-                    <h1 className="text-2xl font-bold text-gray-800 md:text-3xl">
+                    <h1 className="text-2xl font-bold text-slate-800 md:text-3xl">
                       Analyze a paragraph
                     </h1>
                   </div>
@@ -114,7 +103,7 @@ const Analyzer: NextPage = () => {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                       >
-                        <Dialog.Overlay className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" />
+                        <Dialog.Overlay className="fixed inset-0 transition-opacity bg-slate-500 bg-opacity-75" />
                       </Transition.Child>
 
                       {/* This element is to trick the browser into centering the modal contents. */}
@@ -137,7 +126,7 @@ const Analyzer: NextPage = () => {
                           <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
                             <button
                               type="button"
-                              className="text-gray-400 hover:text-gray-500 focus:outline-none"
+                              className="text-slate-400 hover:text-slate-500 focus:outline-none"
                               onClick={() => setResponse(null)}
                             >
                               <span className="sr-only">Close</span>
@@ -154,12 +143,12 @@ const Analyzer: NextPage = () => {
                             <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                               <Dialog.Title
                                 as="h3"
-                                className="text-lg font-medium leading-6 text-gray-900"
+                                className="text-lg font-medium leading-6 text-slate-900"
                               >
                                 Not climate related
                               </Dialog.Title>
                               <div className="mt-2">
-                                <p className="text-sm text-gray-500">
+                                <p className="text-sm text-slate-500">
                                   It looks like your text is not climate
                                   related, please try a different paragraph.
                                 </p>
@@ -201,8 +190,8 @@ const Analyzer: NextPage = () => {
                         >
                           <div className="relative w-screen">
                             <div className="flex flex-col h-full bg-white">
-                              <header className="px-5 py-4 border-b border-gray-100">
-                                <h2 className="font-semibold text-gray-800">
+                              <header className="px-5 py-4 border-b border-slate-100">
+                                <h2 className="font-semibold text-slate-800">
                                   Inference Results
                                 </h2>
                               </header>
@@ -212,7 +201,7 @@ const Analyzer: NextPage = () => {
                                   return (
                                     <div key={model.model}>
                                       <header className="px-5 py-4">
-                                        <h2 className="font-semibold text-gray-800 capitalize">
+                                        <h2 className="font-semibold text-slate-800 capitalize">
                                           {model.model}
                                         </h2>
                                       </header>

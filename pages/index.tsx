@@ -10,7 +10,6 @@ import { NewsSection } from "components/section/news";
 import { Section } from "components/section";
 // import Signup from "app/mutations/signup"
 import { Stats } from "components/stats";
-import cn from "classnames";
 // import { useMutation, Image } from "blitz"
 import Image from "next/image";
 import { Button } from "components/button";
@@ -41,7 +40,7 @@ const SignupForm: React.FC = (): JSX.Element => {
           type="email"
           name="email"
           id="email"
-          className="flex-grow block w-full h-12 duration-700 border rounded shadow border-coolGray-800 md:w-auto form-input hover:border-black focus:border-black focus:outline-none hover:shadow-cta focus:shadow-cta"
+          className="flex-grow block w-full h-12 duration-700 border rounded shadow border-slate-800 md:w-auto form-input hover:border-black focus:border-black focus:outline-none hover:shadow-cta focus:shadow-cta"
           placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.currentTarget.value)}
@@ -51,7 +50,13 @@ const SignupForm: React.FC = (): JSX.Element => {
           onClick={async () => {
             setLoading(true);
             try {
-              // await signup({ email })
+              await fetch("/api/sign-up", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email }),
+              });
               setSuccess(
                 `Successfully registered. We will get back to you soon!`
               );
@@ -87,7 +92,7 @@ export default function Home() {
   });
 
   return (
-    <div className=" bg-gray-50">
+    <div className=" bg-slate-50">
       <div className="h-screen">
         <div className="fixed inset-x-0 top-0 z-50">
           <Navbar />
@@ -109,10 +114,10 @@ export default function Home() {
           </div>
           <div className="relative flex flex-col justify-center w-full h-screen ">
             <div className="flex flex-col justify-center space-y-4 text-center md:text-left md:space-y-6 lg:space-y-8">
-              <h2 className="p-2 text-xl text-center text-transparent bg-gradient-to-r bg-clip-text from-coolGray-800 via-coolGray-600 to-coolGray-800">
+              <h2 className="p-2 text-xl text-center text-transparent bg-gradient-to-r bg-clip-text from-slate-800 via-slate-600 to-slate-800">
                 AI powered climate-related corporate disclosure analytics
               </h2>
-              <h1 className="flex flex-col gap-3 py-4 -my-4 font-black text-center text-coolGray-900 text-7xl sm:text-8xl md:text-9xl">
+              <h1 className="flex flex-col gap-3 py-4 -my-4 font-black text-center text-slate-900 text-7xl sm:text-8xl md:text-9xl">
                 <span>Analyze.</span>
                 <span>Reflect.</span>
                 <span>Engage.</span>

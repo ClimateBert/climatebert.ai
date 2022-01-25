@@ -15,7 +15,7 @@ export default function Imprint() {
             </span>
           </h1>
         </div>
-        <div className="mx-auto mt-6 prose prose-lg text-gray-500 prose-blue">
+        <div className="mx-auto mt-6 prose prose-lg text-slate-500 prose-blue">
           <h2>Information pursuant to Sect. 5 German Telemedia Act (TMG)</h2>
           <p>
             <strong>Climatebert - Bingler Kraus Leippold Webersinke GbR</strong>

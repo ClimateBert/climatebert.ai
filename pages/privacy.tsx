@@ -14,7 +14,7 @@ export default function Privacy() {
             </span>
           </h1>
         </div>
-        <div className="mx-auto mt-6 prose prose-lg text-gray-500 prose-blue">
+        <div className="mx-auto mt-6 prose prose-lg text-slate-500 prose-blue">
           <h2>1. An overview of data protection</h2>
           <h3>General information</h3>
           <p>

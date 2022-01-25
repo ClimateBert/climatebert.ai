@@ -13,12 +13,12 @@ export default function About() {
             <span className="block text-base font-semibold tracking-wide text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-400">
               About
             </span>
-            <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">
+            <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-slate-900 sm:text-4xl">
               ClimateBert
             </span>
           </h1>
         </div>
-        <div className="mx-auto mt-6 prose prose-lg text-gray-500 prose-blue">
+        <div className="mx-auto mt-6 prose prose-lg text-slate-500 prose-blue">
           <p>
             <strong>Climatebert.ai</strong> is a joint research project of{" "}
             <strong>Julia Anna Bingler</strong> from ETH Zürich,{" "}

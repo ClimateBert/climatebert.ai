@@ -3,13 +3,13 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: ["./**/*.{tsx,html}"],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: "class", // or 'media' or 'class'
   theme: {
     colors: {
       ...colors,
       transparent: "transparent",
       primary: colors.indigo,
-      secondary: colors.lightBlue,
+      secondary: colors.sky,
     },
     extend: {
       fontFamily: {

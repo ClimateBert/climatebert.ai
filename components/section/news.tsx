@@ -41,25 +41,25 @@ export const NewsSection: React.FC = (): JSX.Element => {
   ];
   return (
     <div className="px-4 pt-16 pb-20 bg-white sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
-      <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
+      <div className="relative max-w-lg mx-auto divide-y-2 divide-slate-200 lg:max-w-7xl">
         <div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
             ClimateBert in the News
           </h2>
         </div>
         <div className="grid gap-16 pt-10 mt-6 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
           {posts.map((post) => (
             <div key={post.title}>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-slate-500">
                 <time dateTime={new Date(post.date).toISOString()}>
                   {post.date}
                 </time>
               </p>
               <a href="#" className="block mt-2">
-                <p className="text-xl font-semibold text-gray-900">
+                <p className="text-xl font-semibold text-slate-900">
                   {post.title}
                 </p>
-                <p className="mt-3 text-base text-gray-500">
+                <p className="mt-3 text-base text-slate-500">
                   {post.description}
                 </p>
               </a>

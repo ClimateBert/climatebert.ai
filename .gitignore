@@ -3,4 +3,5 @@ node_modules
 .vercel
 .env*
 .pnpm-debug.log
-tsconfig.tsbuildinfo
+tsconfig.tsbuildin
+dist

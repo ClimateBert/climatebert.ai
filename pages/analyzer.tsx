@@ -10,24 +10,31 @@ import { Field, Form, handleSubmit } from "components/form";
 import { NextPage } from "next";
 import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 import { Button } from "components/button";
 
 const validation = z.object({ text: z.string().min(1).max(5000) });
 
 const Analyzer: NextPage = () => {
-	const [submitting, setSubmitting] = useState(false);
-	const [formError, setFormError] = useState<string | null>(null);
-	const formContext = useForm<z.infer<typeof validation>>({
-		mode: "onBlur",
-		resolver: zodResolver(validation),
-	});
-	const [response, setResponse] = useState<InferenceResponse | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
+  const formContext = useForm<z.infer<typeof validation>>({
+    mode: "onBlur",
+    resolver: zodResolver(validation),
+  });
+  const [response, setResponse] = useState<InferenceResponse | null>(null);
 
-	console.log({ response });
-	return (
-		<>
+  console.log({ response });
+
+  /**
+   * Warmup models once per page load
+   */
+  useEffect(() => {
+    fetch("/api/warmup");
+  }, []);
+  return (
+    <>
       <div className="relative w-screen h-screen">
         <Navbar />
         <div className="relative flex flex-col flex-1 overflow-x-hidden overflow-y-auto">
@@ -268,7 +275,7 @@ const Analyzer: NextPage = () => {
                                     <div key={model.model}>
                                       <div className="grid grid-cols-1 gap-3 md:grid-cols-4 lg:grid-cols-1">
                                         <div className="px-4 py-4 space-y-2 lg:px-6 ">
-                                          <span className="block text-xs font-semibold tracking-wider uppercase text-slate-600">
+                                          <span className="block font-semibold uppercase">
                                             {model.model}
                                           </span>
 
@@ -309,6 +316,6 @@ const Analyzer: NextPage = () => {
       </div>
       <Footer />
     </>
-	);
+  );
 };
 export default Analyzer;

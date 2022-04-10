@@ -52,11 +52,11 @@ async function handler(
         res.status(401);
         return res.json({ err: "Invalid access token" });
       }
+
       scope = "authorized";
       ratelimitKey = new Key({ scope, hashedAccessToken });
     } else {
       scope = "anonymous";
-      console.log(req.headers);
       ratelimitKey = new Key({
         scope,
         ip: req.headers["x-real-ip"],

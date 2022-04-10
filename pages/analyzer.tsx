@@ -14,7 +14,10 @@ import React, { Fragment, useEffect, useState } from "react";
 
 import { Button } from "components/button";
 
-const validation = z.object({ text: z.string().min(1).max(5000) });
+const validation = z.object({
+  text: z.string().min(1).max(5000),
+  apiKey: z.string().optional(),
+});
 
 const Analyzer: NextPage = () => {
   const [submitting, setSubmitting] = useState(false);
@@ -55,6 +58,12 @@ const Analyzer: NextPage = () => {
                     name="text"
                     description="Enter a climate related paragraph to analyze. (max 5000 characters)"
                   />
+                  <Field.Input
+                    label="Api Key"
+                    name="apiKey"
+                    type="password"
+                    description="Optionally add your api key for higher rate limits."
+                  />
                 </div>
                 <div className="flex justify-center w-full mt-6">
                   <Button
@@ -63,11 +72,14 @@ const Analyzer: NextPage = () => {
                     onClick={() => {
                       handleSubmit<z.infer<typeof validation>>(
                         formContext,
-                        async ({ text }) => {
+                        async ({ text, apiKey }) => {
                           const res = await fetch("/api/analyze", {
                             method: "POST",
                             body: JSON.stringify({ text }),
-                            headers: { "Content-Type": "application/json" },
+                            headers: {
+                              "Content-Type": "application/json",
+                              authorization: apiKey ?? "",
+                            },
                           });
 
                           setResponse((await res.json()) as InferenceResponse);

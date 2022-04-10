@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 
 export interface BackgroundProps {
-	image: StaticImageData,
+	image: string,
 	style?: React.CSSProperties,
 }
 

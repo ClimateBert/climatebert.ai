@@ -31,18 +31,16 @@ export async function handleSubmit<FieldValues>(
 	ctx: UseFormReturn<FieldValues>,
 	onSubmit: (values: FieldValues) => Promise<void>,
 	setSubmitting: React.Dispatch<React.SetStateAction<boolean>>,
-	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
+	_setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 ): Promise<void> {
 	const values = ctx.getValues();
 	await ctx
 		.handleSubmit(
 			async () => {
 				setSubmitting(true);
-				await onSubmit(values as FieldValues)
-					.catch((err) => {
-						setFormError(err.message ?? null);
-					})
-					.finally(() => setSubmitting(false));
+				await onSubmit(values as FieldValues).finally(
+					() => setSubmitting(false),
+				);
 			},
 			(err) => console.error(err),
 		)();

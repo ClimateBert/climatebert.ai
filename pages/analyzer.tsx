@@ -10,7 +10,7 @@ import { Field, Form, handleSubmit } from "components/form";
 import { NextPage } from "next";
 import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 
 import { Button } from "components/button";
 
@@ -25,13 +25,7 @@ const Analyzer: NextPage = () => {
 	});
 	const [response, setResponse] = useState<InferenceResponse | null>(null);
 
-	useEffect(
-		() => {
-			if (response?.isClimateRelated) {
-			}
-		},
-		[response?.isClimateRelated],
-	);
+	console.log({ response });
 	return (
 		<>
       <div className="relative w-screen h-screen">
@@ -68,9 +62,7 @@ const Analyzer: NextPage = () => {
                             body: JSON.stringify({ text }),
                             headers: { "Content-Type": "application/json" },
                           });
-                          if (!res.ok) {
-                            throw new Error(await res.text());
-                          }
+
                           setResponse((await res.json()) as InferenceResponse);
                         },
                         setSubmitting,
@@ -151,6 +143,81 @@ const Analyzer: NextPage = () => {
                                 <p className="text-sm text-slate-500">
                                   It looks like your text is not climate
                                   related, please try a different paragraph.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </Transition.Child>
+                    </div>
+                  </Dialog>
+                </Transition.Root>
+                <Transition.Root
+                  show={typeof response?.err !== "undefined"}
+                  as={Fragment}
+                >
+                  <Dialog
+                    as="div"
+                    className="fixed inset-0 z-10 overflow-y-auto"
+                    onClose={() => setResponse(null)}
+                  >
+                    <div className="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+                      <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                      >
+                        <Dialog.Overlay className="fixed inset-0 transition-opacity bg-opacity-75 bg-slate-500" />
+                      </Transition.Child>
+
+                      {/* This element is to trick the browser into centering the modal contents. */}
+                      <span
+                        className="hidden sm:inline-block sm:align-middle sm:h-screen"
+                        aria-hidden="true"
+                      >
+                        &#8203;
+                      </span>
+                      <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                        enterTo="opacity-100 translate-y-0 sm:scale-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                        leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                      >
+                        <div className="inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform bg-white rounded shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+                          <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
+                            <button
+                              type="button"
+                              className="text-slate-400 hover:text-slate-500 focus:outline-none"
+                              onClick={() => setResponse(null)}
+                            >
+                              <span className="sr-only">Close</span>
+                              <XIcon className="w-6 h-6" aria-hidden="true" />
+                            </button>
+                          </div>
+                          <div className="sm:flex sm:items-start">
+                            <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto bg-red-100 rounded-full sm:mx-0 sm:h-10 sm:w-10">
+                              <ExclamationIcon
+                                className="w-6 h-6 text-red-600"
+                                aria-hidden="true"
+                              />
+                            </div>
+                            <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                              <Dialog.Title
+                                as="h3"
+                                className="text-lg font-medium leading-6 text-slate-900"
+                              >
+                                Error
+                              </Dialog.Title>
+                              <div className="mt-2">
+                                <p className="text-sm text-slate-500">
+                                  {response?.err}
                                 </p>
                               </div>
                             </div>

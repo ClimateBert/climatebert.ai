@@ -3,7 +3,26 @@ import { z } from "zod";
 
 import { env } from "@chronark/env";
 const validation = z.object({ text: z.string().nonempty() });
+import { Redis } from "@upstash/redis";
+import { Cache, Key } from "lib/api/cache";
 
+type Scope = "authorized" | "anonymous";
+const limits: {
+	[scope in Scope]: { tokens: number, window: number };
+} = {
+	authorized: { tokens: 5, window: 10 },
+	anonymous: { tokens: 5, window: 24 * 60 * 60 },
+};
+type Bucket = {
+	/**
+   * How many uses are left
+   */
+	tokens: number,
+	/**
+   * Unix timestamp when the bucket expires in seconds
+   */
+	expiresAt: number,
+};
 export type Res = {
 	isClimateRelated?: boolean,
 	err?: string,
@@ -57,6 +76,50 @@ async function handler(req: NextApiRequest, res: NextApiResponse<Res>): Promise<
 	void
 > {
 	try {
+		const rateLimiter = new Cache(Redis.fromEnv());
+		const accessToken = req.headers["authorization"];
+
+		let ratelimitKey: Key;
+		let scope: Scope;
+		if (accessToken) {
+			const isValid = await rateLimiter.get(new Key({ accessToken }));
+			if (!isValid) {
+				res.status(401);
+				return res.json({ err: "Invalid access token" });
+			}
+			scope = "authorized";
+			ratelimitKey = new Key({ scope, accessToken });
+		} else {
+			scope = "anonymous";
+			console.log(req.headers);
+			ratelimitKey =
+				new Key({
+					scope,
+					ip: req.headers["x-real-ip"],
+					userAgent: req.headers["user-agent"],
+				});
+		}
+		let bucket = await rateLimiter.get<Bucket>(ratelimitKey);
+		if (!bucket) {
+			const expiresAt = Math.floor(Date.now() / 1000) + limits[scope].window;
+			bucket = { tokens: limits[scope].tokens, expiresAt };
+			await rateLimiter.set(ratelimitKey, expiresAt, bucket);
+		}
+
+		res.setHeader("x-ratelimit-limit", limits[scope].tokens.toString());
+		res.setHeader("x-ratelimit-remaining", (bucket!.tokens - 1).toString());
+		res.setHeader("x-ratelimit-reset", (bucket!.expiresAt ?? 0).toString());
+
+		console.log(bucket.expiresAt);
+		if (bucket.tokens <= 0) {
+			res.status(429);
+			return res.json({
+				err: `Too many requests, please try again after ${new Date(
+					bucket.expiresAt * 1000,
+				).toLocaleString("en-uk")}`,
+			});
+		}
+
 		const { text } = validation.parse(req.body);
 
 		await warmUp();
@@ -88,6 +151,15 @@ async function handler(req: NextApiRequest, res: NextApiResponse<Res>): Promise<
 						return { model, inference: (await promise)[0]! };
 					},
 				),
+		);
+		/**
+     * Only set this now in case something went wrong. We only want to record the request if it was
+     * successful
+     */
+		await rateLimiter.set(
+			ratelimitKey,
+			bucket.expiresAt,
+			{ ...bucket, tokens: bucket.tokens - 1 },
 		);
 		res.json({ inferences, isClimateRelated });
 	} catch (err) {

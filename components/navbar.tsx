@@ -8,29 +8,17 @@ import cn from "classnames";
 import { useRouter } from "next/router";
 
 export const Navbar: React.FC = (): JSX.Element => {
-  const router = useRouter();
+	const router = useRouter();
 
-  const pages: { name: string; href: string }[] = [
-    {
-      name: "Analyzer",
-      href: "/analyzer",
-    },
-    {
-      name: "Language Model",
-      href: "/language-model",
-    },
-    {
-      name: "About",
-      href: "/about",
-    },
-    {
-      name: "Authors",
-      href: "/authors",
-    },
-  ];
+	const pages: { name: string, href: string }[] = [
+		{ name: "Analyzer", href: "/analyzer" },
+		{ name: "Language Model", href: "/language-model" },
+		{ name: "About", href: "/about" },
+		{ name: "Authors", href: "/authors" },
+	];
 
-  return (
-    <Disclosure as="nav" className="bg-white shadow">
+	return (
+		<Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
         <>
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -106,5 +94,5 @@ export const Navbar: React.FC = (): JSX.Element => {
         </>
       )}
     </Disclosure>
-  );
+	);
 };

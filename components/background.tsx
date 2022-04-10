@@ -3,17 +3,15 @@ import React from "react";
 import Image from "next/image";
 
 export interface BackgroundProps {
-  image: StaticImageData;
-  style?: React.CSSProperties;
+	image: StaticImageData,
+	style?: React.CSSProperties,
 }
 
-export const Background: React.FC<BackgroundProps> = ({
-  children,
-  image,
-  style,
-}): JSX.Element => {
-  return (
-    <div className="relative w-full h-full">
+export const Background: React.FC<BackgroundProps> = (
+	{ children, image, style },
+): JSX.Element => {
+	return (
+		<div className="relative w-full h-full">
       <div style={style}>
         <Image
           src={image}
@@ -26,5 +24,5 @@ export const Background: React.FC<BackgroundProps> = ({
       </div>
       <div className="relative">{children}</div>
     </div>
-  );
+	);
 };

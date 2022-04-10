@@ -1,8 +1,8 @@
 import React from "react";
 
 export const Stats: React.FC = (): JSX.Element => {
-  return (
-    <section className="relative">
+	return (
+		<section className="relative">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 ">
         <dl className="bg-white rounded shadow-xl sm:grid sm:grid-cols-2">
           <div className="flex flex-col p-6 text-center border-t border-b border-slate-100 sm:border-0 sm:border-l sm:border-r">
@@ -24,5 +24,5 @@ export const Stats: React.FC = (): JSX.Element => {
         </dl>
       </div>
     </section>
-  );
+	);
 };

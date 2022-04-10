@@ -1,8 +1,8 @@
 import React from "react";
 
 export const ETHZLogo: React.FC = (): JSX.Element => {
-  return (
-    <svg
+	return (
+		<svg
       className="w-full h-full fill-current"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 192.67 54.65"
@@ -23,5 +23,5 @@ export const ETHZLogo: React.FC = (): JSX.Element => {
         </g>
       </g>
     </svg>
-  );
+	);
 };

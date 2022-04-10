@@ -1,8 +1,4 @@
-import {
-  CubeTransparentIcon,
-  LightningBoltIcon,
-  VariableIcon,
-} from "@heroicons/react/outline";
+import { CubeTransparentIcon, LightningBoltIcon, VariableIcon } from "@heroicons/react/outline";
 import React, { useEffect, useState } from "react";
 import Footer from "components/footer";
 import { Navbar } from "components/navbar";
@@ -14,21 +10,21 @@ import { Stats } from "components/stats";
 import Image from "next/image";
 import { Button } from "components/button";
 const SignupForm: React.FC = (): JSX.Element => {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<Error | null>(null);
-  const [success, setSuccess] = useState<string | null>(null);
-  const [email, setEmail] = useState("");
-  // const [signup] = useMutation(Signup)
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState<Error | null>(null);
+	const [success, setSuccess] = useState<string | null>(null);
+	const [email, setEmail] = useState("");
+	// const [signup] = useMutation(Signup)
 
-  if (success) {
-    return (
-      <p className="block text-sm font-semibold text-center uppercase">
+	if (success) {
+		return (
+			<p className="block text-sm font-semibold text-center uppercase">
         {success}
       </p>
-    );
-  }
-  return (
-    <div>
+		);
+	}
+	return (
+		<div>
       <label
         htmlFor="email"
         className="block text-sm font-semibold text-center uppercase "
@@ -73,26 +69,26 @@ const SignupForm: React.FC = (): JSX.Element => {
       </div>
       {error ? <p className="text-red-600">{error.message}</p> : null}
     </div>
-  );
+	);
 };
 
 export default function Home() {
-  const [scroll, setScroll] = useState(
-    typeof window !== "undefined" ? window.scrollY : 0
-  );
-  useEffect(() => {
-    const cb = () => setScroll(window.scrollY);
+	const [scroll, setScroll] = useState(
+		typeof window !== "undefined" ? window.scrollY : 0,
+	);
+	useEffect(() => {
+		const cb = () => setScroll(window.scrollY);
 
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", cb);
-    }
-    return () => {
-      window.removeEventListener("scroll", cb);
-    };
-  });
+		if (typeof window !== "undefined") {
+			window.addEventListener("scroll", cb);
+		}
+		return () => {
+			window.removeEventListener("scroll", cb);
+		};
+	});
 
-  return (
-    <div className=" bg-slate-50">
+	return (
+		<div className=" bg-slate-50">
       <div className="h-screen">
         <div className="fixed inset-x-0 top-0 z-50">
           <Navbar />
@@ -155,5 +151,5 @@ export default function Home() {
       </main>
       <Footer />
     </div>
-  );
+	);
 }

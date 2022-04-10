@@ -1,13 +1,11 @@
 import React from "react";
 import cn from "classnames";
 
-export interface LogoProps {
-  color?: string;
-}
+export interface LogoProps { color?: string }
 
 export const Logo: React.FC<LogoProps> = ({ color }): JSX.Element => {
-  return (
-    <div className={cn("w-10 h-10 flex items-center justify-center", color)}>
+	return (
+		<div className={cn("w-10 h-10 flex items-center justify-center", color)}>
       <svg
         className="w-full h-full stroke-current"
         width="30"
@@ -27,5 +25,5 @@ export const Logo: React.FC<LogoProps> = ({ color }): JSX.Element => {
         />
       </svg>
     </div>
-  );
+	);
 };

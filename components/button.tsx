@@ -2,18 +2,15 @@ import React from "react";
 import cn from "classnames";
 
 export type ButtonProps = {
-  state?: "loading" | "disabled";
-  onClick: () => Promise<void> | void;
-  type?: "button" | "submit";
+	state?: "loading" | "disabled",
+	onClick: () => Promise<void> | void,
+	type?: "button" | "submit",
 };
-export const Button: React.FC<ButtonProps> = ({
-  state,
-  onClick,
-  type = "button",
-  children,
-}): JSX.Element => {
-  return (
-    <button
+export const Button: React.FC<ButtonProps> = (
+	{ state, onClick, type = "button", children },
+): JSX.Element => {
+	return (
+		<button
       disabled={state === "disabled"}
       onClick={onClick}
       type={type}
@@ -26,5 +23,5 @@ export const Button: React.FC<ButtonProps> = ({
     >
       {children}
     </button>
-  );
+	);
 };

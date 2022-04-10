@@ -3,57 +3,50 @@ import { AlertTriangle } from "react-feather";
 import { useFormContext } from "react-hook-form";
 
 export interface TextAreaProps {
-  disabled?: boolean;
-  /**
+	disabled?: boolean,
+	/**
    * Field name. Make sure this matches your schema.
    */
-  name: string;
-
-  description?: string;
-
-  /**
+	name: string,
+	description?: string,
+	/**
    * Field label.
    */
-  label: string;
-
-  hideLabel?: boolean;
-
-  iconLeft?: React.ReactNode;
-
-  defaultValue?: string | number;
-  help?: React.ReactNode;
-
-  placeholder?: string;
-  autoFocus?: boolean;
-  rows?: number;
+	label: string,
+	hideLabel?: boolean,
+	iconLeft?: React.ReactNode,
+	defaultValue?: string | number,
+	help?: React.ReactNode,
+	placeholder?: string,
+	autoFocus?: boolean,
+	rows?: number,
 }
 
-export const TextArea: React.FC<TextAreaProps> = ({
-  disabled,
-  label,
-  description,
-  name,
-  defaultValue,
-  placeholder,
-  autoFocus = false,
-  rows = 5,
-}) => {
-  const {
-    register,
-    formState: { isSubmitting, errors },
-    setValue,
-  } = useFormContext();
+export const TextArea: React.FC<TextAreaProps> = (
+	{
+		disabled,
+		label,
+		description,
+		name,
+		defaultValue,
+		placeholder,
+		autoFocus = false,
+		rows = 5,
+	},
+) => {
+	const { register, formState: { isSubmitting, errors }, setValue } = useFormContext();
 
-  const error = Array.isArray(errors[name])
-    ? errors[name].join(", ")
-    : errors[name]?.message || errors[name];
-  useEffect(() => {
-    if (defaultValue) {
-      setValue(name, defaultValue);
-    }
-  }, [defaultValue, name, setValue]);
-  return (
-    <div className="flex flex-col items-center justify-between gap-4 py-3 ">
+	const error = Array.isArray(errors[name]) ? errors[name].join(", ") : errors[name]?.message || errors[name];
+	useEffect(
+		() => {
+			if (defaultValue) {
+				setValue(name, defaultValue);
+			}
+		},
+		[defaultValue, name, setValue],
+	);
+	return (
+		<div className="flex flex-col items-center justify-between gap-4 py-3 ">
       <div className="w-full">
         <div className="font-semibold text-slate-800">{label}</div>
         <div className="text-sm">{description}</div>
@@ -81,5 +74,5 @@ export const TextArea: React.FC<TextAreaProps> = ({
         </div>
       </div>
     </div>
-  );
+	);
 };

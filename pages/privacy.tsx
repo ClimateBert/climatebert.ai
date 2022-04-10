@@ -2,8 +2,8 @@ import { Navbar } from "components/navbar";
 import Footer from "components/footer";
 
 export default function Privacy() {
-  return (
-    <>
+	return (
+		<>
       <Navbar />
 
       <div className="relative px-4 py-8 sm:px-6 lg:px-8 lg:py-20">
@@ -485,5 +485,5 @@ export default function Privacy() {
       </div>
       <Footer />
     </>
-  );
+	);
 }

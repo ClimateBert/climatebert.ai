@@ -1,21 +1,17 @@
 import React from "react";
 import Image from "next/image";
 export interface SectionProps {
-  image: string;
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  reverse?: boolean;
+	image: string,
+	title: string,
+	description: string,
+	icon: React.ReactNode,
+	reverse?: boolean,
 }
-export const Section: React.FC<SectionProps> = ({
-  icon,
-  title,
-  description,
-  image,
-  reverse,
-}): JSX.Element => {
-  return (
-    <div className="container grid grid-rows-2 mx-auto lg:grid-rows-1 lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
+export const Section: React.FC<SectionProps> = (
+	{ icon, title, description, image, reverse },
+): JSX.Element => {
+	return (
+		<div className="container grid grid-rows-2 mx-auto lg:grid-rows-1 lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
       <div
         className={`px-4 mx-auto sm:px-6 lg:py-16 lg:mx-0 lg:px-0 ${
           reverse ? "lg:col-start-2" : ""
@@ -53,5 +49,5 @@ export const Section: React.FC<SectionProps> = ({
         </div>
       </div>
     </div>
-  );
+	);
 };

@@ -3,51 +3,39 @@ import { useFormContext } from "react-hook-form";
 import { AlertTriangle } from "react-feather";
 
 export interface InputProps {
-  disabled?: boolean;
-  /**
+	disabled?: boolean,
+	/**
    * Field name. Make sure this matches your schema.
    */
-  name: string;
-
-  description?: string;
-
-  /**
+	name: string,
+	description?: string,
+	/**
    * Field label.
    */
-  label: string;
-
-  hideLabel?: boolean;
-
-  iconLeft?: React.ReactNode;
-
-  defaultValue?: boolean;
+	label: string,
+	hideLabel?: boolean,
+	iconLeft?: React.ReactNode,
+	defaultValue?: boolean,
 }
 
-export const Toggle: React.FC<InputProps> = ({
-  label,
-  description,
-  name,
-  defaultValue,
-}) => {
-  const {
-    register,
-    formState: { errors },
-    setValue,
-    watch,
-  } = useFormContext();
-  const error = Array.isArray(errors[name])
-    ? errors[name].join(", ")
-    : errors[name]?.message || errors[name];
+export const Toggle: React.FC<InputProps> = (
+	{ label, description, name, defaultValue },
+) => {
+	const { register, formState: { errors }, setValue, watch } = useFormContext();
+	const error = Array.isArray(errors[name]) ? errors[name].join(", ") : errors[name]?.message || errors[name];
 
-  useEffect(() => {
-    if (defaultValue) {
-      setValue(name, defaultValue);
-    }
-  }, [defaultValue, name, setValue]);
+	useEffect(
+		() => {
+			if (defaultValue) {
+				setValue(name, defaultValue);
+			}
+		},
+		[defaultValue, name, setValue],
+	);
 
-  const state = watch(name, defaultValue);
-  return (
-    <div>
+	const state = watch(name, defaultValue);
+	return (
+		<div>
       <li className="flex items-center justify-between py-3 ">
         {/* Left */}
         <div>
@@ -78,5 +66,5 @@ export const Toggle: React.FC<InputProps> = ({
         </div>
       ) : null}
     </div>
-  );
+	);
 };

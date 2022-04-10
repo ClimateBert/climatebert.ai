@@ -6,10 +6,4 @@ import { Select } from "./select";
 export { useForm } from "react-hook-form";
 export * from "./form";
 
-export const Field = {
-  Input,
-  Select,
-  TextArea,
-  Expanding,
-  Toggle,
-};
+export const Field = { Input, Select, TextArea, Expanding, Toggle };

@@ -3,8 +3,8 @@ import Footer from "components/footer";
 import Link from "next/link";
 
 export default function About() {
-  return (
-    <>
+	return (
+		<>
       <Navbar />
 
       <div className="relative px-4 py-8 sm:px-6 lg:px-8 lg:py-20">
@@ -125,5 +125,5 @@ export default function About() {
       </div>
       <Footer />
     </>
-  );
+	);
 }

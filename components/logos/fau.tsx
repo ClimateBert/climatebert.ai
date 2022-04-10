@@ -1,8 +1,8 @@
 import React from "react";
 
 export const FAULogo: React.FC = (): JSX.Element => {
-  return (
-    <svg
+	return (
+		<svg
       className="w-full h-full fill-current"
       width="240"
       height="65"
@@ -145,5 +145,5 @@ export const FAULogo: React.FC = (): JSX.Element => {
         </g>
       </g>
     </svg>
-  );
+	);
 };

@@ -8,32 +8,32 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { Field, Form, handleSubmit } from "components/form";
 import { NextPage } from "next";
-import { BarChart } from "components/barchart";
 import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import React, { Fragment, useEffect, useState } from "react";
 
 import { Button } from "components/button";
 
-const validation = z.object({
-  text: z.string().min(1).max(5000),
-});
+const validation = z.object({ text: z.string().min(1).max(5000) });
 
 const Analyzer: NextPage = () => {
-  const [submitting, setSubmitting] = useState(false);
-  const [formError, setFormError] = useState<string | null>(null);
-  const formContext = useForm<z.infer<typeof validation>>({
-    mode: "onBlur",
-    resolver: zodResolver(validation),
-  });
-  const [response, setResponse] = useState<InferenceResponse | null>(null);
+	const [submitting, setSubmitting] = useState(false);
+	const [formError, setFormError] = useState<string | null>(null);
+	const formContext = useForm<z.infer<typeof validation>>({
+		mode: "onBlur",
+		resolver: zodResolver(validation),
+	});
+	const [response, setResponse] = useState<InferenceResponse | null>(null);
 
-  useEffect(() => {
-    if (response?.isClimateRelated) {
-    }
-  }, [response?.isClimateRelated]);
-  return (
-    <>
+	useEffect(
+		() => {
+			if (response?.isClimateRelated) {
+			}
+		},
+		[response?.isClimateRelated],
+	);
+	return (
+		<>
       <div className="relative w-screen h-screen">
         <Navbar />
         <div className="relative flex flex-col flex-1 overflow-x-hidden overflow-y-auto">
@@ -103,7 +103,7 @@ const Analyzer: NextPage = () => {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                       >
-                        <Dialog.Overlay className="fixed inset-0 transition-opacity bg-slate-500 bg-opacity-75" />
+                        <Dialog.Overlay className="fixed inset-0 transition-opacity bg-opacity-75 bg-slate-500" />
                       </Transition.Child>
 
                       {/* This element is to trick the browser into centering the modal contents. */}
@@ -189,37 +189,41 @@ const Analyzer: NextPage = () => {
                           leaveTo="translate-y-full md:translate-x-full md:translate-y-0"
                         >
                           <div className="relative w-screen">
-                            <div className="flex flex-col h-full bg-white">
+                            <div className="flex flex-col h-full bg-gray-50">
                               <header className="px-5 py-4 border-b border-slate-100">
                                 <h2 className="font-semibold text-slate-800">
                                   Inference Results
                                 </h2>
                               </header>
-                              <div className="grid items-center justify-between w-full h-full grid-cols-1 p-12 px-4 sm:px-6">
+                              <div className="grid items-center justify-between w-full h-full grid-cols-1 gap-4 p-12 overflow-y-scroll sm:px-6">
                                 {response?.inferences?.map((model) => {
-                                  console.log({ model });
                                   return (
                                     <div key={model.model}>
-                                      <header className="px-5 py-4">
-                                        <h2 className="font-semibold text-slate-800 capitalize">
-                                          {model.model}
-                                        </h2>
-                                      </header>
-                                      <BarChart
-                                        data={{
-                                          labels: model.inference.map(
-                                            (m) => m.label
-                                          ),
-                                          datasets: [
-                                            {
-                                              label: model.model,
-                                              data: model.inference.map(
-                                                (m) => m.score
-                                              ),
-                                            },
-                                          ],
-                                        }}
-                                      />
+                                      <div className="grid grid-cols-1 gap-3 md:grid-cols-4 lg:grid-cols-1">
+                                        <div className="px-4 py-4 space-y-2 lg:px-6 ">
+                                          <span className="block text-xs font-semibold tracking-wider uppercase text-slate-600">
+                                            {model.model}
+                                          </span>
+
+                                          {model.inference.map((m) => (
+                                            <div key={m.label}>
+                                              <span className="text-xs uppercase">
+                                                {m.label}
+                                              </span>
+                                              <div className="h-2 overflow-hidden rounded-lg bg-primary-100">
+                                                <div
+                                                  className="bg-primary-600"
+                                                  style={{
+                                                    width: `${m.score * 100}%`,
+                                                  }}
+                                                >
+                                                  &nbsp;
+                                                </div>
+                                              </div>
+                                            </div>
+                                          ))}
+                                        </div>
+                                      </div>
                                     </div>
                                   );
                                 })}
@@ -238,6 +242,6 @@ const Analyzer: NextPage = () => {
       </div>
       <Footer />
     </>
-  );
+	);
 };
 export default Analyzer;

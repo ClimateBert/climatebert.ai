@@ -8,9 +8,7 @@
     "build": "next build",
     "start": "next start",
     "tsc": "tsc --pretty --noEmit",
-    "format": "prettier --loglevel warn --write .",
-    "lint": "eslint . --ext .ts,.tsx,.js --fix",
-    "fmt": "pnpm lint && pnpm format"
+    "fmt": "rome format ."
   },
   "dependencies": {
     "@chronark/env": "^0.1.3-rc.1",
@@ -23,6 +21,7 @@
     "chart.js": "^3.7.0",
     "chartjs-adapter-moment": "^1.0.0",
     "classnames": "^2.3.1",
+    "limiter": "^2.1.0",
     "moment": "^2.29.1",
     "next": "latest",
     "next-plausible": "3.0.0",
@@ -37,10 +36,8 @@
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "autoprefixer": "^10.4.1",
-    "eslint": "^8.7.0",
-    "eslint-config-next": "^12.0.8",
     "postcss": "^8.4.5",
-    "prettier": "^2.5.1",
+    "rome": "^0.4.2-next",
     "tailwindcss": "^3.0.8",
     "typescript": "^4.5.4"
   },
@@ -51,11 +48,10 @@
   },
   "lint-staged": {
     "**.{ts,tsx}": [
-      "yarn prettier --write",
-      "yarn eslint --fix"
+      "rome format"
     ],
     "**.{json,md,mdx,css,html,js}": [
-      "yarn prettier --write"
+      "rome format"
     ]
   }
 }

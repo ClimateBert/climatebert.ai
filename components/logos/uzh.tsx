@@ -1,8 +1,8 @@
 import React from "react";
 
 export const UZHLogo: React.FC = (): JSX.Element => {
-  return (
-    <svg
+	return (
+		<svg
       className="w-full h-full fill-current"
       version="1.1"
       baseProfile="tiny"
@@ -496,5 +496,5 @@ export const UZHLogo: React.FC = (): JSX.Element => {
    c4.002,4.003,6.478,9.531,6.478,15.639c0,3.817-0.97,7.405-2.672,10.538L31.562,34.622L31.562,34.622z"
       />
     </svg>
-  );
+	);
 };

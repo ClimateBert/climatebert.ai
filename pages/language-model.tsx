@@ -1,23 +1,20 @@
-import {
-  ClipboardCheckIcon,
-  ClipboardCopyIcon,
-} from "@heroicons/react/outline";
+import { ClipboardCheckIcon, ClipboardCopyIcon } from "@heroicons/react/outline";
 import Footer from "components/footer";
 import { Navbar } from "components/navbar";
 import cn from "classnames";
 import { useState } from "react";
 export default function LanguageModel() {
-  const citation = `@article{wkbl2021,
+	const citation = `@article{wkbl2021,
   title={ClimateBERT: A Pretrained Language Model for Climate-Related Text},
   author={Webersinke, Nicolas and Kraus, Mathias and Bingler, Julia and Leippold, Markus},
   journal={arXiv preprint arXiv:2110.12010},
   year={2021}
 }`;
 
-  const [copied, setCopied] = useState(false);
+	const [copied, setCopied] = useState(false);
 
-  return (
-    <>
+	return (
+		<>
       <Navbar />
 
       <div className="relative px-4 py-8 sm:px-6 lg:px-8 lg:py-20">
@@ -146,5 +143,5 @@ export default function LanguageModel() {
       </div>
       <Footer />
     </>
-  );
+	);
 }

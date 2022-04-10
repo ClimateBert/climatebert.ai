@@ -4,9 +4,9 @@ import { AppProps } from "next/app";
 import "tailwindcss/tailwind.css";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <PlausibleProvider domain="climatebert.ai">
+	return (
+		<PlausibleProvider domain="climatebert.ai">
       <Component {...pageProps} />
     </PlausibleProvider>
-  );
+	);
 }

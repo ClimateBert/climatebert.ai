@@ -44,11 +44,12 @@ export const Toggle: React.FC<InputProps> = (
         </div>
         {/* Right */}
         <div className="flex items-center ml-4">
-          <div className="mr-2 text-sm italic text-slate-400">
-            {state ? "On" : "Off"}
-          </div>
           <div className="form-switch" onClick={() => setValue(name, !state)}>
-            <input {...register(name)} type="checkbox" className="sr-only" />
+            <input
+              {...register(name)}
+              type="checkbox"
+              className="border rounded border-slate-200 bg-slate-50 focus:outline-none focus:ring-transparent focus:shadow-sm"
+            />
             <label className="bg-slate-400" htmlFor={name}>
               <span className="bg-white shadow-sm" aria-hidden="true"></span>
               <span className="sr-only">{label}</span>

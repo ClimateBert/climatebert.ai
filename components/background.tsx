@@ -2,10 +2,7 @@ import React from "react";
 
 import Image from "next/image";
 
-export interface BackgroundProps {
-	image: string,
-	style?: React.CSSProperties,
-}
+export interface BackgroundProps { image: string, style?: React.CSSProperties }
 
 export const Background: React.FC<BackgroundProps> = (
 	{ children, image, style },

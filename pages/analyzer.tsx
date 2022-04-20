@@ -11,33 +11,34 @@ import { NextPage } from "next";
 import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import React, { Fragment, useEffect, useState } from "react";
-
-import { Button } from "components/button";
-
+import cn from "classNames";
+import LanguageDetect from "languagedetect";
 const validation = z.object({
-  text: z.string().min(1).max(5000),
-  apiKey: z.string().optional(),
+	text: z.string().min(1).max(5000),
+	apiKey: z.string().optional(),
 });
 
 const Analyzer: NextPage = () => {
-  const [submitting, setSubmitting] = useState(false);
-  const [formError, setFormError] = useState<string | null>(null);
-  const formContext = useForm<z.infer<typeof validation>>({
-    mode: "onBlur",
-    resolver: zodResolver(validation),
-  });
-  const [response, setResponse] = useState<InferenceResponse | null>(null);
+	const [submitting, setSubmitting] = useState(false);
+	const [formError, setFormError] = useState<string | null>(null);
+	const formContext = useForm<z.infer<typeof validation>>({
+		mode: "onBlur",
+		resolver: zodResolver(validation),
+	});
+	const [isEnglish, setIsEnglish] = useState(true);
+	const [response, setResponse] = useState<InferenceResponse | null>(null);
 
-  console.log({ response });
-
-  /**
+	/**
    * Warmup models once per page load
    */
-  useEffect(() => {
-    fetch("/api/warmup");
-  }, []);
-  return (
-    <>
+	useEffect(
+		() => {
+			fetch("/api/warmup");
+		},
+		[],
+	);
+	return (
+		<>
       <div className="relative w-screen h-screen">
         <Navbar />
         <div className="relative flex flex-col flex-1 overflow-x-hidden overflow-y-auto">
@@ -65,14 +66,33 @@ const Analyzer: NextPage = () => {
                     description="Optionally add your api key for higher rate limits."
                   />
                 </div>
-                <div className="flex justify-center w-full mt-6">
-                  <Button
-                    state={submitting ? "loading" : undefined}
+                <div className="flex items-center justify-center w-full gap-16 mt-6">
+                  <button
+                    className={cn(
+                      "block w-full py-2 mt-8 text-sm font-semibold text-center text-white bg-gray-800 border border-gray-800 rounded hover:bg-gray-900",
+                      {
+                        "animate-pulse": submitting,
+                      }
+                    )}
+                    // state={submitting ? "loading" : undefined}
                     type="button"
                     onClick={() => {
                       handleSubmit<z.infer<typeof validation>>(
                         formContext,
                         async ({ text, apiKey }) => {
+                          if (text.length === 0) {
+                            setIsEnglish(true);
+                            return;
+                          }
+                          const detected = new LanguageDetect().detect(
+                            formContext.getValues("text"),
+                            1
+                          )[0];
+
+                          if (!detected || detected[0] !== "english") {
+                            setIsEnglish(false);
+                            return;
+                          }
                           const res = await fetch("/api/analyze", {
                             method: "POST",
                             body: JSON.stringify({ text }),
@@ -90,8 +110,110 @@ const Analyzer: NextPage = () => {
                     }}
                   >
                     Analyze
-                  </Button>
+                  </button>
                 </div>
+
+                <Transition.Root show={!isEnglish} as={Fragment}>
+                  <Dialog
+                    as="div"
+                    className="fixed inset-0 z-10 overflow-y-auto"
+                    onClose={() => {
+                      setResponse(null), setIsEnglish(true);
+                    }}
+                  >
+                    <div className="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+                      <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                      >
+                        <Dialog.Overlay className="fixed inset-0 transition-opacity bg-opacity-75 bg-slate-500" />
+                      </Transition.Child>
+
+                      {/* This element is to trick the browser into centering the modal contents. */}
+                      <span
+                        className="hidden sm:inline-block sm:align-middle sm:h-screen"
+                        aria-hidden="true"
+                      >
+                        &#8203;
+                      </span>
+                      <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                        enterTo="opacity-100 translate-y-0 sm:scale-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                        leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                      >
+                        <div className="inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform bg-white rounded shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+                          <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
+                            <button
+                              type="button"
+                              className="text-slate-400 hover:text-slate-500 focus:outline-none"
+                              onClick={() => {
+                                setResponse(null), setIsEnglish(true);
+                              }}
+                            >
+                              <span className="sr-only">Close</span>
+                              <XIcon className="w-6 h-6" aria-hidden="true" />
+                            </button>
+                          </div>
+                          <div className="text-center sm:flex sm:items-start">
+                            <div className="px-4 py-5 space-y-4 md:space-y-8 sm:p-6">
+                              <Dialog.Title
+                                as="h3"
+                                className="text-lg font-medium leading-6 text-gray-900"
+                              >
+                                Text does not appear to be english
+                              </Dialog.Title>
+
+                              <p className="text-sm text-gray-500">
+                                It looks like your text is not in english, do
+                                you want to analyze it anyways?
+                              </p>
+
+                              <button
+                                disabled={submitting}
+                                type="submit"
+                                className="inline-flex whitespace-nowrap  items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50"
+                                onClick={() => {
+                                  handleSubmit<z.infer<typeof validation>>(
+                                    formContext,
+                                    async ({ text, apiKey }) => {
+                                      setIsEnglish(true);
+                                      const res = await fetch("/api/analyze", {
+                                        method: "POST",
+                                        body: JSON.stringify({ text }),
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                          authorization: apiKey ?? "",
+                                        },
+                                      });
+
+                                      setResponse(
+                                        (await res.json()) as InferenceResponse
+                                      );
+                                    },
+                                    setSubmitting,
+                                    setFormError
+                                  );
+                                }}
+                              >
+                                Analyze regardless
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </Transition.Child>
+                    </div>
+                  </Dialog>
+                </Transition.Root>
+
                 <Transition.Root
                   show={
                     typeof response?.isClimateRelated === "boolean" &&
@@ -281,7 +403,7 @@ const Analyzer: NextPage = () => {
                                   Inference Results
                                 </h2>
                               </header>
-                              <div className="grid items-center justify-between w-full h-full grid-cols-1 gap-4 p-12 overflow-y-scroll sm:px-6">
+                              <div className="grid items-center justify-between w-full h-full grid-cols-1 gap-4 p-12 overflow-y-scroll sm:p-6">
                                 {response?.inferences?.map((model) => {
                                   return (
                                     <div key={model.model}>
@@ -293,10 +415,15 @@ const Analyzer: NextPage = () => {
 
                                           {model.inference.map((m) => (
                                             <div key={m.label}>
-                                              <span className="text-xs uppercase">
-                                                {m.label}
-                                              </span>
-                                              <div className="h-2 overflow-hidden rounded-lg bg-primary-100">
+                                              <div className="flex items-end justify-between">
+                                                <span className="text-xs uppercase">
+                                                  {m.label}
+                                                </span>
+                                                <span className="text-xs">
+                                                  {(m.score * 100).toFixed(0)} %
+                                                </span>
+                                              </div>
+                                              <div className="h-2 overflow-hidden rounded bg-primary-100">
                                                 <div
                                                   className="bg-primary-600"
                                                   style={{
@@ -328,6 +455,6 @@ const Analyzer: NextPage = () => {
       </div>
       <Footer />
     </>
-  );
+	);
 };
 export default Analyzer;

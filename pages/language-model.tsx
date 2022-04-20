@@ -18,16 +18,9 @@ export default function LanguageModel() {
       <Navbar />
 
       <div className="relative px-4 py-8 sm:px-6 lg:px-8 lg:py-20">
-        <div className="mx-auto text-lg">
-          <h1>
-            <span className="block text-base font-semibold tracking-wide text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-400">
-              Language Model
-            </span>
-            <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-slate-900 sm:text-4xl">
-              ClimateBERT
-            </span>
-          </h1>
-        </div>
+        <h1 className="block mx-auto text-base text-4xl font-extrabold leading-8 tracking-wide text-center text-gray-900 uppercase mb-14">
+          Language Model
+        </h1>
         <div className="mx-auto mt-6 prose prose-lg text-slate-500 prose-blue">
           <p>
             ClimateBERT is the name of our transformer-based language model

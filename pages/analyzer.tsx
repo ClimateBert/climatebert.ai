@@ -69,7 +69,7 @@ const Analyzer: NextPage = () => {
                 <div className="flex items-center justify-center w-full gap-16 mt-6">
                   <button
                     className={cn(
-                      "block w-full py-2 mt-8 text-sm font-semibold text-center text-white bg-gray-800 border border-gray-800 rounded hover:bg-gray-900",
+                      "block px-32 py-2 mt-8 text-sm font-semibold text-center text-white bg-gray-800 border border-gray-800 rounded hover:bg-gray-900",
                       {
                         "animate-pulse": submitting,
                       }

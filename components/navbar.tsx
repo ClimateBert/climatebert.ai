@@ -1,4 +1,4 @@
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { CogIcon, DocumentSearchIcon, MenuIcon, SpeakerphoneIcon, XIcon } from "@heroicons/react/outline";
 
 import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
@@ -8,16 +8,40 @@ import cn from "classnames";
 import { useRouter } from "next/router";
 import { Popover, Transition } from "@headlessui/react";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/solid";
-import { ExternalLinkIcon } from "@heroicons/react/outline";
+
 type Page = { name: string, href: string };
 
 export const Navbar: React.FC = (): JSX.Element => {
 	const router = useRouter();
 
 	const pages: (
-		Page | { name: string, menu: (Page & { description: string })[] }
+			| Page
+			| {
+				name: string,
+				menu: (Page & { description?: string, icon?: JSX.Element })[],
+			}
 	)[] = [
 		{ name: "Analyzer", href: "/analyzer" },
+		{
+			name: "Research",
+			menu: [
+				{
+					name: `Corporate climate disclosures`,
+					href: "/TODO:",
+					icon: <DocumentSearchIcon />,
+				},
+				{
+					name: "Climate Awareness in NLP Research",
+					href: "/TODO:",
+					icon: <SpeakerphoneIcon />,
+				},
+				{
+					name: "Language Model for Climate-Related Text",
+					href: "/TODO:",
+					icon: <DocumentSearchIcon />,
+				},
+			],
+		},
 		{ name: "Language Model", href: "/language-model" },
 		{
 			name: "Popover",
@@ -26,16 +50,17 @@ export const Navbar: React.FC = (): JSX.Element => {
 					name: "Hello World",
 					href: "/hello-world",
 					description: "Hello world is something that we like blabla",
+					icon: <CogIcon />,
 				},
 				{
-					name: "Lorem Ipsum",
+					name: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum",
 					href: "/hello-world",
 					description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
 				},
 			],
 		},
 		{ name: "About", href: "/about" },
-		{ name: "Authors", href: "/authors" },
+		{ name: "Team", href: "/team" },
 	];
 
 	return (
@@ -105,36 +130,28 @@ export const Navbar: React.FC = (): JSX.Element => {
                               leaveFrom="opacity-100 translate-y-0"
                               leaveTo="opacity-0 translate-y-1"
                             >
-                              <Popover.Panel className="absolute z-10 w-screen max-w-sm px-4 mt-3 transform -translate-x-1/2 left-1/2 sm:px-0 lg:max-w-3xl">
-                                <div className="overflow-hidden rounded shadow-lg">
-                                  <div className="relative grid gap-8 bg-white p-7">
+                              <Popover.Panel className="absolute z-10 w-screen max-w-sm px-4 mt-3 transform -translate-x-1/2 left-1/2 sm:px-0 lg:max-w-md">
+                                <div className="overflow-hidden rounded shadow-lg ring-1 ring-black ring-opacity-5">
+                                  <div className="relative grid gap-8 bg-white p-7 ">
                                     {page.menu.map((item) => (
-                                      <Link href={item.href} key={item.href}>
-                                        <a className="p-2 -m-3 transition duration-150 ease-in-out rounded hover:bg-gray-50 focus:outline-none">
+                                      <a
+                                        key={item.name}
+                                        href={item.href}
+                                        className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                                      >
+                                        <div className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-gray-700">
+                                          {item.icon}
+                                        </div>
+                                        <div className="ml-4">
                                           <p className="text-sm font-medium text-gray-900">
                                             {item.name}
                                           </p>
                                           <p className="text-sm text-gray-500">
                                             {item.description}
                                           </p>
-                                        </a>
-                                      </Link>
+                                        </div>
+                                      </a>
                                     ))}
-                                  </div>
-                                  <div className="p-4 bg-gray-50">
-                                    <a
-                                      href="##"
-                                      className="flow-root px-2 py-2 transition duration-150 ease-in-out rounded hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-                                    >
-                                      <span className="flex items-center">
-                                        <span className="text-sm font-medium text-gray-900">
-                                          Documentation
-                                        </span>
-                                      </span>
-                                      <span className="block text-sm text-gray-500">
-                                        Start integrating products and tools
-                                      </span>
-                                    </a>
                                   </div>
                                 </div>
                               </Popover.Panel>
@@ -206,19 +223,16 @@ export const Navbar: React.FC = (): JSX.Element => {
                             } w-5 h-5 transition duration-300  transform `}
                           />
                         </Disclosure.Button>
-                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500 divide-y divide-gray-300">
+                        <Disclosure.Panel className="px-4 text-sm text-gray-500 bg-gray-50">
                           {page.menu.map((item) => (
                             <Link href={item.href} key={item.href}>
                               <a className="flex items-center justify-between py-2 transition duration-150 ease-in-out focus:outline-none">
-                                <div className="w-5/6">
-                                  <p className="text-sm font-medium text-gray-900">
-                                    {item.name}
-                                  </p>
-                                  <p className="text-sm text-gray-500">
-                                    {item.description}
-                                  </p>
-                                </div>
-                                <ExternalLinkIcon className="w-1/6 h-6" />
+                                <p className="text-sm font-medium text-gray-900">
+                                  {item.name}
+                                </p>
+                                <p className="text-sm text-gray-500">
+                                  {item.description}
+                                </p>
                               </a>
                             </Link>
                           ))}

@@ -1,4 +1,10 @@
-import { CogIcon, DocumentSearchIcon, MenuIcon, SpeakerphoneIcon, XIcon } from "@heroicons/react/outline";
+import {
+  CogIcon,
+  DocumentSearchIcon,
+  MenuIcon,
+  SpeakerphoneIcon,
+  XIcon,
+} from "@heroicons/react/outline";
 
 import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
@@ -9,62 +15,46 @@ import { useRouter } from "next/router";
 import { Popover, Transition } from "@headlessui/react";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/solid";
 
-type Page = { name: string, href: string };
+type Page = { name: string; href: string };
 
 export const Navbar: React.FC = (): JSX.Element => {
-	const router = useRouter();
+  const router = useRouter();
 
-	const pages: (
-			| Page
-			| {
-				name: string,
-				menu: (Page & { description?: string, icon?: JSX.Element })[],
-			}
-	)[] = [
-		{ name: "Analyzer", href: "/analyzer" },
-		{
-			name: "Research",
-			menu: [
-				{
-					name: `Corporate climate disclosures`,
-					href: "/corporate-climate-disclosures",
-					icon: <DocumentSearchIcon />,
-				},
-				{
-					name: "Climate Awareness in NLP Research",
-					href: "/TODO:",
-					icon: <SpeakerphoneIcon />,
-				},
-				{
-					name: "Language Model for Climate-Related Text",
-					href: "/TODO:",
-					icon: <DocumentSearchIcon />,
-				},
-			],
-		},
-		{ name: "Language Model", href: "/language-model" },
-		{
-			name: "Popover",
-			menu: [
-				{
-					name: "Hello World",
-					href: "/hello-world",
-					description: "Hello world is something that we like blabla",
-					icon: <CogIcon />,
-				},
-				{
-					name: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum",
-					href: "/hello-world",
-					description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
-				},
-			],
-		},
-		{ name: "About", href: "/about" },
-		{ name: "Team", href: "/team" },
-	];
+  const pages: (
+    | Page
+    | {
+        name: string;
+        menu: (Page & { description?: string; icon?: JSX.Element })[];
+      }
+  )[] = [
+    { name: "Analyzer", href: "/analyzer" },
+    {
+      name: "Research",
+      menu: [
+        {
+          name: `Corporate climate disclosures`,
+          href: "/corporate-climate-disclosures",
+          icon: <DocumentSearchIcon />,
+        },
+        {
+          name: "Climate Awareness in NLP Research",
+          href: "/TODO:",
+          icon: <SpeakerphoneIcon />,
+        },
+        {
+          name: "Language Model for Climate-Related Text",
+          href: "/language-model",
+          icon: <DocumentSearchIcon />,
+        },
+      ],
+    },
 
-	return (
-		<Disclosure as="nav" className="bg-white shadow">
+    { name: "About", href: "/about" },
+    { name: "Team", href: "/team" },
+  ];
+
+  return (
+    <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
         <>
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -247,5 +237,5 @@ export const Navbar: React.FC = (): JSX.Element => {
         </>
       )}
     </Disclosure>
-	);
+  );
 };

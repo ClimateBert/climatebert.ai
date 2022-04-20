@@ -8,8 +8,8 @@ export default function About() {
       <Navbar />
 
       <div className="relative px-4 py-8 sm:px-6 lg:px-8 lg:py-20">
-      <h1 className="block mx-auto text-base text-4xl font-extrabold leading-8 tracking-wide text-center text-gray-900 uppercase mb-14">
-          about
+      <h1 className="block mx-auto text-base text-4xl font-extrabold leading-8 tracking-wide text-center text-gray-900 mb-14">
+          ABOUT
         </h1>
         <div className="mx-auto mt-6 prose prose-lg text-slate-500 prose-blue">
           <p>

@@ -27,7 +27,7 @@ export const Navbar: React.FC = (): JSX.Element => {
 			menu: [
 				{
 					name: `Corporate climate disclosures`,
-					href: "/TODO:",
+					href: "/corporate-climate-disclosures",
 					icon: <DocumentSearchIcon />,
 				},
 				{

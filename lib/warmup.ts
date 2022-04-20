@@ -13,7 +13,7 @@ export async function warmUp(): Promise<void> {
 		models.map(async (model) => {
 			for (let i = 0; i <= 30; i++) {
 				const r = await getInference(model, ".");
-				console.log(JSON.stringify({ r }, null, 2));
+				console.log("warmup response", model, JSON.stringify(r, null, 2));
 				if (!("error" in r)) {
 					return;
 				}

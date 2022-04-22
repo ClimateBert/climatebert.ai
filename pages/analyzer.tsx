@@ -12,44 +12,57 @@ import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import React, { Fragment, useEffect, useState } from "react";
 import cn from "classNames";
+import Link from "next/link";
 import LanguageDetect from "languagedetect";
 const validation = z.object({
-	text: z.string().min(1).max(5000),
-	apiKey: z.string().optional(),
+  text: z.string().min(1).max(5000),
+  apiKey: z.string().optional(),
 });
 
 const Analyzer: NextPage = () => {
-	const [submitting, setSubmitting] = useState(false);
-	const [formError, setFormError] = useState<string | null>(null);
-	const formContext = useForm<z.infer<typeof validation>>({
-		mode: "onBlur",
-		resolver: zodResolver(validation),
-	});
-	const [isEnglish, setIsEnglish] = useState(true);
-	const [response, setResponse] = useState<InferenceResponse | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
+  const formContext = useForm<z.infer<typeof validation>>({
+    mode: "onBlur",
+    resolver: zodResolver(validation),
+  });
+  const [isEnglish, setIsEnglish] = useState(true);
+  const [response, setResponse] = useState<InferenceResponse | null>(null);
 
-	/**
+  /**
    * Warmup models once per page load
    */
-	useEffect(
-		() => {
-			fetch("/api/warmup");
-		},
-		[],
-	);
-	return (
-		<>
+  useEffect(() => {
+    fetch("/api/warmup");
+  }, []);
+  return (
+    <>
       <div className="relative w-screen h-screen">
         <Navbar />
         <div className="relative flex flex-col flex-1 overflow-x-hidden overflow-y-auto">
           <Form ctx={formContext} formError={formError}>
             <div className="lg:relative lg:flex">
               <div className="px-4 sm:px-6 lg:px-8 py-8 lg:grow lg:pr-8 xl:pr-16 2xl:ml-[80px]">
-                <div className="mb-8 sm:flex sm:justify-between sm:items-center">
-                  <div className="mb-4 sm:mb-0">
-                    <h1 className="text-2xl font-bold text-slate-800 md:text-3xl">
-                      Analyze a paragraph
+                <div className="my-6 sm:flex sm:justify-between sm:items-center">
+                  <div className="flex flex-col items-center justify-center w-full my-4 sm:mb-0">
+                    <h1 className="block w-full mx-auto text-base text-4xl font-extrabold leading-8 tracking-wide text-center text-gray-900 uppercase mb-14">
+                      Analyzer
                     </h1>
+                    <div className="mt-6 text-slate-800">
+                      <p className="w-screen px-0 mx-0">
+                        <strong>Climatebert.ai</strong> is a joint research
+                        project of <strong>Julia Anna Bingler</strong> from ETH
+                        Zürich, <strong>Mathias Kraus</strong> and{" "}
+                        <strong>Nicolas Webersinke</strong> from FAU
+                        Erlangen-Nürnberg, and <strong>Markus Leippold</strong>{" "}
+                        from University of Zürich. For more information about
+                        the authors and their background, see{" "}
+                        <Link href="/authors">
+                          <a className="font-medium text-blue-500 underline">Authors</a>
+                        </Link>
+                        .
+                      </p>
+                    </div>
                   </div>
                 </div>
 
@@ -455,6 +468,6 @@ const Analyzer: NextPage = () => {
       </div>
       <Footer />
     </>
-	);
+  );
 };
 export default Analyzer;

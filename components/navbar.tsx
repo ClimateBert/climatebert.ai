@@ -1,5 +1,4 @@
 import {
-  CogIcon,
   DocumentSearchIcon,
   MenuIcon,
   SpeakerphoneIcon,
@@ -34,17 +33,17 @@ export const Navbar: React.FC = (): JSX.Element => {
         {
           name: `Corporate climate disclosures`,
           href: "/corporate-climate-disclosures",
-          icon: <DocumentSearchIcon />,
+          icon: <DocumentSearchIcon  className="w-6 h-6"/>,
         },
         {
           name: "Climate Awareness in NLP Research",
           href: "/TODO:",
-          icon: <SpeakerphoneIcon />,
+          icon: <SpeakerphoneIcon  className="w-6 h-6"/>,
         },
         {
           name: "Language Model for Climate-Related Text",
           href: "/language-model",
-          icon: <DocumentSearchIcon />,
+          icon: <DocumentSearchIcon  className="w-6 h-6"/>,
         },
       ],
     },

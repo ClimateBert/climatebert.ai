@@ -1,30 +1,35 @@
-import { CubeTransparentIcon, LightningBoltIcon, VariableIcon } from "@heroicons/react/outline";
+import {
+  CubeTransparentIcon,
+  LightningBoltIcon,
+  VariableIcon,
+} from "@heroicons/react/outline";
 import React, { useEffect, useState } from "react";
 import Footer from "components/footer";
 import { Navbar } from "components/navbar";
 import { NewsSection } from "components/section/news";
 import { Section } from "components/section";
+import Link from "next/link";
 // import Signup from "app/mutations/signup"
 import { Stats } from "components/stats";
 // import { useMutation, Image } from "blitz"
 import Image from "next/image";
 import { Button } from "components/button";
 const SignupForm: React.FC = (): JSX.Element => {
-	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState<Error | null>(null);
-	const [success, setSuccess] = useState<string | null>(null);
-	const [email, setEmail] = useState("");
-	// const [signup] = useMutation(Signup)
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [email, setEmail] = useState("");
+  // const [signup] = useMutation(Signup)
 
-	if (success) {
-		return (
-			<p className="block text-sm font-semibold text-center uppercase">
+  if (success) {
+    return (
+      <p className="block text-sm font-semibold text-center uppercase">
         {success}
       </p>
-		);
-	}
-	return (
-		<div>
+    );
+  }
+  return (
+    <div>
       <label
         htmlFor="email"
         className="block text-sm font-semibold text-center uppercase "
@@ -69,26 +74,26 @@ const SignupForm: React.FC = (): JSX.Element => {
       </div>
       {error ? <p className="text-red-600">{error.message}</p> : null}
     </div>
-	);
+  );
 };
 
 export default function Home() {
-	const [scroll, setScroll] = useState(
-		typeof window !== "undefined" ? window.scrollY : 0,
-	);
-	useEffect(() => {
-		const cb = () => setScroll(window.scrollY);
+  const [scroll, setScroll] = useState(
+    typeof window !== "undefined" ? window.scrollY : 0
+  );
+  useEffect(() => {
+    const cb = () => setScroll(window.scrollY);
 
-		if (typeof window !== "undefined") {
-			window.addEventListener("scroll", cb);
-		}
-		return () => {
-			window.removeEventListener("scroll", cb);
-		};
-	});
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", cb);
+    }
+    return () => {
+      window.removeEventListener("scroll", cb);
+    };
+  });
 
-	return (
-		<div className=" bg-slate-50">
+  return (
+    <div className=" bg-slate-50">
       <div className="h-screen">
         <div className="fixed inset-x-0 top-0 z-50">
           <Navbar />
@@ -127,6 +132,91 @@ export default function Home() {
       </div>
       <main className="relative pt-16 pb-32 space-y-32 overflow-hidden bg-white">
         <Stats />
+        <section className="relative px-4 sm:px-6 lg:px-8">
+          <h1 className="block mx-auto text-base text-4xl font-extrabold leading-8 tracking-wide text-center text-gray-900 mb-14">
+            What is ClimateBERT
+          </h1>
+          <div className="mx-auto mt-6 prose prose-lg text-slate-500 prose-blue">
+            <p>
+              <strong>Climatebert.ai</strong> is a joint research project of{" "}
+              <strong>Julia Anna Bingler</strong> from ETH Zürich,{" "}
+              <strong>Mathias Kraus</strong> and{" "}
+              <strong>Nicolas Webersinke</strong> from FAU Erlangen-Nürnberg,
+              and <strong>Markus Leippold</strong> from University of Zürich.
+              For more information about the authors and their background, see{" "}
+              <Link href="/authors">
+                <a>Authors</a>
+              </Link>
+              .
+            </p>
+            <p>
+              Our project started in 2019 with the overall aim to make
+              climate-related unstructured textual information from various
+              sources available for research, policy-making, financial
+              supervisory authorities, and financial analysts. As a first step,
+              we trained the model to analyze climate-related disclosures of
+              companies (see our working paper on{" "}
+              <a
+                href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3796152"
+                target="_blank"
+                rel="noreferrer"
+              >
+                SSRN
+              </a>
+              ). Ever since then, ClimateBERT has constantly evolved.
+            </p>
+            <h2>Language Model</h2>
+            <p>
+              ClimateBERT is the name of our transformer-based language model
+              adapted for use for climate-related text and has been fine-tuned
+              on various downstream tasks.
+            </p>
+            <p>
+              See{" "}
+              <Link href="/language-model">
+                <a>Language Model</a>
+              </Link>{" "}
+              for more information on our language model.
+            </p>
+            <h2>Downstream Tasks</h2>
+            <p>
+              So far, ClimateBERT has been fine-tuned on six downstream tasks.
+              It is able to
+              <ol role="list">
+                <li>detect climate content in text files,</li>
+                <li>assess the sentiment of this content,</li>
+                <li>fact-check climate-related claims,</li>
+                <li>
+                  assign a climate disclosure category to the climate-related
+                  content based on the four categories of the recommendations of
+                  the{" "}
+                  <a
+                    href="https://www.fsb-tcfd.org/publications/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Task Force on Climate-related Financial Disclosures (TCFD)
+                  </a>
+                  ,
+                </li>
+                <li>
+                  identify whether climate-related content is a commitment for
+                  climate action, and
+                </li>
+                <li>
+                  to assess whether climate-related content is rather specific
+                  or unspecific boilerplate language.
+                </li>
+              </ol>
+            </p>
+            <p>
+            ABC
+            </p>
+          </div>
+        </section>
+          <h1 className="block mx-auto text-base text-4xl font-extrabold leading-8 tracking-wide text-center text-gray-900 mb-14">
+            TODO
+          </h1>
         <Section
           title="Transparency to enable action"
           description="We allow corporate stakeholders to assess all types of climate-related corporate disclosures in an efficient and scalable way. This increases transparency massively, and enables climate action."
@@ -151,5 +241,5 @@ export default function Home() {
       </main>
       <Footer />
     </div>
-	);
+  );
 }

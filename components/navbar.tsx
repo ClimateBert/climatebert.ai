@@ -22,35 +22,35 @@ export const Navbar: React.FC = (): JSX.Element => {
   const pages: (
     | Page
     | {
-        name: string;
-        menu: (Page & { description?: string; icon?: JSX.Element })[];
-      }
+      name: string;
+      menu: (Page & { description?: string; icon?: JSX.Element })[];
+    }
   )[] = [
-    { name: "Analyzer", href: "/analyzer" },
-    {
-      name: "Research",
-      menu: [
-        {
-          name: `Corporate climate disclosures`,
-          href: "/corporate-climate-disclosures",
-          icon: <DocumentSearchIcon  className="w-6 h-6"/>,
-        },
-        {
-          name: "Climate Awareness in NLP Research",
-          href: "/TODO:",
-          icon: <SpeakerphoneIcon  className="w-6 h-6"/>,
-        },
-        {
-          name: "Language Model for Climate-Related Text",
-          href: "/language-model",
-          icon: <DocumentSearchIcon  className="w-6 h-6"/>,
-        },
-      ],
-    },
+      { name: "Analyzer", href: "/analyzer" },
+      {
+        name: "Research",
+        menu: [
+          {
+            name: "Corporate climate disclosures",
+            href: "/corporate-climate-disclosures",
+            icon: <DocumentSearchIcon className="w-6 h-6" />,
+          },
+          {
+            name: "Climate Awareness in NLP Research",
+            href: "/climate-awareness",
+            icon: <SpeakerphoneIcon className="w-6 h-6" />,
+          },
+          {
+            name: "Language Model for Climate-Related Text",
+            href: "/language-model",
+            icon: <DocumentSearchIcon className="w-6 h-6" />,
+          },
+        ],
+      },
 
-    { name: "About", href: "/about" },
-    { name: "Team", href: "/team" },
-  ];
+      { name: "About", href: "/about" },
+      { name: "Team", href: "/team" },
+    ];
 
   return (
     <Disclosure as="nav" className="bg-white shadow">
@@ -101,11 +101,10 @@ export const Navbar: React.FC = (): JSX.Element => {
                             >
                               <span>{page.name}</span>
                               <ChevronDownIcon
-                                className={`${
-                                  open
-                                    ? "rotate-180 text-primary-500"
-                                    : "text-gray-300"
-                                }
+                                className={`${open
+                                  ? "rotate-180 text-primary-500"
+                                  : "text-gray-300"
+                                  }
                                   ml-2 h-5 w-5  group-hover:text-opacity-80 transition ease-in-out duration-150`}
                                 aria-hidden="true"
                               />
@@ -205,11 +204,10 @@ export const Navbar: React.FC = (): JSX.Element => {
                         >
                           <span>{page.name}</span>
                           <ChevronUpIcon
-                            className={`${
-                              open
-                                ? "-rotate-180 text-primary-500"
-                                : "text-gray-300"
-                            } w-5 h-5 transition duration-300  transform `}
+                            className={`${open
+                              ? "-rotate-180 text-primary-500"
+                              : "text-gray-300"
+                              } w-5 h-5 transition duration-300  transform `}
                           />
                         </Disclosure.Button>
                         <Disclosure.Panel className="px-4 text-sm text-gray-500 bg-gray-50">

@@ -3,12 +3,12 @@ import Footer from "components/footer";
 import Link from "next/link";
 
 export default function About() {
-	return (
-		<>
+  return (
+    <>
       <Navbar />
 
       <div className="relative px-4 py-8 sm:px-6 lg:px-8 lg:py-20">
-      <h1 className="block mx-auto text-base text-4xl font-extrabold leading-8 tracking-wide text-center text-gray-900 mb-14">
+        <h1 className="block mx-auto text-base text-4xl font-extrabold leading-8 tracking-wide text-center text-gray-900 mb-14">
           ABOUT
         </h1>
         <div className="mx-auto mt-6 prose prose-lg text-slate-500 prose-blue">
@@ -29,16 +29,7 @@ export default function About() {
             climate-related unstructured textual information from various
             sources available for research, policy-making, financial supervisory
             authorities, and financial analysts. As a first step, we trained the
-            model to analyze climate-related disclosures of companies (see our
-            working paper on{" "}
-            <a
-              href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3796152"
-              target="_blank"
-              rel="noreferrer"
-            >
-              SSRN
-            </a>
-            ). Ever since then, ClimateBERT has constantly evolved.
+            model to analyze climate-related disclosures of companies with regards to the four TCFD categories, resulting in our first sub-project <Link href="/corporate-climate-disclosures#cheapcherry"><a>Cheap Talk and Cherry Picking</a></Link>. Ever since then, ClimateBERT has constantly evolved.
           </p>
           <h2>Language Model</h2>
           <p>
@@ -118,5 +109,5 @@ export default function About() {
       </div>
       <Footer />
     </>
-	);
+  );
 }

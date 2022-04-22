@@ -4,7 +4,7 @@ import { Navbar } from "components/navbar";
 import cn from "classnames";
 import { useState } from "react";
 export default function CorporateClimateDisclosures() {
-	const citationCommitments = `@techreport{bklw2022cheaptalkcommitments,
+  const citationCommitments = `@techreport{bklw2022cheaptalkcommitments,
     title={Cheap Talk in Corporate Climate Commitments: The Role of Active Institutional Ownership, Signaling, Materiality, and Sentiment},
     author={Bingler, Julia Anna and Kraus, Mathias and Leippold, Markus and Webersinke, Nicolas},
     type = {Working Paper},
@@ -12,7 +12,7 @@ export default function CorporateClimateDisclosures() {
     year={2022}
 }`;
 
-	const citationCheapTalk = `@article{bklw2022cheaptalkcherrypicking,
+  const citationCheapTalk = `@article{bklw2022cheaptalkcherrypicking,
     title = {Cheap talk and cherry-picking: What ClimateBert has to say on corporate climate risk disclosures},
     journal = {Finance Research Letters},
     pages = {102776},
@@ -25,11 +25,11 @@ export default function CorporateClimateDisclosures() {
     abstract = {Disclosure of climate-related financial risks greatly helps investors assess companies’ preparedness for climate change. Voluntary disclosures such as those based on the recommendations of the Task Force for Climate-related Financial Disclosures (TCFD) are being hailed as an effective measure for better climate risk management. We ask whether this expectation is justified. We do so by training ClimateBERT, a deep neural language model fine-tuned based on the language model BERT. In analyzing the disclosures of TCFD-supporting firms, ClimateBERT comes to the sobering conclusion that the firms’ TCFD support is mostly cheap talk and that firms cherry-pick to report primarily non-material climate risk information.}
 }`;
 
-	const [copiedCommitments, setCopiedCommitments] = useState(false);
-	const [copiedCheapTalk, setCopiedCheapTalk] = useState(false);
+  const [copiedCommitments, setCopiedCommitments] = useState(false);
+  const [copiedCheapTalk, setCopiedCheapTalk] = useState(false);
 
-	return (
-		<>
+  return (
+    <>
       <Navbar />
 
       <div className="relative px-4 py-8 space-y-8 md:space-y-16 xl:space-y-32 sm:px-6 lg:px-8 lg:py-20">
@@ -109,7 +109,7 @@ export default function CorporateClimateDisclosures() {
           <span className="block mb-2 text-base font-semibold tracking-wide text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-400">
             Paper
           </span>
-          <h2 className="block mx-auto text-base text-4xl font-extrabold leading-8 tracking-wide text-center text-gray-900 mb-14">
+          <h2 className="block mx-auto text-base text-4xl font-extrabold leading-8 tracking-wide text-center text-gray-900 mb-14" id="cheapcherry">
             Cheap Talk and Cherry Picking
           </h2>
           <div className="mx-auto mt-6 prose prose-lg text-slate-500 prose-blue">
@@ -171,5 +171,5 @@ export default function CorporateClimateDisclosures() {
       </div>
       <Footer />
     </>
-	);
+  );
 }

@@ -1,1 +1,0 @@
-# https://climatebert.ai frontend

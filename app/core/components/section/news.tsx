@@ -42,7 +42,7 @@ export const NewsSection: React.FC = (): JSX.Element => {
       <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
         <div>
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            ClimateBert in the News
+            News
           </h2>
         </div>
         <div className="grid gap-16 pt-10 mt-6 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">

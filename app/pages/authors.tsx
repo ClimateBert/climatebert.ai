@@ -119,11 +119,10 @@ export const getStaticProps: GetStaticProps<AuthorsPageProps> = () => {
       authors: [
         {
           name: "Julia Anna Bingler",
-          title: "Doctoral Researcher, ETH Zürich",
+          title: "Fellow - Monetary Policy, Council on Economic Policies",
           social: { linkedIn: "https://ch.linkedin.com/in/jubingler" },
           description:
-            "Julia Anna Bingler is Doctoral Researcher at the Center of Economic Research at ETH Zurich. Her research focuses on climate transition risk metrics and the decision-relevance of TCFD-related disclosures. Prior to joining ETH in 2019, she has been working on sustainable finance and climate policy in various positions, both inside and outside academia. She regularly advises stakeholders as an expert on corporate climate-related risk analysis and disclosures, on national and international climate policy processes, and participated in various UNFCCC climate conferences as an observer on finance-related topics.",
-
+            "Julia Anna Bingler is a fellow with the Council on Economic Policies (CEP) where she focuses on integrating climate and environmental risks in financial regulation and monetary policy. Prior to joining CEP, Julia did her PhD in Economics at ETH Zurich, where she focused on climate transition risk metrics and climate risk disclosures. Before starting the PhD, she worked at a think tank in Germany on sustainable finance regulation and the implementation of Art. 2.1c of the Paris Agreement. Julia regularly participates in the UNFCCC climate conferences as an observer on finance-related topics. She holds a M.Sc. in Economics from Leipzig University and in Environmental Economics and Climate Change from London School of Economics and Political Science.",
           department:
             "https://resec.ethz.ch/people/person-detail.MjQ5OTkw.TGlzdC8zMDI2LC0yMDk5NTM5OTY=.html",
           image: "/authors/julia_anna_bingler.jpg",
